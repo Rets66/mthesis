@@ -4,7 +4,9 @@
 <!--TOC-->
 * [論文テーマ](#theme)
 * [論文に含めたい内容](#content)
+* [新規性・貢献点](#contribution)
 * [研究背景](#background)
+* [研究における検知対象とシナリオ](#targe_scenario)
 * [既存研究](#related-works)
  - [DNS Tunneling検知における課題](#problem)
  - [既存検知手法を迂回する手法](#bypassing-method)
@@ -26,9 +28,16 @@ DNS Tunnelingと疑わしきDNSクエリを自動的に検知するシステム�
 * 次世代DNS Exfiltration
 * DoHを利用したOutcoming手法
 
+---
+<h3 id='contribution'>貢献点</h3>
+従来の検知手法には使用されることがなかった，ホスト名に関するwhitelistを適用することの検証してみた
+* DNSは，その通信ログについて全て保存管理することは容易ではないとうい特性をもっている．そこで，保存or処理するトラフィックを削減することを実現できるのではあればそれは，貢献点として評価することができる．
 
+---
 <h3 id='background'>研究背景</h3>
 
+---
+<h3 id='targe_scenario'>研究における検知対象とシナリオ</h3>
 
 
 <h3 id='related-works'>既存研究</h3>
