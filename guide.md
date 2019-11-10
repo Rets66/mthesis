@@ -18,6 +18,8 @@
 
 * 悪性サブドメインの検知
 DNS Tunnelingと疑わしきDNSクエリを自動的に検知するシステムの構築
+"Name Resolution by Hashing Recursive Query for Mitigating DNS Exfiltraion"
+"DNS Exfiltration緩和のためのハッシュ機構に基づいたDNS再帰問い合わせ"
 
 <h3 id='content'>論文に含めたい内容・焦点</h3>
 
@@ -35,6 +37,7 @@ DNS Tunnelingと疑わしきDNSクエリを自動的に検知するシステム�
 
 ---
 <h3 id='background'>研究背景</h3>
+DNS Tunnelingは，タイミングベースの転送手法とデータベースの検知手法があるが，本研究ではデータベースの転送手法の検知に焦点を当てている．
 
 ---
 <h3 id='targe_scenario'>研究における検知対象とシナリオ</h3>
