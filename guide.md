@@ -6,23 +6,22 @@
 * [論文に含めたい内容](#content)
 * [新規性・貢献点](#contribution)
 * [研究背景](#background)
-* [研究における検知対象とシナリオ](#targe_scenario)
+* [脅威モデル](#model)
 * [既存研究](#related-works)
  - [DNS Tunneling検知における課題](#problem)
  - [既存検知手法を迂回する手法](#bypassing-method)
 * [提案手法](#proposal)
 
 
+
 ---
 <h3 id='theme'>論文テーマ</h3>
 
-* 悪性サブドメインの検知
-DNS Tunnelingと疑わしきDNSクエリを自動的に検知するシステムの構築
-"Name Resolution by Hashing Recursive Query for Mitigating DNS Exfiltraion"
 "DNS Exfiltration緩和のためのハッシュ機構に基づいたDNS再帰問い合わせ"
+English : "Name Resolution by Hashing Recursive Query for Mitigating DNS Exfiltraion"
+
 
 <h3 id='content'>論文に含めたい内容・焦点</h3>
-
 * 検知アプローチの開発
 * 既存の検知手法へのバイパス手法の検証テスト
 * 再帰問い合わせにおけるハッシュアルゴリズム導入によるTunneling通信への対策
@@ -30,20 +29,18 @@ DNS Tunnelingと疑わしきDNSクエリを自動的に検知するシステム�
 * 次世代DNS Exfiltration
 * DoHを利用したOutcoming手法
 
----
 <h3 id='contribution'>貢献点</h3>
 従来の検知手法には使用されることがなかった，ホスト名に関するwhitelistを適用することの検証してみた
 * DNSは，その通信ログについて全て保存管理することは容易ではないとうい特性をもっている．そこで，保存or処理するトラフィックを削減することを実現できるのではあればそれは，貢献点として評価することができる．
 
----
 <h3 id='background'>研究背景</h3>
 DNS Tunnelingは，タイミングベースの転送手法とデータベースの検知手法があるが，本研究ではデータベースの転送手法の検知に焦点を当てている．
 
----
-<h3 id='targe_scenario'>研究における検知対象とシナリオ</h3>
+
+<h3 id='model'>脅威モデル</h3>
 
 
-<h3 id='related-works'>既存研究</h3>
+<h3 id='related-works'>既存研究および現状アプローチによる今日モデルへの課題</h3>
 
 <h4 id='problem'>既存検知手法における課題</h4>
 * これまでDNS Tunnelingの検知に関わる研究領域で，検知する対象に扱われていたものは，iodine/dnscat2/dns2tcpなどで，これらは明らかにランダムで長文なドメイン名をもつ．
