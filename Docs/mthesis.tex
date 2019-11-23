@@ -29,7 +29,6 @@
 
 
 
-
 % Page style
 \pagestyle{final}       % Camera-Ready
 %\pagestyle{draft}      % Draft
@@ -39,7 +38,6 @@
 \studentnumber{1811147}
 \doctitle{\mastersthesis}       % 修士論文
 \major{\engineering}    % 工学
-
 
 
 
@@ -139,7 +137,6 @@
 
 
 
-
 % ===================キーワード===================
 \keywords{DNS Exfiltration, 秘匿通信，ハッシュ関数，再帰問い合わせ}
 % キーワード５〜６個 (in plain text)
@@ -174,7 +171,6 @@
 %}
 % Abstract (in LaTeX)
 %  注: 　行の先頭が\\で始まらないようにすること。
-
 
 
 
@@ -216,16 +212,32 @@
 
 % ===================本文===================
 \newpage
-\section{序論}
 \pagenumbering{arabic}
+\section{序論}
+\subsection{研究背景}
+\subsection{研究課題}
+\subsection{研究目的}
 %はじめに はじめに はじめに はじめに はじめに はじめに はじめに はじめに
 %\ref{kako}節では、過去における研究について述べ、
 %\ref{kadai}章では、現状と今後の課題について述べる。
 %また、付録\ref{omake1}におまけその１を添付する。
 
+%\newpage
+\section{準備}
+\subsection{秘匿通信}
+\subsection{DNSプロトコル}
+\subsubsection{DNS Exfiltration}
+\subsubsection{DNS Tunneling}
+\subsection{暗号学的ハッシュ関数}
+\subsubsection{定義}
+\subsubsection{性質}
+
 
 %\newpage
 \section{関連研究}
+\subsection{トラフィック特徴に基づいた悪性DNSクエリ検知}
+\subsection{ペイロード特徴に基づいた悪性DNSトランザクション検知}
+\subsection{次世代名前解決メカニズムによる緩和}
 
 
 
@@ -236,6 +248,11 @@
 %\newpage
 \section{評価}
 
+%\newpage
+\section{課題}
+
+%\newpage
+\section{議論}
 
 %\newpage
 \section{結論}
@@ -265,7 +282,9 @@
 
 \section{発表リスト(国内研究会)}
 %\subsection{国内研究会}
-高須賀 昌烈, 妙中 雄三, 門林 雄基, ``非実在ドメインに対するネガティブキャッシュの拡張と再帰問い合わせハッシュ化の提案", 電子情報通信学会 情報ネットワーク研究会, 2019-10-ICTSSL-IN, 2019年10月.
+\begin{enumerate}
+ \item \underline{高須賀 昌烈}, 妙中 雄三, 門林 雄基, ``非実在ドメインに対するネガティブキャッシュの拡張と再帰問い合わせハッシュ化の提案", 電子情報通信学会 情報ネットワーク研究会, 2019-10-ICTSSL-IN, 2019年10月.
+\end{enumerate}
 %\label{omake1}
 %これはおまけです。これはおまけです。これはおまけです。これはおまけです。
 %\begin{figure}
