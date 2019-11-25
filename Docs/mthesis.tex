@@ -13,6 +13,7 @@
 \usepackage{graphicx}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{xcolor}
+\usepackage{pxjahyper} %TOC文字化け対策
 
 
 
@@ -214,26 +215,25 @@
 \newpage
 \pagenumbering{arabic}
 \section{序論}
-\subsection{背景}
-DNSは，
+\subsection{研究背景}
 \subsection{研究目的}
-\subsection{脅威モデル}
-\subsection{本論の構成と内容}
+\subsection{研究対象}
+\subsubsection{仮説}
+\subsubsection{脅威モデル}
+\subsection{本論の構成}
 %はじめに はじめに はじめに はじめに はじめに はじめに はじめに はじめに
 %\ref{kako}節では、過去における研究について述べ、
 %\ref{kadai}章では、現状と今後の課題について述べる。
 %また、付録\ref{omake1}におまけその１を添付する。
 
-%\newpage
+\newpage
 \section{準備}
 本章では，本論において使用する用語及び技術について説明する．
 \subsection{DNSプロトコル}
 \subsubsection{概要}
-Domain Name Service(以降，DNS)は，
-
 \subsubsection{DNS over HTTPS}
-\subsection{秘匿通信}
-\subsubsection{概要}
+%\subsection{秘匿通信}
+%\subsubsection{概要}
 \subsubsection{DNS Exfiltration}
 \subsubsection{DNS Tunneling}
 \subsection{暗号学的ハッシュ関数}
@@ -241,33 +241,39 @@ Domain Name Service(以降，DNS)は，
 \subsubsection{性質}
 
 
-%\newpage
+\newpage
 \section{関連研究}
-\subsection{トラフィック特徴に基づいた悪性DNSトランザクション検知}
-\subsection{ペイロード特徴に基づいた悪性DNSクエリ検知}
-\subsection{ポストDNSプロトコルによる緩和策}
+\subsection{トラフィック特徴に基づいた悪性DNSトランザクションの検知}
+\subsubsection{同一ドメインあたりのクエリ頻度}
+\subsection{ペイロード特徴に基づいた悪性DNSクエリの検知}
+\subsubsection{文字列分布特徴}
+\subsubsection{ペイロード特徴}
+\subsection{ポストDNSプロトコルによる悪性DNSクエリの発生緩和}
 
 
 
-%\newpage
+\newpage
 \section{提案手法}
 \subsection{再起問い合わせにおけるハッシュ関数の適用}
 
 
-%\newpage
+\newpage
 \section{評価}
+\subsection{シミュレーション}
+\subsection{結果}
 
-%\newpage
-\section{課題}
-
-%\newpage
+\newpage
 \section{議論}
+\subsection{課題}
+\subsection{既存アプローチとの比較}
+\subsection{貢献点}
 
-%\newpage
+\newpage
 \section{結論}
+\subsection{総括}
 
 % ===================謝辞===================
-%\newpage
+\newpage
 \acknowledgements
 ご指導ご鞭撻賜りありがとうございました．
 
@@ -278,7 +284,7 @@ Domain Name Service(以降，DNS)は，
 % ここでは \reference を使って、自分でリストを作るか、BibTeX を使って
 % リストをつくって下さい。この例では BibTeX を作るような形式になってい
 % ます。
-%\newpage
+\newpage
 \reference
 \bibliographystyle{plain}
 \bibliography{mthesis}
