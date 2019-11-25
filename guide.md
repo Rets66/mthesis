@@ -4,6 +4,7 @@
 <!--TOC-->
 * [論文テーマ](#theme)
 * [論文に含めたい内容](#content)
+ - [章別](#chapter)
 * [新規性・貢献点](#contribution)
 * [研究背景](#background)
 * [脅威モデル](#model)
@@ -28,6 +29,23 @@ English : "Name Resolution by Hashing Recursive Query for Mitigating DNS Exfiltr
 * ドメイン検証を利用したTunneling手法
 * 次世代DNS Exfiltration
 * DoHを利用したOutcoming手法
+* 一般ユーザにおけるDNSプライバシーの課題に対するDoHのソリューションの利用モチベーション
+
+<h4 id='chapter'>章別</h4>
+* 序論 : 研究全体を俯瞰し，本論の導入に位置づく内容
+ - 背景
+ - 課題
+ - 目的
+* 準備 : 本体導入で核となる要素に関する定義及び説明
+ - DNSプロトコル
+ - 秘匿通信
+ - 暗号学的ハッシュ関数
+* 関連研究
+* 提案手法
+* 課題
+* 議論
+* 結論
+
 
 <h3 id='contribution'>貢献点</h3>
 従来の検知手法には使用されることがなかった，ホスト名に関するwhitelistを適用することの検証してみた
