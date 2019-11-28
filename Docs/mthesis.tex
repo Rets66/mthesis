@@ -24,7 +24,7 @@
  linkcolor=black,
  citecolor=purple,
  urlcolor=purple,
- pdfborder={0, 0, 0},
+ pdfborder={0, 0, 1},
  linktoc=all
 }
 
@@ -43,7 +43,8 @@
 
 
 % 日本語題目 (in LaTeX)
-\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
+%\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
+\title{DNS Exfiltrationの緩和を目的としたNon-Transparent DNS(NTDNS)の提案}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -52,7 +53,8 @@
 
 
 % 英語題目 (in LaTeX)
-\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
+%\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
+\etitle{Proposal for Non-Transparent DNS(NTDNS) to Mitigate DNS Exfiltration}
 % 英語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -139,7 +141,7 @@
 
 
 % ===================キーワード===================
-\keywords{DNS Exfiltration, 秘匿通信，ハッシュ関数，再帰問い合わせ}
+\keywords{情報流出，秘匿通信，Domain Name System，DNSセキュリティ，DNS Exfiltration，分散ハッシュテーブル}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -216,25 +218,65 @@
 \pagenumbering{arabic}
 \section{序論}
 \subsection{研究背景}
+インターネットの利活用において，おおよそ全ての通信はドメインネームシステム(Domain Name System, DNS)による名前解決をきっかけにサービスは開始される．
+DNSの機能のおかげで，インターネット利用者は，人が覚えにくいインターネット上でのノードの住所を意味するIPアドレス(E.g. 203.10.23.86)ではなく，人が認識しやすいドメイン名(E.g. www.example.com)を使用することができる，など現在のインターネットの利便性を実現する上で極めて重要な技術の一つである．
+1987年にそのコンセプト\cite{rfc1034, rfc1035}が公開されて以降，採用されている名前解決の仕組みは公開当時と変わることなく現在も使用されている．
+
+しかし，プライバシーやセキュリティの観点が現在ほど議論されていない当時の設計が原因で，第三者からのトランザクションを覗く脅威や偽の応答パケットによるキャッシュの毒入れの脅威など，多数の課題が浮き彫りになってきている．
+例えば，IDS・IPSやファイヤーウォールなどのセキュリティラインが引かれているネットワークにおいて，悪意のユーザがなんらかの方法でマルウェアを潜伏させた後，機密情報等を外部へ持ち出す際のデータ転送ベクターに，DNSの名前解決の仕組みを利用することで，そのようなセキュリティラインを迂回できてしまうことが明らかになっている．
+このDNS Tunnelingと呼ばれるDNSをデータ転送メディアとする手法は，2014年に発生した大規模なクレジットカード情報流出事件\cite{frameworkpos}や最近では2019年に発生した国際犯罪組織(通称,OilRig)による中東政府を標的とするサイバー攻撃のC2通信に使用されるなど実際の攻撃シーンへの適用される\cite{bondupdater}など，ほかにも悪用例が多数確認されている\cite{bernhardpos, multigrainpos, pisloader, denis, dnsmessenger, udpos}．
+
+
+POSシステムを狙った大規模なクレジットカード情報流出事件を
+この手法は，DNS Tunnelingと呼称され，2014年のアメリカで発生した
+
+しかし，DNSの名前解決の仕組みは，任意の文字列を転送するためのキャリア(媒体)として機能する意図しない設計になっている．
+
+この設計の不備は，DNS Tunnelingと呼称され，データ流出やC2通信などの攻撃ベクターとして都合がよく，事実，クレジットカードの大規模流出事件に使用されるなどしている．
+従来のDNS Tunneling対策アプローチは，検知に焦点が当てられ，QNAMEの長さやエントロピーの特徴を利用するペイロードベース検知およびトラフィック頻度を特徴量とするトラフィックベース検知手法が提案されてきた．
+
+しかし，これまでの検知アプローチは，提案手法に対する検知対象がツールキットによって生成される顕著な特徴を有するパケットであることが多く，1回あたりの転送データ量を少なくしたり，パケット間のインターバルを数日・数ヶ月と長期化させるといったLow ThroughputやSlowなバイパス手法への対応が困難であるという課題がある．
+
+少ない転送量だからと軽視されるべきではなく，攻撃者にとって，1bitでも複数組み合わせることで多種多様な情報量を持たせ得る可能性があるため，
+
+たとえ，転送されるデータ量が少なかったとしても，
+このような既存のDNS Tunneling通信の検知迂回手法に対応させることが考えた場合，高い誤検知もしくは大量のログファイルの発生が予想されるなど難しさが残っている．
+
+\subsection{脅威モデル}
+そこで本研究では，
+脅威モデルは，〜である．
 \subsection{研究目的}
-\subsection{研究対象}
-\subsubsection{仮説}
-\subsubsection{脅威モデル}
-\subsection{本論の構成}
+%\subsection{研究対象}
+%\subsubsection{脅威モデル}
+\subsection{アプローチ}
+%\subsubsection{仮説}
 %はじめに はじめに はじめに はじめに はじめに はじめに はじめに はじめに
 %\ref{kako}節では、過去における研究について述べ、
 %\ref{kadai}章では、現状と今後の課題について述べる。
 %また、付録\ref{omake1}におまけその１を添付する。
 
+
+
 \newpage
 \section{準備}
 本章では，本論において使用する用語及び技術について説明する．
-\subsection{DNSプロトコル}
-\subsubsection{概要}
-\subsubsection{DNS over HTTPS}
+\subsection{DNS}
+\subsubsection{プロトコル概要}
+インターネットの利活用において，おおよそ全ての通信はドメインネームシステム(Domain Name System, DNS)\cite{rfc1034, rfc1035}による名前解決をきっかけにサービスは開始される．
+すなわち，DNSは，人が覚えにくいインターネット上のでノードの住所を表すIPアドレス(E.g. 203.10.23.86)を，人が認識しやすいドメイン名に変換する機能を提供しており，この機能は現在のインターネットの利便性を実現する上で欠かすことの出来ない根幹技術の一つである．
+
+
+ドメインネームシステムは，IPアドレスで表現されるインターネット上のノードの住所について，人が認識しやすいドメイン名に変換する名前解決機能を提供しており，インターネットの利便性を実現する根幹技術の一つである．
+
+DNSは，各権威サーバが固有のゾーンを管理することによる階層型分散データベースとして機能させている．
+ドメインは通常，複数のラベルで構成されており，ラベルの区切り文字にはドットが使用されている．
+階層の最上位に位置するルートはラベルを持たず，最も右に位置するラベルがTLDである．
+最も一般的なレコードは，Aレコードであり，FQDNをIPv4アドレスにマッピングする．
+ゾーンは，管理者が管轄するべき名前空間を意味する．
+権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
+%\subsubsection{DNS over HTTPS}
 %\subsection{秘匿通信}
 %\subsubsection{概要}
-\subsubsection{DNS Exfiltration}
 \subsubsection{DNS Tunneling}
 \subsection{暗号学的ハッシュ関数}
 \subsubsection{定義}
@@ -242,7 +284,7 @@
 
 
 \newpage
-\section{関連研究}
+\section{先行研究}
 \subsection{トラフィック特徴に基づいた悪性DNSトランザクションの検知}
 \subsubsection{同一ドメインあたりのクエリ頻度}
 \subsection{ペイロード特徴に基づいた悪性DNSクエリの検知}
@@ -254,22 +296,31 @@
 
 \newpage
 \section{提案手法}
-\subsection{再起問い合わせにおけるハッシュ関数の適用}
+\subsection{分散データベースを用いた
+ 再起問い合わせにおけるハッシュ関数の適用}
 
 
 \newpage
 \section{評価}
-\subsection{シミュレーション}
+\subsection{シミュレーションによるパフォーマンス実験}
 \subsection{結果}
+\subsection{課題}
 
 \newpage
 \section{議論}
-\subsection{課題}
+\subsection{DNSを用いた秘匿流入通信対策}
+\subsubsection{リソースレコード}
+\subsubsection{ポリシー}
 \subsection{既存アプローチとの比較}
-\subsection{貢献点}
 
 \newpage
 \section{結論}
+\subsection{貢献}
+\begin{description}
+ \item[透過性への対策] スタブリゾルバからの名前解決クエリは，分散データベースにのみ転送されるため，従来権威サーバで受け取れていたDNSクエリパケットの到達性を改善することができる．
+ \item[秘匿性の実現] フルリゾルバとデータベース間の通信において，クエリの内容はハッシュ化されたQnameとリソースレコードであり，第三者からのスプーティング忍耐して，意味抽出を無効化することが期待される．
+\end{description}
+
 \subsection{総括}
 
 % ===================謝辞===================
@@ -285,8 +336,15 @@
 % リストをつくって下さい。この例では BibTeX を作るような形式になってい
 % ます。
 \newpage
-\reference
-\bibliographystyle{plain}
+%\reference
+%\bibliographystyle{plain}
+\begin{thebibliography} {25}\small
+ \bibitem{rfc1034} P.V. Mockapetris. ``Domain names - concepts and facilities. RFC 1034 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936.
+ \bibitem{rfc1035} P.V. Mockapetris. ``Domain names - implementation and specifica- tion. RFC 1035 (INTERNET STANDARD)," November 1987. Up- dated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604."
+ \bibitem{frameworkpos} KrebsonSecurity. ``Deconstructing the 2014 Sally Beauty Breach," May 2015. \url{https://krebsonsecurity.com/2015/05/deconstructing-the-2014-sally-beauty-breach/}. Novemver 2019 Accessed.
+ \bibitem{bondupdater} IronNet. ``Chirp of the PoisonFrog, " February 2019. \url{https://ironnet.com/blog/chirp-of-the-poisonfrog/}. Novermber 2019 Accessed.
+ \bibitem{}
+\end{thebibliography}
 \bibliography{mthesis}
 
 
