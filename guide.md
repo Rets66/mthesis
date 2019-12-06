@@ -6,6 +6,7 @@
 * [ガイド](#guide)
  - [論文に含めたい内容](#content)
  - [骨組み](#chapter)
+ - [Comment from Taenaka](#taenaka)
 * [はじめに](#intro)
  - [論文テーマ](#theme)
  - [新規性・貢献点](#contribution)
@@ -18,7 +19,9 @@
 * [提案手法](#idea)
  - [課題](#issue)
 * [評価](#analsys)
+ - [実装]
 * [議論](#discussion)
+ - [ノードにおいて障害が発生した際の対策]
 
 
 
@@ -48,14 +51,23 @@
 * 議論
 * 結論
 
+<h4 id='taenaka'>Comment from Taenaka</h4>
+* Tunnelingへの対応は，定性的な評価で示す
 
+### 既存のDNSと比べた優位性は，定量的に示される必要がある
+* 地理的情報をについては，応答する遅延速度で表現すればよい
+* TLDがコンテンツをストアしないという脅威は一旦保留
+ - ちなみに，BGP的な考えでKVSノードは実際には特定の国のみだけでなく，複数の地理的位置に分布している可能性がある
+* ハッシュ値の計算する主体は，複数パターンある
+ - ハッシュ値の主体のためのノードを増やしたところで，結局そのノードに負荷が高まってしまう
+ - そこで，評価の対象として，それぞれのパターンを検証することで実際の負荷の集中具合を評価することは可能である
 
 ---
 <h3 id='intro'>序論</h3>
 <h4 id='theme'>論文テーマ</h4>
 
 "DNS Exfiltration緩和のためのハッシュ機構に基づいたDNS再帰問い合わせ"
-English : "Name Resolution by Hashing Recursive Query for Mitigating DNS Exfiltraion"
+English : "Conventional DNS-friendly Name Resolution System based on D-KVS against DNS Exfiltration"
 
 
 <h4 id='purpose'>研究の目的と対象</h4>
@@ -121,6 +133,22 @@ DNS Tunnelingは，タイミングベースの転送手法とデータベース�
 
 ---
 <h3 id='idea'>提案手法</h3>
+
+#### 前提条件
+* DNSアーキテクチャにおいて，KVSを構成するノード数の増減は多くはない
+ - ノード数は，事前に決め打ちで構わない
+ - ノード数が決まったら，コンテンツIDを管理するハッシュ空間を決める
+```
+gTLD = {'com', 'net', 'org'...}
+ccTLD = {'jp', 'us', 'cn', 'br'...}
+IDN_ccTLD = {'日本', '한국', 'المغرب'...}
+node = [gTLD, ccTLD, IDN_ccTLD]
+
+area = [2 ** 256 -1 / len(node)]
+for 
+```
+
+
 
 
 <h4 id='issue'>課題</h4>

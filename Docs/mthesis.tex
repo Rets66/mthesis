@@ -45,7 +45,8 @@
 
 % 日本語題目 (in LaTeX)
 %\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
-\title{DNS Exfiltrationの緩和を目的としたNon-Transparent DNS(NTDNS)の提案}
+\title{ペイロード特徴に基づいたIncoming DNS Tunneling検知}
+%\title{DNS Exfiltrationの緩和を目的としたNon-Transparent DNS(NTDNS)の提案}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -55,7 +56,7 @@
 
 % 英語題目 (in LaTeX)
 %\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
-\etitle{Proposal for Non-Transparent DNS(NTDNS) to Mitigate DNS Exfiltration}
+\etitle{Detecting Incoming DNS Tunneling Based on Payload Features}
 % 英語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -219,12 +220,13 @@
 \pagenumbering{arabic}
 \section{序論}
 \subsection{背景}
-インターネットの利活用において，おおよそ全てのサービスの通信は，ドメインネームシステム(Domain Name System, DNS)による名前解決をきっかけとして開始される．
-DNSの名前解決の機能を通じて，インターネット利用者は，インターネット上でのノードの住所を意味する人にとっては覚えにくいIPアドレス(E.g. 93.184.216.34)ではなく，人が認識しやすいドメイン名(E.g. www.example.com)を使用してサービスを利用することができている．
+インターネットの利活用において，サービス通信の開始は，ドメインネームシステム(Domain Name System, DNS)による名前解決をきっかけとしている．
+インターネット利用者は，DNSの名前解決の機能を通じて，インターネット上でのノードの住所を意味する人にとっては覚えにくいIPアドレス(E.g. 93.184.216.34)ではなく，人が認識しやすいドメイン名(E.g. www.example.com)を使用してサービスを利用することができている．
 このように現在のインターネットの利便性を実現する上で，DNSは極めて重要な技術の一つである．
 
-1987年，そのコンセプトとなるRFC1034, RFC1035(\cite{rfc1034, rfc1035})が公開されて以降なお現在まで，当時採用された名前解決の根幹の仕組みは変わることなく使用されている．
-しかし，プライバシーやセキュリティの観点が現在ほど議論されていない当時の設計には，第三者からのトランザクションを覗く脅威やフルサービスリゾルバ(キャッシュサーバ)に対して偽の応答パケットをキャッシュすることで任意のページにユーザを誘導させる脅威などが問題になるなど，設計の不備に起因する問題が山積している状態にある．
+1987年にRFC1034, RFC1035(\cite{rfc1034, rfc1035})として公開されたDNSのコンセプトは，現在もなお本質的な仕組みは変更されることなく適用されている．
+しかし，プライバシーやセキュリティの観点が現在ほど議論されていない当時の設計には，
+第三者からのトランザクションを覗く脅威やフルサービスリゾルバ(キャッシュサーバ)に対して偽の応答パケットをキャッシュすることで任意のページにユーザを誘導させる脅威などが問題になるなど，設計の不備に起因する問題が山積している状態にある．
 
 \subsection{課題}
 本研究では，DNSにおける課題の内，DNSをデータ転送のメディアとして利用することでファイヤー・ウォールやIDS/IPSなどのセキュリティラインを迂回するDNS Tunneling手法に焦点を当てている．
@@ -259,30 +261,31 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
 
 
 \subsection{目的}
+
+
+
 \subsection{貢献点}
-\begin{itemize}
- \item 侵入通信を目的とするDNS Tunnelingに対するリアルタイム検知アルゴリズムの提案
- \item 既存対策アプローチとDNSの潜在的データ転送脅威モデルの検討
-\end{itemize}
+%\begin{itemize}
+% \item 侵入通信を目的とするDNS Tunnelingに対するリアルタイム検知アルゴリズムの提案
+% \item 既存対策アプローチとDNSの潜在的データ転送脅威モデルの検討
+%\end{itemize}
 %\subsubsection{脅威モデル}
 %\subsubsection{仮説}
 \subsection{本論構成}
 %\ref{kako}節では、過去における研究について述べ、
 %\ref{kadai}章では、現状と今後の課題について述べる。
 %また、付録\ref{omake1}におまけその１を添付する。
-本論の構成は，次の通りに構成されている．
-第二章では，本論の内容への準備として，DNSプロトコル，Tunnelingメカニズム，秘匿通信，オンライン機械学習などの核となる技術要素について説明する．
-第三章では，DNS Tunnelingに対する検知アプローチおよびセキュリティドリブンな次世代DNSプロトコルに関する先行研究を説明する．
-第四章では，提案手法について説明する．
-第五章では，提案手法の効果測定について，またその結果について説明する．
-第六章では，提案手法および既存研究で対処しきれていない残留する脅威モデルについてまとめ，さらにDNSプロトコルにおけるリソースレコードの現状の使用方法の課題について説明する．
-最後に，第七章にて結論を述べる．
+本稿の構成は以下の通りである．
+まず第１章で，準備として，DNSプロトコル・秘匿通信・Tunnelingメカニズム・分散データベースの4点について説明する．
+次に第２章で，先行研究が採用する検知アプローチにおけるLow Throughput手法・Slow Tunneling手法に対する課題を説明する．
+第４章で提案手法とその実装について述べ，第５章で提案手法の性能評価と考察行い，第６章で残留する脅威モデルについ議論する．
+最後に，第７章で結論と今後の課題について述べる．
 
 \newpage
 \section{準備}
 本章では，本論において使用する用語及び技術について説明する．
 \subsection{DNS}
-\subsubsection{プロトコル概要}
+\subsubsection{プロトコル解説}
 インターネットの利活用において，おおよそ全てのサービスの通信は，ドメインネームシステム(Domain Name System, DNS)による名前解決をきっかけとして開始される．
 DNSの名前解決の機能を通じて，インターネット利用者は，インターネット上でのノードの住所を意味する人にとっては覚えにくいIPアドレス(E.g. 93.184.216.34)ではなく，人が認識しやすいドメイン名(E.g. www.example.com)を使用してサービスを利用することができている．
 このように現在のインターネットの利便性を実現する上で，DNSは極めて重要な技術の一つである．
@@ -294,14 +297,19 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 ゾーンは，管理者が管轄するべき名前空間を意味する．
 権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
 \subsubsection{リソースレコード(RR)}
-\subsubsection{国際化ドメイン名(IDN)}
 \subsubsection{Tunnelingメカニズム}
 %\subsubsection{その他課題}
 \subsection{秘匿通信}
+秘匿通信(英Covert Channel)とは，
+情報転送を実現するにあたり，データの転送を本来の設計としていないプロトコルにそのデータを注入する手法である．
 \subsubsection{ステガノグラフィ}
 \subsubsection{代替プロトコル}
-\subsection{オフライン機械学習}
-\subsubsection{学習メソッドの概要}
+\subsection{機械学習}
+\subsubsection{概要}
+\subsubsection{ランダムフォレスト}
+\subsubsection{SVM}
+\subsubsection{ロジスティック回帰}
+\subsubsection{ニューラルネットワーク}
 %\subsection{暗号学的ハッシュ関数}
 %\subsubsection{定義}
 %\subsubsection{性質}
@@ -310,7 +318,6 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 \newpage
 \section{先行研究}
 \subsection{パターンマッチングによる検知}
-\subsubsection{シグネチャの限界}
 \subsection{トラフィック特徴に基づいた悪性DNSクエリの検知}
 %\subsubsection{概要}
 \subsubsection{同一ドメインあたりのクエリ頻度}
@@ -319,46 +326,45 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 \subsubsection{Qnameにおける文字列分布}
 \subsubsection{Qnameにおける長さとエントロピー}
 \subsubsection{Low ThroughputなTunnelingに対する検知手法}
-\subsection{次世代DNS}
-\subsubsection{概要}
+\subsection{次世代DNSによる緩和}
 \subsubsection{分散ハッシュテーブルベース - GNS(Gnu Name System)}
 \subsubsection{Blockchainベース - Namecoin, Blockstack}
-\subsection{本研究の位置づけ}
 
 
 
 \newpage
-\section{機械学習によるリアルタイム検知メソッド}
+\section{機械学習によるリアルタイム検知モデル}
 %\subsection{分散データベースを用いた再起問い合わせにおけるハッシュ関数の適用}
 \subsection{概要}
-\subsection{特徴量抽出}
+\subsection{本研究の位置づけ}
+\subsection{特徴量分析}
 \subsection{データセット}
-\subsection{アルゴリズム}
+\subsection{分類アルゴリズム}
 
 
 \newpage
 \section{評価}
 \subsection{実験概要}
-\subsection{使用ツールキット}
-モデル実装に伴って．使用したツールキットを以下に示す．
 \subsection{データセット}
+\subsection{DNS Tunneling ツールキット}
 \subsection{結果}
 \subsection{課題}
 
 \newpage
 \section{議論}
-\subsection{残留脅威モデル}
-\subsubsection{Slow Throughput}
-\subsubsection{Lowなトラフィック}
-\subsubsection{人気ラベルへのマッピング}
-\subsection{データキャリアとしてのリソースレコード}
-\subsubsection{TXT - ドメイン検証}
+\subsection{脅威となるバイパス手法}
+\subsubsection{1パケットあたりの転送量の削減}
+\subsubsection{同一ドメインに対する時間あたりのパケット頻度}
+\subsubsection{一般的ラベルへのマッピング}
+\subsection{データ転送キャリアとして脅威なリソースレコード}
+\subsubsection{CNAME, MX}
 \subsubsection{DNSKEY - 公開鍵検証}
-\subsubsection{CNAME}
-\subsection{今後の課題}
+\subsubsection{TXT - ドメイン検証}
 
 \newpage
 \section{結論}
+\subsection{まとめ}
+\subsection{今後の課題}
 
 
 % ===================謝辞===================
