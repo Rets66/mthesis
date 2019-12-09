@@ -2,7 +2,7 @@
 
 all:
 	platex mthesis.tex
-	platex mthesis.tex
-	platex mthesis.tex
-	dvipdfmx mthesis.dvi
+	platex mthesis.tex 1>/dev/null
+	platex mthesis.tex 1>/dev/null
+	dvipdfmx mthesis.dvi 1>/dev/null
 	open mthesis.pdf

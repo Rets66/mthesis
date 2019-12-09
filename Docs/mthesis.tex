@@ -45,7 +45,7 @@
 
 % 日本語題目 (in LaTeX)
 %\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
-\title{ペイロード特徴に基づいたIncoming DNS Tunneling検知}
+\title{DHTを利用した耐DNS Exfiltraionな\\名前解決システム}
 %\title{DNS Exfiltrationの緩和を目的としたNon-Transparent DNS(NTDNS)の提案}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
@@ -56,7 +56,7 @@
 
 % 英語題目 (in LaTeX)
 %\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
-\etitle{Detecting Incoming DNS Tunneling Based on Payload Features}
+\etitle{Name Resolution System based on DHT against DNS Exfiltration}
 % 英語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -143,7 +143,7 @@
 
 
 % ===================キーワード===================
-\keywords{ネットワークセキュリティ，Domain Name System(DNS)，秘匿通信，Tunneling，機械学習}
+\keywords{ネットワークセキュリティ，ドメインネームシステム，秘匿通信，分散ハッシュテーブル，データベース}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -155,7 +155,7 @@
 
 
 % ===================Keyword===================
-\ekeywords{Network Security, Domain Name System(DNS), Covert Channel, Machine Learning}
+\ekeywords{Network Security, Domain Name System(DNS), Covert Channel, Distributed Hash Table(DHT), データベース}
 % 5 or 6 Keywords (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -271,6 +271,10 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
 %\end{itemize}
 %\subsubsection{脅威モデル}
 %\subsubsection{仮説}
+
+
+
+
 \subsection{本論構成}
 %\ref{kako}節では、過去における研究について述べ、
 %\ref{kadai}章では、現状と今後の課題について述べる。
@@ -280,6 +284,8 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
 次に第２章で，先行研究が採用する検知アプローチにおけるLow Throughput手法・Slow Tunneling手法に対する課題を説明する．
 第４章で提案手法とその実装について述べ，第５章で提案手法の性能評価と考察行い，第６章で残留する脅威モデルについ議論する．
 最後に，第７章で結論と今後の課題について述べる．
+
+
 
 \newpage
 \section{準備}
@@ -296,70 +302,68 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 最も一般的なレコードは，Aレコードであり，FQDNをIPv4アドレスにマッピングする．
 ゾーンは，管理者が管轄するべき名前空間を意味する．
 権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
-\subsubsection{リソースレコード(RR)}
-\subsubsection{Tunnelingメカニズム}
+\subsubsection{DNS Tunneling メカニズム}
+\subsubsection{DNS Tunneling 特徴}
 %\subsubsection{その他課題}
-\subsection{秘匿通信}
-秘匿通信(英Covert Channel)とは，
-情報転送を実現するにあたり，データの転送を本来の設計としていないプロトコルにそのデータを注入する手法である．
-\subsubsection{ステガノグラフィ}
-\subsubsection{代替プロトコル}
-\subsection{機械学習}
+%\subsection{秘匿通信}
+%秘匿通信(英Covert Channel)とは，
+%情報転送を実現するにあたり，データの転送を本来の設計としていないプロトコルにそのデータを注入する手法である．
+%\subsubsection{ステガノグラフィ}
+%\subsubsection{代替プロトコル}
+\subsection{分散ハッシュテーブル}
 \subsubsection{概要}
-\subsubsection{ランダムフォレスト}
-\subsubsection{SVM}
-\subsubsection{ロジスティック回帰}
-\subsubsection{ニューラルネットワーク}
-%\subsection{暗号学的ハッシュ関数}
-%\subsubsection{定義}
-%\subsubsection{性質}
+\subsubsection{データベース}
+\subsection{暗号学的ハッシュ関数}
+\subsubsection{定義}
+\subsubsection{性質}
 
 
 \newpage
 \section{先行研究}
-\subsection{パターンマッチングによる検知}
-\subsection{トラフィック特徴に基づいた悪性DNSクエリの検知}
-%\subsubsection{概要}
+\subsection{パターンマッチング}
+\subsection{トラフィックベース}
 \subsubsection{同一ドメインあたりのクエリ頻度}
-\subsection{ペイロード特徴に基づいた悪性DNSクエリの検知}
-%\subsubsection{概要}
+\subsection{ペイロードベース}
 \subsubsection{Qnameにおける文字列分布}
 \subsubsection{Qnameにおける長さとエントロピー}
 \subsubsection{Low ThroughputなTunnelingに対する検知手法}
-\subsection{次世代DNSによる緩和}
-\subsubsection{分散ハッシュテーブルベース - GNS(Gnu Name System)}
+\subsection{DNSアーキテクチャに基づく緩和アプローチ}
 \subsubsection{Blockchainベース - Namecoin, Blockstack}
+\subsubsection{DHTベース - GNS(Gnu Name System)}
 
 
 
 \newpage
-\section{機械学習によるリアルタイム検知モデル}
+\section{提案手法}
 %\subsection{分散データベースを用いた再起問い合わせにおけるハッシュ関数の適用}
 \subsection{概要}
 \subsection{本研究の位置づけ}
-\subsection{特徴量分析}
-\subsection{データセット}
-\subsection{分類アルゴリズム}
+\subsection{脅威モデル}
+\subsection{アーキテクチャ}
+\subsection{設計}
 
 
 \newpage
 \section{評価}
-\subsection{実験概要}
-\subsection{データセット}
-\subsection{DNS Tunneling ツールキット}
-\subsection{結果}
-\subsection{課題}
+\subsection{DNS Exfiltrationに対する定性評価}
+\subsubsection{内容}
+\subsubsection{課題}
+\subsection{既存DNSとのパフォーマンス評価}
+\subsubsection{実験内容}
+\subsubsection{結果}
+\subsubsection{課題}
 
 \newpage
 \section{議論}
-\subsection{脅威となるバイパス手法}
-\subsubsection{1パケットあたりの転送量の削減}
-\subsubsection{同一ドメインに対する時間あたりのパケット頻度}
-\subsubsection{一般的ラベルへのマッピング}
-\subsection{データ転送キャリアとして脅威なリソースレコード}
-\subsubsection{CNAME, MX}
-\subsubsection{DNSKEY - 公開鍵検証}
-\subsubsection{TXT - ドメイン検証}
+\subsection{最適なハッシュ値計算ノード}
+\subsubsection{Stab Resolver}
+\subsubsection{Full-Service Resolver}
+\subsubsection{Full-Service Resolver - Manager}
+\subsection{IncomingなDNS Tunneling}
+\subsubsection{耐データ転送キャリアなリソースレコード}
+%\subsubsection{CNAME, MX}
+%\subsubsection{DNSKEY - 公開鍵検証}
+%\subsubsection{TXT - ドメイン検証}
 
 \newpage
 \section{結論}

@@ -13,6 +13,9 @@
  - [脅威モデル](#model)
  - [方向性](#direction)
 * [研究背景](#background)
+* [準備](#pre)
+ - [DNS](#dns)
+ - [分散ハッシュテーブル](#dht)
 * [既存研究](#related-works)
  - [DNS Tunneling検知における課題](#problem)
   * [バイパス手法](#bypass)
@@ -67,7 +70,7 @@
 <h4 id='theme'>論文テーマ</h4>
 
 "DNS Exfiltration緩和のためのハッシュ機構に基づいたDNS再帰問い合わせ"
-English : "Conventional DNS-friendly Name Resolution System based on D-KVS against DNS Exfiltration"
+English : "Conventional DNS-friendly Name Resolution System based on DHT against DNS Exfiltration"
 
 
 <h4 id='purpose'>研究の目的と対象</h4>
@@ -118,6 +121,9 @@ DNS Tunnelingは，タイミングベースの転送手法とデータベース�
 <h4 id='hash'>Qnameハッシュ化の限界</h4>
 * 転送文字列長が事前にデータ転送者に認知されている場合，転送文字列長ビットのセキュリティに収束してしまうため，本質的な解決にはならない．
 
+---
+<h3 id='pre'>準備</h3>
+<h4 id='dht'>分散ハッシュテーブル</h4>
 
 
 <h3 id='related-works'>既存研究</h3>
@@ -133,9 +139,14 @@ DNS Tunnelingは，タイミングベースの転送手法とデータベース�
 
 ---
 <h3 id='idea'>提案手法</h3>
+提案手法では，m bit空間上にレコードを分散させて並べ，各レコードはTLDによって管理される．
+テーブル空間は，ハッシュ値の衝突が無視できる程度に大きくする必要がある．
+既存の分散ハッシュテーブルとは異なり，ノード自身はハッシュテーブル上には存在せず，通常のIPアドレスで参照される．
+レコードを管理するノードをマネージャと呼ばれ，全てのマネージャは，`Digest-ManagerAddress Table`と呼ばれるマネージャがどこからどこまでのハッシュ値の範囲を管理するのかをまとめたテーブルを持ち，リクエストすべき宛先情報を保持する．
 
 #### 前提条件
-* DNSアーキテクチャにおいて，KVSを構成するノード数の増減は多くはない
+* DNSアーキテクチャにおいて，DHTのコンテンツの管理するノードはTLDによって管理されるため，
+を構成するノード数の増減は多くはない
  - ノード数は，事前に決め打ちで構わない
  - ノード数が決まったら，コンテンツIDを管理するハッシュ空間を決める
 ```
