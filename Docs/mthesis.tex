@@ -220,25 +220,21 @@
 \pagenumbering{arabic}
 \section{序論}
 \subsection{背景}
-インターネットの利活用において，サービス通信の開始は，ドメインネームシステム(Domain Name System, DNS)による名前解決をきっかけとしている．
-インターネット利用者は，DNSの名前解決の機能を通じて，インターネット上でのノードの住所を意味する人にとっては覚えにくいIPアドレス(E.g. 93.184.216.34)ではなく，人が認識しやすいドメイン名(E.g. www.example.com)を使用してサービスを利用することができている．
-このように現在のインターネットの利便性を実現する上で，DNSは極めて重要な技術の一つである．
+ドメインネームシステム(Domain Name System, DNS)は，ドメイン名(E.g. www.example.com)をインターネット上でのノードの住所を表すIPアドレス(E.g. 93.184.216.34)に変換する機能を担っており，DNSを通じて特定した宛先に問い合わせることでユーザはそのサービスにアクセスできている．
+このように現在のインターネットの利活用において，名前解決の仕組みは極めて重要な技術の一つである．
 
 1987年にRFC1034, RFC1035(\cite{rfc1034, rfc1035})として公開されたDNSのコンセプトは，現在もなお本質的な仕組みは変更されることなく適用されている．
-しかし，プライバシーやセキュリティの観点が現在ほど議論されていない当時の設計には，
-第三者からのトランザクションを覗く脅威やフルサービスリゾルバ(キャッシュサーバ)に対して偽の応答パケットをキャッシュすることで任意のページにユーザを誘導させる脅威などが問題になるなど，設計の不備に起因する問題が山積している状態にある．
+しかし，性善説的な当時の設計に伴い生じた脆弱性を利用した攻撃がいくつか報告されている．
+%近年では，平文であるDNSクエリを解析することでユーザがどのwebページを閲覧しようとしているのか，どこにメールを送信しようとしているのかといったユーザのプライバシーを侵害される脅威\cite{rfc7626}に関心が集まっており，HTTPSやTLSによってクエリおよび応答パケットを暗号化するDoH/DoTが盛んに議論されている．
+その設計に起因する課題の内，DNSクエリのラベルおよびリソースレコード(Resource Record, RR)をデータ転送のメディアとするDNS Tunnelingがある．
 
-\subsection{課題}
-本研究では，DNSにおける課題の内，DNSをデータ転送のメディアとして利用することでファイヤー・ウォールやIDS/IPSなどのセキュリティラインを迂回するDNS Tunneling手法に焦点を当てている．
-DNS Tunnelingは，2014年に発生した大規模なクレジットカード情報流出事件\cite{frameworkpos}や最近では2019年に発生したAPTグループ(通称,OilRig)による中東政府を標的とするサイバー攻撃のC2通信\cite{bondupdater}といった実際の攻撃ベクターにデータ転送フェーズに使用されることが明らかになっている．
-上記以外にも，Tunnelingメソッドを使用したマルウェアによるインシデントは多数報告されている\cite{bernhardpos, multigrainpos, pisloader, denis, dnsmessenger, udpos}．
-
-Tunnelingのメカニズムは，
-すなわち，現在のDNSのメカニズム，スタブリゾルバがフルリゾルバを介在してコンテンツを所有する権威サーバへ問い合わせる仕組みには，本質的にデータ転送の機能としての側面があり，名前解決を実現するにあたり副次的に発生した設計上の脆弱であると考えることができる．
-この脆弱な設計により，悪意を持つユーザによって正規の利用方法なDNS Tunnelingを用いることで容易にセキュリティラインを突破されるという具合である．
-
-このDNS Tunnelingに対して，従来の対策アプローチは，そのほとんどが検知に焦点が当てられてきた．
-DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示すように，一回あたりに転送するデータ量に比例して長いラベルを持つ特徴が現れる．
+DNS Tunnelingは，一般にフィルタリングされることが少ないDNSの特徴とDNSがデータ転送のメディアとして機能しているとは想像しない人の認知の隙間をついた手法であり，ファイヤー・ウォールやIDS/IPSといったセキュリティラインを突破するために使用される．
+このように本来の目的とは違う方法でデータを転送する手法は，一般に秘匿通信(Covert Channel)と呼ばれる\cite{covertchannel}．
+DNS Tunnelingは，秘匿通信の代表例であり，マルウェアとC2(Command \& Control)サーバとの通信の秘匿手法，または，ターゲットから取得したデータを外部に流出させるといった目的実行の手段として，実際のインシデントで広く利用されている\cite{frameworkpos, bondupdater, bernhardpos, multigrainpos, pisloader, denis, dnsmessenger, udpos}．
+%2014年には，発生した大規模なクレジットカード情報流出事件\cite{}，最近では2019年に発生したAPTグループ(通称,OilRig)による中東政府を標的とするサイバー攻撃のC2通信\cite{bondupdater}として実際のインシデントなどがある．
+%このDNS Tunnelingのメカニズムは，スタブリゾルバからリカーシブサーバを経由し権威サーバへ問い合わせる一連の正規の仕組みに基づいており，名前解決を実現するにあたり生じる設計上の脆弱性を突いた手法である．
+従来のDNS Tunnnlingに対するアプローチには，検知による手法が採用されてきた．
+DNS TunnelingによるDNSクエリは，以下(\ref{eq:sample_qname})に示すように，転送量に比例して長いラベルを持ち，ラベルとしての文字列制約を満たすためのエンコーディングによって高いエントロピーを示す特徴がある．
 
 \begin{eqnarray}
  \label{eq:sample_qname}
@@ -248,26 +244,20 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
  \end{aligned}
 \end{eqnarray}
 
-また，インタラクティブなシェルなど双方向の通信をDNS Tunnelingで実現しようとする場合，時間あたりに高頻度なトラフィックが発生するという特徴が現れることもある．
-これまでの既存の検知アプローチでは，上記のような特徴に基づいて
-以上のような特徴から，従来の検知アプローチは，QNAMEの長さやエントロピーの特徴を利用するペイロードベース検知手法とトラフィック頻度を特徴量とするトラフィックベース検知手法に大別することができる．
+また，インタラクティブなシェルなど双方向の通信をDNS Tunnelingで実現しようとする場合，時間あたりに高頻度なトラフィックが発生するという特徴が現れる．
+このような特徴に基づき，パターンマッチングや機械学習，文字列分布などのメソッドを用いた検知手法が過去に多数考案されてきた\cite{born, cheng, liu, asaf, steadman, jawad}．
+それら検知手法は，かなり高い精度で分類を実現しているものがあるが，DNS Tunnelingとして検知する対象としているパケットには一般に利用することができるDNS Tunnelingツールキット\cite{ozymandns, iodine, dnscat2}が使用され，それらは特に過剰な特徴量を示し，明らかに正規のDNSクエリと異なる特徴がある．
+高い精度を示す従来の検知手法だが，しかし，それらを迂回する手法として，1回あたりの転送データ量を少なくすることで特徴量を減らすLow Throughputなバイパス手法，また，パケット間のインターバルを数日・数ヶ月と長期化させることでファイル肥大から一定期間しか保存されることがないログ管理の隙間を突いたSlowなTunenling手法があり，従来の検知手法では対応することが困難である．
+悪意を持つユーザの視点として，1bitでも転送できることは秘匿通信として利用することができるため，転送量の少なさは軽視されるべきではない．
 
-しかし，これら検知に基づくアプローチをバイパスする手法として，1回あたりの転送データ量を少なくすることで特徴量を減らすLow Throughputなバイパス手法や，パケット間のインターバルを数日・数ヶ月と長期化させることでファイル肥大から一定期間しか保存されることがないログ管理の隙間を突いたSlowなTunenling手法が提案されており，これらを利用することで既存の検知手法をバイパスされるリスクが残留している．
-
-転送量が少ないとして軽視されるべきではなく，1bitでも複数組み合わせる事などによって多種多様な情報量を送受信できることを踏まえると，脅威である．
-そこで，本研究では，従来の検知手法ベースのDNS Tunneling対策では対策することが困難なLow ThroughputおよびSLowなTunneling手法によるデータ流出を緩和するために，DNS Tunnelingが発生しない新しい名前解決メカニズムを提案する．
-
-%となる特徴があることや，ラベルとして使用できる文字列制約のために，実際に転送したい文字列をBase32, Base64などのエンコーディング手法を利用する方法が用いられる傾向が多く，その影響で自然言語には現れないようなランダムな文字列の組み合わせとなるという特徴がある．
+他方で，DNSは初めに述べたように，現在のインターネットの根幹技術として根ざしており，抜本的な改変は期待されない．
+すなわち，既存のDNSによる名前解決のメカニズムに大幅な改変を加えないという制約下で，Tunnelingに対処することが現実的な最適解であると考える．
 
 
 \subsection{目的}
-背景で示すように，DNSにはラベルをデータ転送のキャリアとするExfiltrationのリスクがあり，なおかつ従来の検知による対策がバイパスされる潜在的な設計の脆弱性がある．
-本研究の目的は，DNSにおけるExfiltrationの発生を防止である．
-これを実現するために，選抜的ノードに基づくP2Pアーキテクチャによる情報流出に対応する名前解決システムを提案する．
-
-
-\subsection{貢献点}
-%本研究は，
+本研究では，既存のDNSの名前解決メカニズムの大部分を流用することが一部の改変に留めながら，DNSを用いたデータ転送としての機能の排除を実現する次世代の名前解決メカニズムを提案する．
+%\subsection{貢献点}
+%本研究の貢献は，以下の通りである．
 %\begin{itemize}
 % \item 侵入通信を目的とするDNS Tunnelingに対するリアルタイム検知アルゴリズムの提案
 % \item 既存対策アプローチとDNSの潜在的データ転送脅威モデルの検討
@@ -284,9 +274,9 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
 %また、付録\ref{omake1}におまけその１を添付する。
 本稿の構成は以下の通りである．
 まず第１章で，準備として，DNSプロトコル・秘匿通信・Tunnelingメカニズム・分散データベースの4点について説明する．
-次に第２章で，先行研究が採用する検知アプローチにおけるLow Throughput手法・Slow Tunneling手法に対する課題を説明する．
-第４章で提案手法とその実装について述べ，第５章で提案手法の性能評価と考察行い，第６章で残留する脅威モデルについ議論する．
-最後に，第７章で結論と今後の課題について述べる．
+第２章では，先行研究が採用する検知アプローチにおけるLow Throughput手法・Slow Tunneling手法に対する課題を説明する．
+第４章で提案手法とその実装について述べ，第５章で提案手法の性能評価と考察行い，第６章で残留する脅威モデルについて議論する．
+最後に，第７章で結論と今後の課題について述べていく構成になっている．
 
 
 
@@ -298,7 +288,7 @@ DNS Tunnelingを用いた場合のQNAMEは，以下(\ref{eq:sample_qname})に示
 DNSは，インターネットに接続された無数のコンピュータを一意に識別するためのIPアドレスを，人が認識しやすいドメイン名に変換する機能を担うネットワークプロトコルスタックの一つである．
 
 ドメイン名は，ドット区切りで最大63文字のラベルで構成され，各ラベルは右から順にルートを頂点とする階層的な序列が表現されている．
-ドメイン名の構造は，ルートを親ノードとして，その下に子ノードとしてTLD(Top Level Doamin)，さらにその下の子ノードとしてSLD(Second Level Domain)という具合に伸びるツリー構造である．
+ドメイン名の構造は，ルートを親ノードとして，その下に子ノードとしてTLD(Top Level Domain)，さらにその下の子ノードとしてSLD(Second Level Domain)という具合に伸びるツリー構造である．
 DNSでは，レコード情報を管理する主体を権威サーバと呼び，各権威サーバは下位のドメインに委任することで，
 それぞれのノードは自身の下位に位置づくゾーンを管理することで，
 すなわち，階層ごとに管理する主体
@@ -358,6 +348,7 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 %\subsection{脅威モデル}
 \subsection{設計}
 \subsection{アーキテクチャ}
+\subsection{プロトコルとメソッド}
 
 
 \newpage
@@ -366,11 +357,8 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 \subsection{シミュレーション実験に基づく定量評価}
 \subsubsection{シミュレーション実験構成}
 \subsubsection{肥大化したリクエストペイロードサイズ}
-\subsubsection{分析}
-\subsubsection{RTT}
-\subsubsection{分析}
+\subsubsection{RTT(Round Trip Time)}
 \subsubsection{トラフィック量}
-\subsubsection{分析}
 
 \newpage
 \section{議論}
@@ -404,6 +392,8 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
 \begin{thebibliography} {25}\small
  \bibitem{rfc1034} P.V. Mockapetris. ``Domain names - concepts and facilities. RFC 1034 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936.
  \bibitem{rfc1035} P.V. Mockapetris. ``Domain names - implementation and specification. RFC 1035 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604."
+ \bibitem{covertchannel} ICANN, ``What Is an Internet Covert Channel?, " August 2016. https://www.icann.org/news/blog/what-is-an-internet-covert-channel
+ \bibitem{rfc7626} S. Bortzmeyer. ``DNS Privacy Considerations, " August 2015.
  \bibitem{frameworkpos} KrebsonSecurity. ``Deconstructing the 2014 Sally Beauty Breach," May 2015. https://krebsonsecurity.com/2015/05/deconstructing-the-2014-sally-beauty-breach/. (accessd 2019-11-30).
  \bibitem{bondupdater} IronNet. ``Chirp of the PoisonFrog," February 2019. https://ironnet.com/blog/chirp-of-the-poisonfrog/. (accessd 2019-11-30).
  \bibitem{bernhardpos} Nick Hoffman. ``BernhardPOS," July 2015. https://securitykitten.github.io/2015/07/14/bernhardpos.html. (accessd 2019-11-30).
@@ -412,6 +402,15 @@ DNSは，各権威サーバが固有のゾーンを管理することによる�
  \bibitem{denis} Kaspersky. ``Use of DNS Tunneling for C\&C Communications," April 2017. https://securelist.com/use-of-dns-tunneling-for-cc-communications/78203/. (accessd 2019-11-30).
  \bibitem{dnsmessenger} CISCO Talos. ``Spoofed SEC Emails Distribute Evolved DNSMessenger," October 2017. https://blog.talosintelligence.com/2017/10/dnsmessenger-sec-campaign.html. (accessd 2019-11-30).
  \bibitem{udpos} Cylance. ``Threat Spotlight: Inside UDPoS Malware," Febrary 27 2018. https://threatvector.cylance.com/en\_us/home/threat-spotlight-inside-udpos-malware.html. (accessd 2019-11-30).
+ \bibitem{born} K. Born and D. Gustafson, ``NgViz: detecting DNS tunnels through n-gram visualization and quantitative analysis," Proceedings of the Sixth Annual Workshop on Cyber Security and Information Intelligence Research, Oak Ridge, Tennessee, 2010, pp. 1-4.
+ \bibitem{cheng} Cheng Qi, Xiaojun Chen, Cui Xu, Jinqiao Shi, Peipeng Liu, ``A Bigram based Real Time DNS Tunnel Detection Approach," Procedia Computer Science, Volume 17, 2013, Pages 852-860.
+ \bibitem{liu} J. Liu, S. Li, Y. Zhang, J. Xiao, P. Chang and C. Peng, ``Detecting DNS Tunnel through Binary-Classification Based on Behavior Features," 2017 IEEE Trustcom/BigDataSE/ICESS, Sydney, NSW, 2017, pp. 339-346.
+ \bibitem{asaf} Asaf Nadler, Avi Aminov, Asaf Shabtai, ``Detection of malicious and low throughput data exfiltration over the DNS protocol," Computers \& Security, Volume 80, 2019, Pages 36-53.
+ \bibitem{steadman} J. Steadman and S. Scott-Hayward, ``DNSxD: Detecting Data Exfiltration Over DNS," 2018 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Verona, Italy, 2018, pp. 1-6.
+ \bibitem{jawad} J. Ahmed, H. H. Gharakheili, Q. Raza, C. Russell and V. Sivaraman, ``Monitoring Enterprise DNS Queries for Detecting Data Exfiltration from Internal Hosts," in IEEE Transactions on Network and Service Management.
+ \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/, accessed: 2019-11-20.
+ \bibitem{iodine} ``iodine," http://code.kryo.se/iodine/, accessd: 2019-11-20.
+ \bibitem{dnscat2} ``DNScat2," https://github.com/iagox86/dnscat2, accessed: 2019-11-20.
 \end{thebibliography}
 \bibliography{mthesis}
 
