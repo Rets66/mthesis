@@ -11,10 +11,10 @@
 %\usepackage{utf}
 \usepackage{naist-jmthesis} %Japanese
 %\usepackage{naist-mthesis} %English
-\usepackage{graphicx}
+\usepackage[dvipdfmx]{graphicx}
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{pxjahyper} %Required pxjahyper.sty
-\usepackage{xcolor}
+\usepackage[dvipdfmx]{xcolor}
 \usepackage{pxjahyper} %TOC文字化け対策
 
 
@@ -220,11 +220,10 @@
 \pagenumbering{arabic}
 \section{序論}
 \subsection{背景}
-ドメインネームシステム(Domain Name System, DNS)は，ドメイン名(E.g. www.example.com)をインターネット上でのノードの住所を表すIPアドレス(E.g. 93.184.216.34)に変換する機能を担っており，DNSを通じて特定した宛先に問い合わせることでユーザはそのサービスにアクセスできている．
-このように現在のインターネットの利活用において，名前解決の仕組みは極めて重要な技術の一つである．
-
-1987年にRFC1034, RFC1035(\cite{rfc1034, rfc1035})として公開されたDNSのコンセプトは，現在もなお本質的な仕組みは変更されることなく適用されている．
+ドメインネームシステム(Domain Name System, DNS)は，ドメイン名(E.g. www.example.com)をインターネット上でのノードの住所を表すIPアドレス(E.g. 93.184.216.34)に変換する機能を担っており，DNSを通じて特定した宛先に問い合わせることで我々はサービスにアクセスできている．
+現在のインターネットの利活用において，名前解決の仕組みは極めて重要な技術の一つである．
 しかし，性善説的な当時の設計に伴い生じた脆弱性を利用した攻撃がいくつか報告されている．
+1987年にRFC1034, RFC1035(\cite{rfc1034, rfc1035})として公開されたDNSのコンセプトは，現在もなお本質的な仕組みは変更されることなく適用されている．
 %近年では，平文であるDNSクエリを解析することでユーザがどのwebページを閲覧しようとしているのか，どこにメールを送信しようとしているのかといったユーザのプライバシーを侵害される脅威\cite{rfc7626}に関心が集まっており，HTTPSやTLSによってクエリおよび応答パケットを暗号化するDoH/DoTが盛んに議論されている．
 その設計に起因する課題の内，DNSクエリのラベルおよびリソースレコード(Resource Record, RR)をデータ転送のメディアとするDNS Tunnelingがある．
 
@@ -273,8 +272,8 @@ DNS TunnelingによるDNSクエリは，以下(\ref{eq:sample_qname})に示す�
 %\ref{kadai}章では、現状と今後の課題について述べる。
 %また、付録\ref{omake1}におまけその１を添付する。
 本稿の構成は以下の通りである．
-まず第１章で，準備として，DNSプロトコル・秘匿通信・Tunnelingメカニズム・分散データベースの4点について説明する．
-第２章では，先行研究が採用する検知アプローチにおけるLow Throughput手法・Slow Tunneling手法に対する課題を説明する．
+まず第２章で，準備として，DNSプロトコル・秘匿通信・Tunnelingメカニズム・分散データベースの4点について説明する．
+第３章では，関連研究としてトラフィックおよびペイロード特徴に基づいた検知手法を説明し，それら手法がLow Throughput手法・Slow Tunneling手法に対して検知が困難であることを説明する．
 第４章で提案手法とその実装について述べ，第５章で提案手法の性能評価と考察行い，第６章で残留する脅威モデルについて議論する．
 最後に，第７章で結論と今後の課題について述べていく構成になっている．
 
@@ -283,72 +282,117 @@ DNS TunnelingによるDNSクエリは，以下(\ref{eq:sample_qname})に示す�
 \newpage
 \section{準備}
 本章は第３章以降の要素補足を目的に，本論において核となる技術内容・特徴およびそのメカニズムについて説明する．
-\subsection{DNS}
-\subsubsection{プロトコル概要}
-DNSは，インターネットに接続された無数のコンピュータを一意に識別するためのIPアドレスを，人が認識しやすいドメイン名に変換する機能を担うネットワークプロトコルスタックの一つである．
+\subsection{DNS プロトコル概要}
+DNS(Domain Name System)は，インターネットに接続された無数のコンピュータを一意に識別するためのIPアドレスを，人が認識しやすいドメイン名に変換するシステムである．
+元来，インターネット上でのホストの識別にはIPアドレスが使用されてきた．
+しかし，32bitの名前空間で10進数表記のIPv4(E.g. ``192.168.0.1")，もしくは，128bitの名前空間で16進数表記のIPv6(E.g. ``2001:200:16a:8::230")は，人にとって認識しにくいものである．
+そのため，自然言語のようにアルファベットや数字で表記する方法が取られ，当初はその対応表であるhosts.txtが中央集権的に管理されていたが，やがてホスト数の増大に伴い管理が困難になっていき，提案されたのが対応表を分散的に管理するDNSである．
 
-ドメイン名は，ドット区切りで最大63文字のラベルで構成され，各ラベルは右から順にルートを頂点とする階層的な序列が表現されている．
-ドメイン名の構造は，ルートを親ノードとして，その下に子ノードとしてTLD(Top Level Domain)，さらにその下の子ノードとしてSLD(Second Level Domain)という具合に伸びるツリー構造である．
-DNSでは，レコード情報を管理する主体を権威サーバと呼び，各権威サーバは下位のドメインに委任することで，
-それぞれのノードは自身の下位に位置づくゾーンを管理することで，
-すなわち，階層ごとに管理する主体
-であり，下位のドメインに管理主体を委任することによって，委任された側は自身の下位のゾーンを管理する主体になる．
-すなわち，
-このように，管理主体は委任という仕組みによって管理するゾーンが分散・細分化されており，管理されるレコード情報は
-DNSは分散データベースと言い換えることができる．
-%現在IPアドレスには，32bitの名前空間を持つ10進数で構成されるIPv4(E.g. ``192.168.0.1")と，128bitの名前空間を持つ16進数で構成されるIPv6(E.g. ``2001:200:16a:8::230")がある．
-%このような10・16進数で構成されるIPアドレスは，バイナリで解釈するコンピュータには都合がよい一方で，一般に人には記憶・認識することが困難である．
-%ドメイン名は，このようなIPアドレスの特徴に対して，アルファベットを
-%このようなIPアドレスのこのような特性に対して，より人が認識しやすいようにしたのがドメイン名である．
-%DNSが担う役割は，IPアドレスをドメイン名に対応づける機能である．
-%DNSは，各権威サーバがドメインで表現されるゾーンを管理することによる
-具体的に，ドメイン名は，最大63文字で構成されるラベルをドット区切りで表現される(E.g. ``www.example.com")．
+DNSのシステムアーキテクチャは，クライアント・サーバ構成で成り立っている．
+一般に，クライアントがドメインを問い合わせた場合，サーバはドメインに対応づけているIPアドレスを応答することで，クライアントはドメインに対応づけられたIPアドレスを解決することができる．
+ドメインからIPアドレスの解決は正引きと呼ばれ，IPアドレスからドメインの解決を逆引きと呼ぶ．
 
+ドメインは，数字とアルファベットおよびハイフン(``-")の文字列で表記され，最大長は63オクテットと定義されている．
+また，ドメインはルートを頂点とする階層構造をとり，各階層にはドメインを管理する主体が存在し，管理主体を委譲することによって分散的にデータベースを管理する仕組みを取っている．
 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=12.0cm]{images/dns-architecture.png}
+ \caption{ドメインにおける名前空間}
+ \label{dns-exfiltration}
+\end{figure}
 
-DNSは，各権威サーバが固有のゾーンを管理することによる階層型分散データベースとして機能させている．
-ドメインは通常，複数のラベルで構成されており，ラベルの区切り文字にはドットが使用されている．
-階層の最上位に位置するルートはラベルを持たず，最も右に位置するラベルがTLDである．
+ドメイン名は，ドメインに相当するラベルをドット区切りで表され，最大長は255オクテットである．
+ドメイン名は右から順に階層序列が表現され，ドットで表現されるルートは一般には省略される．
+最も右に位置づくラベルがTLD(Top Level Domain)であり，そのTLDからn番目(n $\mid$ n $\in$ $\mathbb{N}$)のラベルが第 n レベルドメインである．
+
+TLDを大別すると，``.com"や``.net"をはじめとした特定分野別のgTLD(global Top Level Domain)，``.jp"や``.ch"のような国ごとに割り当てられているccTLD(Co\\untry Code Top Level Domain)の二つに分けられる．
+%TLDごとに登録するプロセスや必要書類，金額は異なり，上いの
+
+\subsubsection{ノードの種類}
+DNSは，機能に応じて３つに分類することができる．
+
+\subsubsection{リソースレコード}
+DNSの仕組みにおいて，ドメイン名に関連づけられた情報は，IPアドレス以外にも様々なものがあり，それらはリソースレコード(Resorce Record, RR)と呼ばれる．
+DNSの仕組みによって，権威サーバが提供できる情報はドメイン名とIPアドレスの対応情報だけではない．
 最も一般的なレコードは，Aレコードであり，FQDNをIPv4アドレスにマッピングする．
-ゾーンは，管理者が管轄するべき名前空間を意味する．
 権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
-\subsubsection{DNS Tunneling メカニズム}
-\subsubsection{DNS Tunneling 特徴}
-%\subsubsection{その他課題}
-%\subsection{秘匿通信}
-%秘匿通信(英Covert Channel)とは，
-%情報転送を実現するにあたり，データの転送を本来の設計としていないプロトコルにそのデータを注入する手法である．
-%\subsubsection{ステガノグラフィ}
-%\subsubsection{代替プロトコル}
-\subsection{分散ハッシュテーブル}
-\subsubsection{アルゴリズム}
-\subsubsection{暗号学的ハッシュ関数}
-\subsection{P2P}
-\subsubsection{アーキテクチャ}
+
+\subsection{DNS Tunneling}
+DNSを利用して情報を外部に転送するには，初めにデータの宛先となるドメイン(E.g. exfil.com)を作成することになる．
+転送する際のキャリアとなるDNSクエリのラベルには，使用できる文字列は数字・アルファベット・ハイフン(``-")である必要があるため，一般にBase32・64を用いて転送したい情報をエンコーディングすることでこの制約条件を満たす．
+用意できたQNAME(E.g. arbitrary-string.exfil.com)について，例えばAのリソースレコードをクエリすると，サブドメインの存在の有無に関わらず，宛先となるドメイン(exfil.com)に任意の情報を転送することができるという具合である．
+以下\ref{dns-exfiltration}に，DNS Exfiltrationのメカニズムについて図解する．
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=12.0cm]{images/dns-exfiltration.png}
+ \caption{arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子．}
+ \label{dns-exfiltration}
+\end{figure}
+
+また，管理する権威サーバのドメインに適当なホスト名(E.g. www)を作成し，そのホスト名のリソースレコード(E.g. TXT)に情報を付与していた場合には，そのホストへの問い合わせを通じて逆方向，すなわち権威サーバから任意の情報を転送することができる．
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=10.0cm]{images/dns-tunneling.png}
+ \caption{事前にTXTレコードに登録された情報を問い合わせることで，権威サーバからの命令情報を取得している様子．}
+ \label{dns-exfiltration}
+\end{figure}
+
+このようなDNSを用いて双方向な通信手法がDNS Tunnelingである．
+%1998年4月，DNS Tunnelingの手法は，NmapのBugtraqメーリングリストにて初めて公になったとされている\cite{bugtraq}．
+
+
+%\subsubsection{DNS Tunneling 特徴}
+%%\subsubsection{その他課題}
+%%\subsection{秘匿通信}
+%%秘匿通信(英Covert Channel)とは，
+%%情報転送を実現するにあたり，データの転送を本来の設計としていないプロトコルにそのデータを注入する手法である．
+%%\subsubsection{ステガノグラフィ}
+%%\subsubsection{代替プロトコル}
+%\subsection{分散ハッシュテーブル}
+%\subsubsection{アルゴリズム}
+%\subsubsection{暗号学的ハッシュ関数}
+%\subsection{P2P}
+%\subsubsection{アーキテクチャ}
+
 
 
 \newpage
-\section{先行研究}
-\subsection{検知アプローチ}
-\subsubsection{パターンマッチング}
-\subsubsection{同一ドメインあたりのクエリ頻度}
-\subsubsection{Qnameにおける文字列分布}
-\subsubsection{Qnameにおける長さとエントロピー}
-\subsubsection{Low ThroughputなTunnelingに対する検知手法}
-\subsection{DNSアーキテクチャに基づく緩和アプローチ}
-\subsubsection{Blockchainベース - Namecoin, Blockstack}
-\subsubsection{P2Pベース - GNS(Gnu Name System)}
+\section{関連研究}
+本章では，これまでに提案されてきた検知手法について説明し，その課題を明らかにする．
+また，次世代DNSとして議論されている名前解決システムのアーキテクチャを説明し，Tunnelingに対する課題を明らかにする．
+最後に，既存の検知手法および次世代名前解決システムの課題から，既存のシステムに迎合しながらDNS Tunnelingを緩和する名前解決システムの必要性を明らかにする．
+
+\subsection{DNS Tunnelingに特化した検知}
+%\subsubsection{パターンマッチング}
+%\subsubsection{同一ドメインあたりのクエリ頻度}
+%\subsubsection{Qnameにおける文字列分布}
+%\subsubsection{Qnameにおける長さとエントロピー}
+%\subsubsection{課題 : Low ThroughputなTunnelingに対する検知手法}
+これまで，DNS Tunnelingに対して，正規のDNSトラフィックと分類する手法は数多く提案されており，それら手法は大別すると統計ベース・機械学習ベース多クラス・機械学習ベースバイナリクラスに区別することができる．
+
+\subsection{悪性DNS検知に関する研究}
+\subsection{DNSアーキテクチャに基づくDNS Tunnelingの緩和}
+%\subsubsection{Blockchainベース - Namecoin, Blockstack}
+%\subsubsection{P2Pベース - GNS(Gnu Name System)}
+\subsection{既存研究のまとめ}
 
 
 
 \newpage
-\section{スーパーノード型P2Pに基づく名前解決システム}
-%\subsection{分散データベースを用いた再起問い合わせにおけるハッシュ関数の適用}
+\section{提案手法}
 %\subsection{本研究の位置づけ}
 %\subsection{脅威モデル}
-\subsection{設計}
-\subsection{アーキテクチャ}
-\subsection{プロトコルとメソッド}
+本章では，DNS Exfiltrationの課題に対して，分散ハッシュテーブル上にストアしたドメインのリソースレコードを選抜ノードに管理させることによる緩和手法を説明する．
+\subsection{スーパーノード型P2Pに基づく名前解決システム}
+\subsubsection{想定する脅威}
+\subsubsection{QNAMEとRRを引数とするハッシュ値をキーとするクエリ}
+\subsubsection{選抜ノードによる分散データベースの管理}
+\subsubsection{選抜ノードをルートとするツリー構造}
+\subsubsection{プロトコル}
+%\subsection{データベース}
 
 
 \newpage
