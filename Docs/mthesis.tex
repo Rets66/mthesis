@@ -25,7 +25,7 @@
  colorlinks=true,
  linkcolor=black,
  citecolor=purple,
- urlcolor=purple,
+ urlcolor=black,
  pdfborder={0, 0, 1},
  linktoc=all
 }
@@ -283,6 +283,7 @@ DNS TunnelingによるDNSクエリは，以下(\ref{eq:sample_qname})に示す�
 \section{準備}
 本章は第３章以降の要素補足を目的に，本論において核となる技術内容・特徴およびそのメカニズムについて説明する．
 \subsection{DNS プロトコル概要}
+\label{sec:dns-protocol}
 DNS(Domain Name System)は，インターネットに接続された無数のコンピュータを一意に識別するためのIPアドレスを，人が認識しやすいドメイン名に変換するシステムである．
 元来，インターネット上でのホストの識別にはIPアドレスが使用されてきた．
 しかし，32bitの名前空間で10進数表記のIPv4(E.g. ``192.168.0.1")，もしくは，128bitの名前空間で16進数表記のIPv6(E.g. ``2001:200:16a:8::230")は，人にとって認識しにくいものである．
@@ -319,25 +320,27 @@ DNSの仕組みによって，権威サーバが提供できる情報はドメ�
 権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
 
 \subsection{DNS Tunneling}
+\label{sec:dns-tunnel}
 DNSを利用して情報を外部に転送するには，初めにデータの宛先となるドメイン(E.g. exfil.com)を作成することになる．
 転送する際のキャリアとなるDNSクエリのラベルには，使用できる文字列は数字・アルファベット・ハイフン(``-")である必要があるため，一般にBase32・64を用いて転送したい情報をエンコーディングすることでこの制約条件を満たす．
 用意できたQNAME(E.g. arbitrary-string.exfil.com)について，例えばAのリソースレコードをクエリすると，サブドメインの存在の有無に関わらず，宛先となるドメイン(exfil.com)に任意の情報を転送することができるという具合である．
-以下\ref{dns-exfiltration}に，DNS Exfiltrationのメカニズムについて図解する．
+以下\ref{fig:dns-exfiltration}に，DNS Exfiltrationのメカニズムについて図解する．
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=12.0cm]{images/dns-exfiltration.png}
  \caption{arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子．}
- \label{dns-exfiltration}
+ \label{fig:dns-exfiltration}
 \end{figure}
 
 また，管理する権威サーバのドメインに適当なホスト名(E.g. www)を作成し，そのホスト名のリソースレコード(E.g. TXT)に情報を付与していた場合には，そのホストへの問い合わせを通じて逆方向，すなわち権威サーバから任意の情報を転送することができる．
+DNSのリソースレコードを転送キャリアとする流入通信のメカニズムを図解した様子が，\ref{fig:dns-tunneling}である．
 
 \begin{figure}[h]
  \centering
  \includegraphics[width=10.0cm]{images/dns-tunneling.png}
  \caption{事前にTXTレコードに登録された情報を問い合わせることで，権威サーバからの命令情報を取得している様子．}
- \label{dns-exfiltration}
+ \label{fig:dns-tunneling}
 \end{figure}
 
 このようなDNSを用いて双方向な通信手法がDNS Tunnelingである．
@@ -361,22 +364,27 @@ DNSを利用して情報を外部に転送するには，初めにデータの�
 
 \newpage
 \section{関連研究}
-本章では，これまでに提案されてきた検知手法について説明し，その課題を明らかにする．
-また，次世代DNSとして議論されている名前解決システムのアーキテクチャを説明し，Tunnelingに対する課題を明らかにする．
-最後に，既存の検知手法および次世代名前解決システムの課題から，既存のシステムに迎合しながらDNS Tunnelingを緩和する名前解決システムの必要性を明らかにする．
+\label{sec:related-works}
+本章では，はじめに既存のDNS Tunnelingに対するアプローチとして提案されている検知アプローチを取り上げ，現在の検知に基づく対策の課題として，Low Throughput手法とSlowな転送手法というバイパス手法に対処できないことを明らかにする．
+次に，これまでに提案されてきたP2Pベースの名前解決システムを説明し，提案手法との違いを示す．
+%また，新しいアーキテクチャを導入するとき　既存のシステムとのマイグレーションを考慮する必要がある点について，本提案手法がマイグレーションを考慮している設計である点について
+%最後に，既存の検知手法および次世代名前解決システムの課題から，既存のシステムに迎合しながらDNS Tunnelingを緩和する名前解決システムの必要性を明らかにする．
 
-\subsection{DNS Tunnelingに特化した検知}
+\subsection{検知に基づくDNS Tunneling対策手法}
 %\subsubsection{パターンマッチング}
 %\subsubsection{同一ドメインあたりのクエリ頻度}
 %\subsubsection{Qnameにおける文字列分布}
 %\subsubsection{Qnameにおける長さとエントロピー}
 %\subsubsection{課題 : Low ThroughputなTunnelingに対する検知手法}
+DNS Tunnelingメソッドを使用した時のDNSクエリは，\ref{sec:dns-tunnel}で述べたような特徴が現れる性質がある．
 これまで，DNS Tunnelingに対して，正規のDNSトラフィックと分類する手法は数多く提案されており，それら手法は大別すると統計ベース・機械学習ベース多クラス・機械学習ベースバイナリクラスに区別することができる．
 
-\subsection{悪性DNS検知に関する研究}
-\subsection{DNSアーキテクチャに基づくDNS Tunnelingの緩和}
+%\subsection{悪性DNS検知に関する研究}
+\subsection{P2Pベース名前解決システム}
 %\subsubsection{Blockchainベース - Namecoin, Blockstack}
 %\subsubsection{P2Pベース - GNS(Gnu Name System)}
+これまでに，DNSにおける〜の課題に対して，P2Pに基づいた名前解決システムは数多く提案されてきた．
+
 \subsection{既存研究のまとめ}
 
 
@@ -385,13 +393,39 @@ DNSを利用して情報を外部に転送するには，初めにデータの�
 \section{提案手法}
 %\subsection{本研究の位置づけ}
 %\subsection{脅威モデル}
-本章では，DNS Exfiltrationの課題に対して，分散ハッシュテーブル上にストアしたドメインのリソースレコードを選抜ノードに管理させることによる緩和手法を説明する．
-\subsection{スーパーノード型P2Pに基づく名前解決システム}
-\subsubsection{想定する脅威}
-\subsubsection{QNAMEとRRを引数とするハッシュ値をキーとするクエリ}
-\subsubsection{選抜ノードによる分散データベースの管理}
-\subsubsection{選抜ノードをルートとするツリー構造}
-\subsubsection{プロトコル}
+\ref{sec:related-works}で述べたように，これまでに提案されてきたDNS Tunnelingに対する検知に基づく手法には，Low Throughput手法および転送頻度を下げる手法に対して，高い精度を実現するのが困難であるという課題がある．
+他方，新しいアーキテクチャに基づく名前解決システムには，マイグレーションの課題が残留している．
+
+本章では，上記内容を踏まえ，DNS Exfiltrationを防止する名前解決システムS-NRS(Supernode in P2P networks based Name Resolution System)について説明する．
+
+\subsection{S-NRS}
+\subsubsection{設計とアーキテクチャ}
+S-NRSのアーキテクチャでは，役割に応じてノードは４つに大別することができる．
+スタブリゾルバは既存のDNSと変更はなく，DNSクライアントとして，名前解決を依頼する主体として位置づくノードである．
+リカーシブサーバは，スタブリゾルバからの問い合わせに対してリソース情報を保持する主体に代理的に問い合わせ機能と，問い合わせた情報を一定期間キャッシュするキャッシュサーバとして機能するノードである．
+既存のDNSにおける権威サーバは，リカーシブサーバからの問い合わせに応答するマネージャと，リソース情報について作成・消去および更新などの操作をするプロバイダの二つに分けられる．
+S-NRSにおいて，リソース情報は，オブジェクト(object)とリソースレコードタイプ(rtype)を引数とするハッシュ関数から算出されるコンテンツIDが紐づけられ，そのコンテンツIDに基づきハッシュ空間上に対応づけられる．
+各マネージャは，ハッシュテーブル全体のうち連続した幾らかの管理範囲が割り当てられ，範囲下にあるコンテンツIDに基づいたリソース情報を保存・管理する．
+このようにして，リソース情報は，特定の範囲ごとに分割されたハッシュテーブルにて分散的に管理される．
+マネージャ同士は，フルメッシュなネットワーク構造で接続し合い，各マネージャには地理的・意味的類似なプロバイダが階層的な序列に基づき接続される．
+
+プロバイダからリソース情報への操作リクエストがあった際には，リソース情報のコンテンツIDを算出し，そのIDが含まれるハッシュ空間を管理する担当マネージャに操作依頼を転送し，受け取った担当マネージャは直ちに，リソース情報への操作を実行する．
+
+
+%\begin{figure}[h]
+% \centering
+% \includegraphics[width=10.0cm]{images/spnrs-architecture.png}
+% \caption{SPNRSによって，名前解決している様子．}
+% \label{fig:spnrs-architecture}
+%\end{figure}
+
+
+%\subsubsection{想定する脅威}
+%\subsubsection{名前解決メカニズム}
+\subsubsection{通信プロトコル}
+%\subsubsection{KVSモデルに基づく分散ハッシュテーブル}
+\subsection{課題}
+%\subsubsection{QNAMEとRRを引数とするハッシュ値をキーとするクエリ}
 %\subsection{データベース}
 
 
@@ -436,25 +470,25 @@ DNSを利用して情報を外部に転送するには，初めにデータの�
 \begin{thebibliography} {25}\small
  \bibitem{rfc1034} P.V. Mockapetris. ``Domain names - concepts and facilities. RFC 1034 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936.
  \bibitem{rfc1035} P.V. Mockapetris. ``Domain names - implementation and specification. RFC 1035 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604."
- \bibitem{covertchannel} ICANN, ``What Is an Internet Covert Channel?, " August 2016. https://www.icann.org/news/blog/what-is-an-internet-covert-channel
- \bibitem{rfc7626} S. Bortzmeyer. ``DNS Privacy Considerations, " August 2015.
- \bibitem{frameworkpos} KrebsonSecurity. ``Deconstructing the 2014 Sally Beauty Breach," May 2015. https://krebsonsecurity.com/2015/05/deconstructing-the-2014-sally-beauty-breach/. (accessd 2019-11-30).
- \bibitem{bondupdater} IronNet. ``Chirp of the PoisonFrog," February 2019. https://ironnet.com/blog/chirp-of-the-poisonfrog/. (accessd 2019-11-30).
- \bibitem{bernhardpos} Nick Hoffman. ``BernhardPOS," July 2015. https://securitykitten.github.io/2015/07/14/bernhardpos.html. (accessd 2019-11-30).
- \bibitem{multigrainpos} Fireeye. ``MULTIGRAIN – Point of Sale Attackers Make an Unhealthy Addition to the Pantry," April 2016. https://www.fieeye.com/blog/threat-research/2016/04/multigrain\_pointo.html. (accessd 2019-11-30).
- \bibitem{pisloader} Palo alto Networks. ``New Wekby Attacks Use DNS Requests As Command and Control Mechanism," May 2016. https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/. (accessd 2019-11-30).
- \bibitem{denis} Kaspersky. ``Use of DNS Tunneling for C\&C Communications," April 2017. https://securelist.com/use-of-dns-tunneling-for-cc-communications/78203/. (accessd 2019-11-30).
- \bibitem{dnsmessenger} CISCO Talos. ``Spoofed SEC Emails Distribute Evolved DNSMessenger," October 2017. https://blog.talosintelligence.com/2017/10/dnsmessenger-sec-campaign.html. (accessd 2019-11-30).
- \bibitem{udpos} Cylance. ``Threat Spotlight: Inside UDPoS Malware," Febrary 27 2018. https://threatvector.cylance.com/en\_us/home/threat-spotlight-inside-udpos-malware.html. (accessd 2019-11-30).
+ \bibitem{covertchannel} ICANN, ``What Is an Internet Covert Channel?," August 2016. \href{https://www.icann.org/news/blog/what-is-an-internet-covert-channel}{https://www.icann\\.org/news/blog/what-is-an-internet-covert-channel}. (accessed 2019-12-12).
+ \bibitem{rfc7626} S. Bortzmeyer. ``DNS Privacy Considerations RFC 7626 (INTERNET STANDARD), " August 2015.
+ \bibitem{frameworkpos} KrebsonSecurity. ``Deconstructing the 2014 Sally Beauty Breach," May 2015. \href{https://krebsonsecurity.com/2015/05/deconstructing-the-2014-sally-beauty-breach/}{https://krebsonsecurity.com/2015/05/deconstructing-the-2014-sally-beauty-breach/}. (accessd 2019-11-30).
+ \bibitem{bondupdater} IronNet. ``Chirp of the PoisonFrog," February 2019. \href{https://ironnet.com/blog/chirp-of-the-poisonfrog/}{https://ironnet.com/blog/ch\\irp-of-the-poisonfrog/}. (accessd 2019-11-30).
+ \bibitem{bernhardpos} Nick Hoffman. ``BernhardPOS," July 2015. \href{https://securitykitten.github.io/2015/07/14/bernhardpos.html}{https://securitykitten.github.io/2015/\\07/14/bernhardpos.html}. (accessd 2019-11-30).
+ \bibitem{multigrainpos} Fireeye. ``MULTIGRAIN – Point of Sale Attackers Make an Unhealthy Addition to the Pantry," April 2016. \href{https://www.fieeye.com/blog/threat-research/2016/04/multigrain\_pointo.html}{https://www.fieeye.com/blog/threat-research/2016/04/multigrain\_pointo.html}. (accessd 2019-11-30).
+ \bibitem{pisloader} Palo alto Networks. ``New Wekby Attacks Use DNS Requests As Command and Control Mechanism," May 2016. \href{https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/}{https://unit42.paloaltonetworks.com/unit42-new-wekby-attacks-use-dns-requests-as-command-and-control-mechanism/}. (accessd 2019-11-30).
+ \bibitem{denis} Kaspersky. ``Use of DNS Tunneling for C\&C Communications," April 2017. \href{https://securelist.com/use-of-dns-tunneling-for-cc-communications/78203/}{https://securelist.com/use-of-dns-tunneling-for-cc-communications/78203/}. (accessd 2019-11-30).
+ \bibitem{dnsmessenger} CISCO Talos. ``Spoofed SEC Emails Distribute Evolved DNSMessenger," October 2017. \href{https://blog.talosintelligence.com/2017/10/dnsmessenger-sec-campaign.html}{https://blog.talosintelligence.com/2017/10/dnsmessenger-sec-campaign.html}. (accessd 2019-11-30).
+ \bibitem{udpos} Cylance. ``Threat Spotlight: Inside UDPoS Malware," Febrary 27 2018. \href{https://threatvector.cylance.com/en\_us/home/threat-spotlight-inside-udpos-malware.html}{https://threatvector.cylance.com/en\_us/home/threat-spotlight-inside-udpos-malware.html}. (accessd 2019-11-30).
  \bibitem{born} K. Born and D. Gustafson, ``NgViz: detecting DNS tunnels through n-gram visualization and quantitative analysis," Proceedings of the Sixth Annual Workshop on Cyber Security and Information Intelligence Research, Oak Ridge, Tennessee, 2010, pp. 1-4.
  \bibitem{cheng} Cheng Qi, Xiaojun Chen, Cui Xu, Jinqiao Shi, Peipeng Liu, ``A Bigram based Real Time DNS Tunnel Detection Approach," Procedia Computer Science, Volume 17, 2013, Pages 852-860.
  \bibitem{liu} J. Liu, S. Li, Y. Zhang, J. Xiao, P. Chang and C. Peng, ``Detecting DNS Tunnel through Binary-Classification Based on Behavior Features," 2017 IEEE Trustcom/BigDataSE/ICESS, Sydney, NSW, 2017, pp. 339-346.
  \bibitem{asaf} Asaf Nadler, Avi Aminov, Asaf Shabtai, ``Detection of malicious and low throughput data exfiltration over the DNS protocol," Computers \& Security, Volume 80, 2019, Pages 36-53.
  \bibitem{steadman} J. Steadman and S. Scott-Hayward, ``DNSxD: Detecting Data Exfiltration Over DNS," 2018 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Verona, Italy, 2018, pp. 1-6.
  \bibitem{jawad} J. Ahmed, H. H. Gharakheili, Q. Raza, C. Russell and V. Sivaraman, ``Monitoring Enterprise DNS Queries for Detecting Data Exfiltration from Internal Hosts," in IEEE Transactions on Network and Service Management.
- \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/, accessed: 2019-11-20.
- \bibitem{iodine} ``iodine," http://code.kryo.se/iodine/, accessd: 2019-11-20.
- \bibitem{dnscat2} ``DNScat2," https://github.com/iagox86/dnscat2, accessed: 2019-11-20.
+ \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," \href{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}{https://room362.com/post/2009/200931\\0ozymandns-tunneling-ssh-over-dns-html/}, (accessed 2019-11-20).
+ \bibitem{iodine} ``iodine," \href{http://code.kryo.se/iodine/}{http://code.kryo.se/iodine/}, (accessd 2019-11-20).
+ \bibitem{dnscat2} ``DNScat2," \href{https://github.com/iagox86/dnscat2}{https://github.com/iagox86/dnscat2}, (accessed 2019-11-20).
 \end{thebibliography}
 \bibliography{mthesis}
 
