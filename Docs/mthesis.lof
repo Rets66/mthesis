@@ -1,3 +1,0 @@
-\contentsline {figure}{\numberline {1}{\ignorespaces ドメインにおける名前空間}}{5}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子．}}{6}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces 事前にTXTレコードに登録された情報を問い合わせることで，権威サーバからの命令情報を取得している様子．}}{7}{figure.3}
