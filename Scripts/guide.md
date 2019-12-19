@@ -1,3 +1,0 @@
-# Script Guide
-
-### KVS Node
