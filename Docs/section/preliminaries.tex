@@ -1,6 +1,6 @@
 \section{準備}
-本章は第３章以降の要素補足を目的に，本論において核となる技術内容・特徴およびそのメカニズムについて説明する．
-\subsection{DNS プロトコル概要}
+本章では，本論において核となる技術内容・特徴およびそのメカニズムについて説明する．
+\subsection{DNS プロトコル}
 \label{sec:dns-protocol}
 DNS(Domain Name System)は，インターネットに接続された無数のコンピュータを一意に識別するためのIPアドレスを，人が認識しやすいドメイン名に変換するシステムである．
 元来，インターネット上でのホストの識別にはIPアドレスが使用されてきた．
@@ -28,17 +28,17 @@ DNSのシステムアーキテクチャは，クライアント・サーバ構�
 TLDを大別すると，``.com"や``.net"をはじめとした特定分野別のgTLD(global Top Level Domain)，``.jp"や``.ch"のような国ごとに割り当てられているccTLD(Co\\untry Code Top Level Domain)の二つに分けられる．
 %TLDごとに登録するプロセスや必要書類，金額は異なり，上いの
 
-\subsubsection{ノードの種類}
+%\subsubsection{ノードの種類}
 DNSは，機能に応じて３つに分類することができる．
 
-\subsubsection{リソースレコード}
+%\subsubsection{リソースレコード}
 DNSの仕組みにおいて，ドメイン名に関連づけられた情報は，IPアドレス以外にも様々なものがあり，それらはリソースレコード(Resorce Record, RR)と呼ばれる．
 DNSの仕組みによって，権威サーバが提供できる情報はドメイン名とIPアドレスの対応情報だけではない．
 最も一般的なレコードは，Aレコードであり，FQDNをIPv4アドレスにマッピングする．
 権威は，サブドメインへ委譲することが可能である．この機能は，NSレコードによって実現される．
 
-\subsection{DNS Tunneling}
-\label{sec:dns-tunnel}
+\subsection{DNS Exfiltration}
+\label{sec:dns-exfiltration}
 DNSを利用して情報を外部に転送するには，初めにデータの宛先となるドメイン(E.g. exfil.com)を作成することになる．
 転送する際のキャリアとなるDNSクエリのラベルには，使用できる文字列は数字・アルファベット・ハイフン(``-")である必要があるため，一般にBase32・64を用いて転送したい情報をエンコーディングすることでこの制約条件を満たす．
 用意できたQNAME(E.g. arbitrary-string.exfil.com)について，例えばAのリソースレコードをクエリすると，サブドメインの存在の有無に関わらず，宛先となるドメイン(exfil.com)に任意の情報を転送することができるという具合である．
@@ -64,6 +64,7 @@ DNSのリソースレコードを転送キャリアとする流入通信のメ�
 このようなDNSを用いて双方向な通信手法がDNS Tunnelingである．
 %1998年4月，DNS Tunnelingの手法は，NmapのBugtraqメーリングリストにて初めて公になったとされている\cite{bugtraq}．
 
+\subsection{DNS Infiltration}
 
 %\subsubsection{DNS Tunneling 特徴}
 %%\subsubsection{その他課題}

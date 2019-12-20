@@ -6,7 +6,7 @@
 
 
 %package
-\usepackage{amsmath, newtxmath}
+\usepackage{amssymb, amsmath, newtxmath}
 \usepackage[utf8]{inputenc}
 %\usepackage{utf}
 \usepackage{naist-jmthesis} %Japanese
@@ -46,7 +46,8 @@
 
 % 日本語題目 (in LaTeX)
 %\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
-\title{DNS Exfiltration対策を目的としたスーパーノード型P2Pネットワークに基づく名前解決システムの提案}
+%\title{DNS Exfiltration対策を目的としたスーパーノード型P2Pネットワークに基づく名前解決システムの提案}
+\title{スーパーノード型P2Pネットワークに基づくDNS Exfiltration抑制名前解決システムに関する研究}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -56,7 +57,7 @@
 
 % 英語題目 (in LaTeX)
 %\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
-\etitle{Proposal for Name Resolution System based on Supernode in P2P Networks against DNS Exfiltration}
+\etitle{A Study of Name Resolution System to prevent DNS Exfiltration based on Supernode in P2P Networks}
 % 英語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -143,7 +144,7 @@
 
 
 % ===================キーワード===================
-\keywords{ネットワークセキュリティ，ドメインネームシステム，秘匿通信，分散ハッシュテーブル，スーパーノード型ピアツーピア}
+\keywords{ドメインネームシステム，情報流出，ネットワークセキュリティ，分散ハッシュテーブル，スーパーノード型ピアツーピア}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -155,7 +156,7 @@
 
 
 % ===================Keyword===================
-\ekeywords{Network Security, Domain Name System(DNS), Covert Channel, Distributed Hash Table(DHT), Supernode in Peer-to-Peer}
+\ekeywords{Domain Name System(DNS), Information Leakage, Network Security, Distributed Hash Table(DHT), Supernode in Peer-to-Peer}
 % 5 or 6 Keywords (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -166,6 +167,8 @@
 
 % ===================内容梗概===================
 \abstract{
+% ネットワークプロトコルスタックの一つとして，IPアドレスとドメイン名を対応づけるDNSがある．
+% 名前解決の機能を提供するDNSだが，情報流出として機能することが
 }
 %   注: 行の先頭が\\で始まらないようにすること。
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
@@ -225,6 +228,7 @@
 \include{section/proposed_method}
 \include{section/evaluation}
 \include{section/discussion}
+\include{section/conclusion}
 
 
 
@@ -291,4 +295,3 @@
 
 
 \end{document}
-

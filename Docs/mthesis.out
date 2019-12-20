@@ -1,0 +1,39 @@
+%このファイルは日本語文字を含みます.
+\BOOKMARK [1][-]{section.1}{序論}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{背景}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{目的}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{本論構成}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{準備}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{DNS プロトコル}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{DNS Exfiltration}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{DNS Infiltration}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{関連研究}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{DNS Tunnelingの検知手法}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.1}{特徴量に基づく閾値推定}{subsection.3.1}% 11
+\BOOKMARK [3][-]{subsubsection.3.1.2}{機械学習に基づくモデル生成}{subsection.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.2}{アーキテクチャに基づく抑制手法}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.2.1}{P2Pベース名前解決システム}{subsection.3.2}% 14
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Blockchainベース名前解決システム}{subsection.3.2}% 15
+\BOOKMARK [2][-]{subsection.3.3}{課題}{section.3}% 16
+\BOOKMARK [1][-]{section.4}{提案手法}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{アーキテクチャ}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{プロトコル}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{分散ハッシュテーブル}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.4}{ハッシュ範囲に対する管理ノードの対応表}{section.4}% 21
+\BOOKMARK [1][-]{section.5}{評価}{}% 22
+\BOOKMARK [2][-]{subsection.5.1}{DNS Exfiltrationに対する定性評価}{section.5}% 23
+\BOOKMARK [2][-]{subsection.5.2}{シミュレーション実験に基づく定量評価}{section.5}% 24
+\BOOKMARK [3][-]{subsubsection.5.2.1}{シミュレーション実験構成}{subsection.5.2}% 25
+\BOOKMARK [3][-]{subsubsection.5.2.2}{肥大化したリクエストペイロードサイズ}{subsection.5.2}% 26
+\BOOKMARK [3][-]{subsubsection.5.2.3}{RTT\(Round Trip Time\)}{subsection.5.2}% 27
+\BOOKMARK [3][-]{subsubsection.5.2.4}{トラフィック量}{subsection.5.2}% 28
+\BOOKMARK [1][-]{section.6}{考察}{}% 29
+\BOOKMARK [2][-]{subsection.6.1}{レプリケーションサーバごとのハッシュテーブル同期}{section.6}% 30
+\BOOKMARK [2][-]{subsection.6.2}{クエリに対するハッシュ値計算の最適ノード}{section.6}% 31
+\BOOKMARK [2][-]{subsection.6.3}{DNS Infiltrationに対するリソースレコード}{section.6}% 32
+\BOOKMARK [2][-]{subsection.6.4}{今後の課題}{section.6}% 33
+\BOOKMARK [1][-]{section.7}{結論}{}% 34
+\BOOKMARK [1][-]{section*.4}{謝辞}{}% 35
+\BOOKMARK [1][-]{section*.5}{参考文献}{}% 36
+\BOOKMARK [1][-]{section*.6}{付録}{}% 37
+\BOOKMARK [1][-]{appendix.A}{発表リスト\(国内研究会\)}{}% 38
