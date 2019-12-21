@@ -5,4 +5,4 @@ all:
 	platex mthesis.tex 1>/dev/null
 	platex mthesis.tex 1>/dev/null
 	dvipdfmx mthesis.dvi 1>/dev/null
-	open mthesis.pdf
+	open -a skim mthesis.pdf

@@ -16,6 +16,7 @@
 \usepackage{pxjahyper} %Required pxjahyper.sty
 \usepackage[dvipdfmx]{xcolor}
 \usepackage{pxjahyper} %TOC文字化け対策
+\usepackage{booktabs}
 
 
 
@@ -26,6 +27,8 @@
  linkcolor=black,
  citecolor=purple,
  urlcolor=black,
+ filecolor=purple,
+ anchorcolor=purple,
  pdfborder={0, 0, 1},
  linktoc=all
 }
@@ -45,9 +48,9 @@
 
 
 % 日本語題目 (in LaTeX)
-%\title{再帰問い合わせ名前解決へのハッシュ関数を用いたDNS Exfiltration緩和策の提案}
+\title{DNS Exfiltration抑止を目的とした分散ハッシュテーブルに基づく名前解決システム}
 %\title{DNS Exfiltration対策を目的としたスーパーノード型P2Pネットワークに基づく名前解決システムの提案}
-\title{スーパーノード型P2Pネットワークに基づくDNS Exfiltration抑制名前解決システムに関する研究}
+%\title{スーパーノード型P2Pネットワークに基づくDNS Exfiltration抑制名前解決システムに関する研究}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -57,7 +60,7 @@
 
 % 英語題目 (in LaTeX)
 %\etitle{Proposal for Mitigation of DNS Exfiltraion using Hash Function to Recursive Name Resolution}
-\etitle{A Study of Name Resolution System to prevent DNS Exfiltration based on Supernode in P2P Networks}
+\etitle{A Name Resolution System to prevent DNS Exfiltration based Distributed Hash Table}
 % 英語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -144,7 +147,7 @@
 
 
 % ===================キーワード===================
-\keywords{ドメインネームシステム，情報流出，ネットワークセキュリティ，分散ハッシュテーブル，スーパーノード型ピアツーピア}
+\keywords{ドメインネームシステム，情報流出，ネットワークセキュリティ，分散ハッシュテーブル}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -156,7 +159,7 @@
 
 
 % ===================Keyword===================
-\ekeywords{Domain Name System(DNS), Information Leakage, Network Security, Distributed Hash Table(DHT), Supernode in Peer-to-Peer}
+\ekeywords{Domain Name System(DNS), Information Leakage, Network Security, Distributed Hash Table(DHT)}
 % 5 or 6 Keywords (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -266,7 +269,7 @@
  \bibitem{asaf} Asaf Nadler, Avi Aminov, Asaf Shabtai, ``Detection of malicious and low throughput data exfiltration over the DNS protocol," Computers \& Security, Volume 80, 2019, Pages 36-53.
  \bibitem{steadman} J. Steadman and S. Scott-Hayward, ``DNSxD: Detecting Data Exfiltration Over DNS," 2018 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Verona, Italy, 2018, pp. 1-6.
  \bibitem{jawad} J. Ahmed, H. H. Gharakheili, Q. Raza, C. Russell and V. Sivaraman, ``Monitoring Enterprise DNS Queries for Detecting Data Exfiltration from Internal Hosts," in IEEE Transactions on Network and Service Management.
- \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," \href{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}{https://room362.com/post/2009/200931\\0ozymandns-tunneling-ssh-over-dns-html/}, (accessed 2019-11-20).
+ \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," \href{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}, (accessed 2019-11-20).
  \bibitem{iodine} ``iodine," \href{http://code.kryo.se/iodine/}{http://code.kryo.se/iodine/}, (accessd 2019-11-20).
  \bibitem{dnscat2} ``DNScat2," \href{https://github.com/iagox86/dnscat2}{https://github.com/iagox86/dnscat2}, (accessed 2019-11-20).
 \end{thebibliography}

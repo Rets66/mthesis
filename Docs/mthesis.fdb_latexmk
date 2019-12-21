@@ -1,0 +1,27 @@
+# Fdb version 3
+["dvipdf"] 0 "mthesis.dvi" "mthesis.pdf" "mthesis" 1576924018
+  "mthesis.dvi" 1576923782 92144 8b16eeceebd006036d4e52ace1b31c78 "latex"
+  (generated)
+  "mthesis.pdf"
+["latex"] 1576923390 "mthesis.tex" "mthesis.dvi" "mthesis" 1576924018
+  "/usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls" 1532815417 25401 c0bb28af196611ece8e7694703f775a9 ""
+  "/usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf" 1522066949 33362 cf75436e19743e94a92a6b1b9183c434 ""
+  "/usr/local/texlive/2018/texmf-var/web2c/pdftex/latex.fmt" 1541505914 4222409 dcbc2b7bf7c0318a9100c0a6f52d365f ""
+  "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
+  "mthesis.aux" 1576923782 1710 7068eb8f5637d860128e159a50b70c7d ""
+  "mthesis.tex" 1576923958 14442 dae57a438d354187ccfbcf5b1a80fb67 ""
+  (generated)
+  "mthesis.log"
+  "section/preliminaries.aux"
+  "mthesis.out"
+  "mthesis.toc"
+  "section/proposed_method.aux"
+  "mthesis.lot"
+  "section/discussion.aux"
+  "section/evaluation.aux"
+  "section/related_works.aux"
+  "mthesis.aux"
+  "section/conclusion.aux"
+  "mthesis.lof"
+  "mthesis.dvi"
+  "section/introduction.aux"

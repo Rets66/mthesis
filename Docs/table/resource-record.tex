@@ -1,0 +1,22 @@
+\begin{table}[htb]
+ \centering
+ \label{tab:resource-record}
+ \caption{主要リソースレコード一覧}
+  \begin{tabular}{ccc}
+	  \toprule
+    タイプ & 値 & 目的 \\
+    \midrule
+    A & 1 &  ホストのIPv4アドレス \\
+    NS & 2 & 権威サーバ \\
+    MF & 4 & メール転送サーバ \\
+    CNAME & 5 & 別名 \\
+    SOA & 6 & 権威ゾーンの開始 \\
+    NULL & 10 & NULL(実験用) \\
+    PTR & 12 & ドメイン名のポインター(逆引き) \\
+    HINFO & 13 & ホスト情報 \\
+    MINFO & 14 & メールボックスおよびメールリスト情報 \\
+    MX & 15 & メール交換 \\
+    TXT & 16 & 任意文字列 \\
+		\bottomrule
+  \end{tabular}
+\end{table}

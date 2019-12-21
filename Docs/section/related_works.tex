@@ -5,9 +5,9 @@
 %また，新しいアーキテクチャを導入するとき　既存のシステムとのマイグレーションを考慮する必要がある点について，本提案手法がマイグレーションを考慮している設計である点について
 %最後に，既存の検知手法および次世代名前解決システムの課題から，既存のシステムに迎合しながらDNS Tunnelingを緩和する名前解決システムの必要性を明らかにする．
 
-\subsection{DNS Tunnelingの検知手法}
-\subsubsection{特徴量に基づく閾値推定}
-\subsubsection{機械学習に基づくモデル生成}
+\subsection{特徴量に基づく検知手法}
+\subsubsection{閾値推定}
+\subsubsection{機械学習に基づくモデル}
 %\subsubsection{パターンマッチング}
 %\subsubsection{同一ドメインあたりのクエリ頻度}
 %\subsubsection{Qnameにおける文字列分布}
@@ -16,11 +16,12 @@
 DNS Tunnelingメソッドを使用した時のDNSクエリは，\ref{sec:dns-tunnel}で述べたような特徴が現れる性質がある．
 この性質に基づき，これまでに多数の検知手法が提案されてきた．
 
-Bornら\cite{born}は，
+Bornら~\cite{born}は，
 
 %\subsection{悪性DNS検知に関する研究}
-\subsection{アーキテクチャに基づく抑制手法}
-\subsubsection{P2Pベース名前解決システム}
+\subsection{新しいアーキテクチャに基づく抑止手法}
+\subsubsection{Peer-to-Peerネットワークを利用した名前解決システム}
 これまでに，DNSにおける〜の課題に対して，P2Pに基づいた名前解決システムは数多く提案されてきた．
-\subsubsection{Blockchainベース名前解決システム}
+\subsubsection{Blockchainを利用した名前解決システム}
 \subsection{課題}
+\label{sec:issue-past-works}
