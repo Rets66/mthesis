@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  21 DEC 2019 23:05
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  22 DEC 2019 22:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -612,14 +612,14 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-Overfull \hbox (1.55911pt too wide) in paragraph at lines 30--31
+Overfull \hbox (1.55911pt too wide) in paragraph at lines 29--30
 \OT1/cmr/m/n/12 Top Level Do-main)\JY1/mc/m/n/12 ， \OT1/cmr/m/n/12 ``.jp"\JY1/
 mc/m/n/12 や \OT1/cmr/m/n/12 ``.ch"\JY1/mc/m/n/12 のような国ごとに割り当てられ
 ている \OT1/cmr/m/n/12 ccTLD(Co 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 36.
 [5] (./table/resource-record.tex) [6] [7]
 File: figure/dns-name-resolution.png Graphic file (type bmp)
 <figure/dns-name-resolution.png>
@@ -647,34 +647,32 @@ LaTeX Warning: Reference `sec:dns-tunnel' on page 11 undefined on input line 16
 \openout2 = `section/proposed_method.aux'.
 
  (./section/proposed_method.tex
-Overfull \hbox (2.42162pt too wide) in paragraph at lines 7--7
-[]\JY1/gt/m/n/14.4 分散ハ ッ シ ュ テ ーブルを利用した名前解決システム \OT1/cmr
-/bx/n/14.4 : REVRES 
- []
-
-(./table/managemnt_range.tex) [12
+File: figure/abstruct-architecture.png Graphic file (type bmp)
+<figure/abstruct-architecture.png>
+ [12
 
 
-] [13]) [14]
+] (./table/managemnt_range.tex)
+[13] [14]) [15]
 \openout2 = `section/evaluation.aux'.
 
- (./section/evaluation.tex)
-[15
+ (./section/evaluation.tex) [16
 
 
 ]
 \openout2 = `section/discussion.aux'.
 
- (./section/discussion.tex) [16
+ (./section/discussion.tex)
+[17
 
 
 ]
 \openout2 = `section/conclusion.aux'.
 
- (./section/conclusion.tex) [17
+ (./section/conclusion.tex) [18
 
 
-] [18
+] [19
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 258--259
@@ -718,7 +716,7 @@ Underfull \hbox (badness 1331) in paragraph at lines 264--265
 /2017/10/dnsmessenger-
  []
 
-[19]
+[20]
 Underfull \hbox (badness 2173) in paragraph at lines 265--266
 []\OT1/cmr/m/n/10.95 Cylance. ``Threat Spot-light: In-side UD-PoS Mal-ware," Fe
 brary 27 2018.
@@ -742,9 +740,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 272--273
  []
 
 No file mthesis.bbl.
-[20]
+[21]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 300.
- [21]
+ [22]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
  (./mthesis.aux (./section/introduction.aux)
 (./section/preliminaries.aux) (./section/related_works.aux)
@@ -753,7 +751,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 300.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 300.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 300.
 Package rerunfilecheck Info: File `mthesis.out' has not changed.
-(rerunfilecheck)             Checksum: EA3B4CF3A790C977239099A04DF15FCD;3563.
+(rerunfilecheck)             Checksum: 1D5A8BAA93A3AA424D3EE750FE0F80C3;3809.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -764,12 +762,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8199 strings out of 493248
- 111628 string characters out of 6144402
- 217858 words of memory out of 5000000
- 11976 multiletter control sequences out of 15000+600000
+ 8203 strings out of 493248
+ 111764 string characters out of 6144402
+ 221124 words of memory out of 5000000
+ 11979 multiletter control sequences out of 15000+600000
  44467 words of font info for 139 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  30i,12n,35p,911b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mthesis.dvi (28 pages, 92940 bytes).
+Output written on mthesis.dvi (29 pages, 98920 bytes).
