@@ -5,46 +5,47 @@
 \BOOKMARK [2][-]{subsection.1.3}{本論構成}{section.1}% 4
 \BOOKMARK [1][-]{section.2}{準備}{}% 5
 \BOOKMARK [2][-]{subsection.2.1}{DNS プロトコル}{section.2}% 6
-\BOOKMARK [3][-]{subsubsection.2.1.1}{ドメイン}{subsection.2.1}% 7
-\BOOKMARK [3][-]{subsubsection.2.1.2}{ノードの種類}{subsection.2.1}% 8
-\BOOKMARK [3][-]{subsubsection.2.1.3}{リソースレコード}{subsection.2.1}% 9
-\BOOKMARK [3][-]{subsubsection.2.1.4}{名前解決}{subsection.2.1}% 10
-\BOOKMARK [2][-]{subsection.2.2}{DNS Tunneling}{section.2}% 11
-\BOOKMARK [3][-]{subsubsection.2.2.1}{流出メソッド : DNS Exfiltration}{subsection.2.2}% 12
-\BOOKMARK [3][-]{subsubsection.2.2.2}{流入メソッド : DNS Infiltration}{subsection.2.2}% 13
-\BOOKMARK [1][-]{section.3}{関連研究}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{特徴量に基づく検知手法}{section.3}% 15
-\BOOKMARK [3][-]{subsubsection.3.1.1}{閾値推定}{subsection.3.1}% 16
-\BOOKMARK [3][-]{subsubsection.3.1.2}{機械学習に基づくモデル}{subsection.3.1}% 17
-\BOOKMARK [2][-]{subsection.3.2}{新しいDNSアーキテクチャ}{section.3}% 18
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Peer-to-Peerネットワークを利用した名前解決システム}{subsection.3.2}% 19
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Blockchainを利用した名前解決システム}{subsection.3.2}% 20
-\BOOKMARK [3][-]{subsubsection.3.2.3}{フラットな名前空間に基づく名前解決システム}{subsection.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.3}{課題}{section.3}% 22
-\BOOKMARK [1][-]{section.4}{提案システム}{}% 23
-\BOOKMARK [2][-]{subsection.4.1}{フラットな名前空間に基づく名前解決システム : REFRES}{section.4}% 24
-\BOOKMARK [2][-]{subsection.4.2}{デザイン}{section.4}% 25
-\BOOKMARK [2][-]{subsection.4.3}{プロトコル}{section.4}% 26
-\BOOKMARK [2][-]{subsection.4.4}{分散ハッシュテーブル}{section.4}% 27
-\BOOKMARK [2][-]{subsection.4.5}{動作メカニズム}{section.4}% 28
-\BOOKMARK [2][-]{subsection.4.6}{ハッシュ範囲に対する管理ノードの対応表}{section.4}% 29
-\BOOKMARK [2][-]{subsection.4.7}{スケーラビリティ}{section.4}% 30
-\BOOKMARK [2][-]{subsection.4.8}{認証に基づくレコード情報のストア}{section.4}% 31
-\BOOKMARK [1][-]{section.5}{評価}{}% 32
-\BOOKMARK [2][-]{subsection.5.1}{DNS Exfiltrationに対する定性評価}{section.5}% 33
-\BOOKMARK [2][-]{subsection.5.2}{シミュレーション実験に基づく定量評価}{section.5}% 34
-\BOOKMARK [3][-]{subsubsection.5.2.1}{シミュレーション実験構成}{subsection.5.2}% 35
-\BOOKMARK [3][-]{subsubsection.5.2.2}{肥大化したリクエストペイロードサイズ}{subsection.5.2}% 36
-\BOOKMARK [3][-]{subsubsection.5.2.3}{RTT\(Round Trip Time\)}{subsection.5.2}% 37
-\BOOKMARK [3][-]{subsubsection.5.2.4}{トラフィック量}{subsection.5.2}% 38
-\BOOKMARK [1][-]{section.6}{議論}{}% 39
-\BOOKMARK [2][-]{subsection.6.1}{リソース情報の増加に対する}{section.6}% 40
-\BOOKMARK [2][-]{subsection.6.2}{クエリに対するハッシュ値計算の最適ノード}{section.6}% 41
-\BOOKMARK [2][-]{subsection.6.3}{DNS Infiltrationに対するリソースレコード}{section.6}% 42
-\BOOKMARK [2][-]{subsection.6.4}{ICNへの利活用への期待}{section.6}% 43
-\BOOKMARK [2][-]{subsection.6.5}{今後の課題}{section.6}% 44
-\BOOKMARK [1][-]{section.7}{結論}{}% 45
-\BOOKMARK [1][-]{section*.4}{謝辞}{}% 46
-\BOOKMARK [1][-]{section*.5}{参考文献}{}% 47
-\BOOKMARK [1][-]{section*.6}{付録}{}% 48
-\BOOKMARK [1][-]{appendix.A}{発表リスト\(国内研究会\)}{}% 49
+\BOOKMARK [3][-]{subsubsection.2.1.1}{概要}{subsection.2.1}% 7
+\BOOKMARK [3][-]{subsubsection.2.1.2}{定義}{subsection.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.2}{DNS Tunneling}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.1}{流出メソッド : DNS Exfiltration}{subsection.2.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.2}{流入メソッド : DNS Infiltration}{subsection.2.2}% 11
+\BOOKMARK [1][-]{section.3}{関連研究}{}% 12
+\BOOKMARK [2][-]{subsection.3.1}{特徴量に基づく検知手法}{section.3}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.1}{閾値推定}{subsection.3.1}% 14
+\BOOKMARK [3][-]{subsubsection.3.1.2}{機械学習に基づくモデル}{subsection.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.2}{新しいDNSアーキテクチャ}{section.3}% 16
+\BOOKMARK [3][-]{subsubsection.3.2.1}{P2Pネットワークを利用した名前解決システム}{subsection.3.2}% 17
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Blockchainを利用した名前解決システム}{subsection.3.2}% 18
+\BOOKMARK [3][-]{subsubsection.3.2.3}{フラットな名前空間に基づく名前解決システム}{subsection.3.2}% 19
+\BOOKMARK [2][-]{subsection.3.3}{課題}{section.3}% 20
+\BOOKMARK [1][-]{section.4}{提案システム}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{フラットな名前空間に基づく名前解決システム : REFRES}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{デザイン}{section.4}% 23
+\BOOKMARK [3][-]{subsubsection.4.2.1}{P2Pを組み合わせたハイブリッドなアーキテクチャ}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.2}{ハッシュ関数に基づくレコード情報の識別子}{subsection.4.2}% 25
+\BOOKMARK [3][-]{subsubsection.4.2.3}{ソートされたハッシュ空間の範囲に基づいたゾーン}{subsection.4.2}% 26
+\BOOKMARK [3][-]{subsubsection.4.2.4}{認証局によるレコード情報の認証基盤}{subsection.4.2}% 27
+\BOOKMARK [3][-]{subsubsection.4.2.5}{強く型付けされたレコード情報}{subsection.4.2}% 28
+\BOOKMARK [3][-]{subsubsection.4.2.6}{レコード情報のデータフォーマット}{subsection.4.2}% 29
+\BOOKMARK [2][-]{subsection.4.3}{動作メカニズム}{section.4}% 30
+\BOOKMARK [3][-]{subsubsection.4.3.1}{レコード情報に対する操作}{subsection.4.3}% 31
+\BOOKMARK [3][-]{subsubsection.4.3.2}{名前解決}{subsection.4.3}% 32
+\BOOKMARK [1][-]{section.5}{評価}{}% 33
+\BOOKMARK [2][-]{subsection.5.1}{実装}{section.5}% 34
+\BOOKMARK [2][-]{subsection.5.2}{実験環境}{section.5}% 35
+\BOOKMARK [2][-]{subsection.5.3}{DNS Tunnelingに対する理論評価}{section.5}% 36
+\BOOKMARK [3][-]{subsubsection.5.3.1}{評価要素 : 対Exfiltration}{subsection.5.3}% 37
+\BOOKMARK [3][-]{subsubsection.5.3.2}{評価要素 : 対Infiltration}{subsection.5.3}% 38
+\BOOKMARK [2][-]{subsection.5.4}{シミュレーション実験に基づく特性評価}{section.5}% 39
+\BOOKMARK [3][-]{subsubsection.5.4.1}{評価要素 : パケットサイズ}{subsection.5.4}% 40
+\BOOKMARK [3][-]{subsubsection.5.4.2}{評価要素 : トラフィック量}{subsection.5.4}% 41
+\BOOKMARK [3][-]{subsubsection.5.4.3}{評価要素 : RTT\(Round Trip Time\)}{subsection.5.4}% 42
+\BOOKMARK [1][-]{section.6}{議論}{}% 43
+\BOOKMARK [2][-]{subsection.6.1}{クエリにおけるハッシュ値計算の最適ノード}{section.6}% 44
+\BOOKMARK [2][-]{subsection.6.2}{今後の課題}{section.6}% 45
+\BOOKMARK [1][-]{section.7}{結論}{}% 46
+\BOOKMARK [1][-]{section*.4}{謝辞}{}% 47
+\BOOKMARK [1][-]{section*.5}{参考文献}{}% 48
+\BOOKMARK [1][-]{section*.6}{付録}{}% 49
+\BOOKMARK [1][-]{appendix.A}{発表リスト\(国内研究会\)}{}% 50
