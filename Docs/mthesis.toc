@@ -5,46 +5,45 @@
 \contentsline {section}{\numberline {2.}準備}{3}{section.2}
 \contentsline {subsection}{\numberline {2.1}DNS プロトコル}{3}{subsection.2.1}
 \contentsline {subsubsection}{\numberline {2.1.1}概要}{3}{subsubsection.2.1.1}
-\contentsline {subsubsection}{\numberline {2.1.2}定義}{5}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2}構造}{5}{subsubsection.2.1.2}
 \contentsline {subsection}{\numberline {2.2}DNS Tunneling}{6}{subsection.2.2}
 \contentsline {subsubsection}{\numberline {2.2.1}流出メソッド : DNS Exfiltration}{7}{subsubsection.2.2.1}
-\contentsline {subsubsection}{\numberline {2.2.2}流入メソッド : DNS Infiltration}{8}{subsubsection.2.2.2}
-\contentsline {section}{\numberline {3.}関連研究}{10}{section.3}
-\contentsline {subsection}{\numberline {3.1}特徴量に基づく検知手法}{10}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}閾値推定}{10}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}機械学習に基づくモデル}{10}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}新しいDNSアーキテクチャ}{10}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}P2Pネットワークを利用した名前解決システム}{10}{subsubsection.3.2.1}
-\contentsline {subsubsection}{\numberline {3.2.2}Blockchainを利用した名前解決システム}{10}{subsubsection.3.2.2}
-\contentsline {subsubsection}{\numberline {3.2.3}フラットな名前空間に基づく名前解決システム}{10}{subsubsection.3.2.3}
-\contentsline {subsection}{\numberline {3.3}課題}{10}{subsection.3.3}
-\contentsline {section}{\numberline {4.}提案システム}{11}{section.4}
-\contentsline {subsection}{\numberline {4.1}フラットな名前空間に基づく名前解決システム : REFRES}{11}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}デザイン}{12}{subsection.4.2}
-\contentsline {subsubsection}{\numberline {4.2.1}P2Pを組み合わせたハイブリッドなアーキテクチャ}{12}{subsubsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2}ハッシュ関数に基づくレコード情報の識別子}{14}{subsubsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.3}ソートされたハッシュ空間の範囲に基づいたゾーン}{14}{subsubsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.4}認証局によるレコード情報の認証基盤}{16}{subsubsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.5}強く型付けされたレコード情報}{16}{subsubsection.4.2.5}
-\contentsline {subsubsection}{\numberline {4.2.6}レコード情報のデータフォーマット}{16}{subsubsection.4.2.6}
-\contentsline {subsection}{\numberline {4.3}動作メカニズム}{16}{subsection.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}レコード情報に対する操作}{16}{subsubsection.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}名前解決}{16}{subsubsection.4.3.2}
-\contentsline {section}{\numberline {5.}評価}{17}{section.5}
-\contentsline {subsection}{\numberline {5.1}実装}{17}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}実験環境}{17}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}DNS Tunnelingに対する理論評価}{17}{subsection.5.3}
-\contentsline {subsubsection}{\numberline {5.3.1}評価要素 : 対Exfiltration}{17}{subsubsection.5.3.1}
-\contentsline {subsubsection}{\numberline {5.3.2}評価要素 : 対Infiltration}{17}{subsubsection.5.3.2}
-\contentsline {subsection}{\numberline {5.4}シミュレーション実験に基づく特性評価}{17}{subsection.5.4}
-\contentsline {subsubsection}{\numberline {5.4.1}評価要素 : パケットサイズ}{17}{subsubsection.5.4.1}
-\contentsline {subsubsection}{\numberline {5.4.2}評価要素 : トラフィック量}{17}{subsubsection.5.4.2}
-\contentsline {subsubsection}{\numberline {5.4.3}評価要素 : RTT(Round Trip Time)}{17}{subsubsection.5.4.3}
-\contentsline {section}{\numberline {6.}議論}{18}{section.6}
-\contentsline {subsection}{\numberline {6.1}クエリにおけるハッシュ値計算の最適ノード}{18}{subsection.6.1}
-\contentsline {subsection}{\numberline {6.2}今後の課題}{18}{subsection.6.2}
-\contentsline {section}{\numberline {7.}結論}{19}{section.7}
-\contentsline {section}{謝辞}{20}{section*.4}
-\contentsline {section}{参考文献}{21}{section*.5}
-\contentsline {section}{付録}{23}{section*.6}
-\contentsline {section}{\numberline {A.}発表リスト(国内研究会)}{23}{appendix.A}
+\contentsline {subsubsection}{\numberline {2.2.2}流入メソッド : DNS Infiltration}{9}{subsubsection.2.2.2}
+\contentsline {section}{\numberline {3.}関連研究}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}特徴量に基づく検知手法}{11}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}閾値推定}{11}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}機械学習に基づくモデル}{11}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}ポスト名前解決システム}{11}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}P2Pネットワークを利用した名前解決システム}{11}{subsubsection.3.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2}Blockchainを利用した名前解決システム}{12}{subsubsection.3.2.2}
+\contentsline {subsection}{\numberline {3.3}課題}{12}{subsection.3.3}
+\contentsline {section}{\numberline {4.}提案システム}{13}{section.4}
+\contentsline {subsection}{\numberline {4.1}フラットな名前空間に基づく名前解決システム : REFRES}{13}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}デザイン}{14}{subsection.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}P2Pを組み合わせたハイブリッドなアーキテクチャ}{14}{subsubsection.4.2.1}
+\contentsline {subsubsection}{\numberline {4.2.2}ハッシュ関数に基づくレコード情報の識別子とハッシュアルゴリズム}{16}{subsubsection.4.2.2}
+\contentsline {subsubsection}{\numberline {4.2.3}ソートされたハッシュ空間の範囲に基づいたゾーン}{18}{subsubsection.4.2.3}
+\contentsline {subsubsection}{\numberline {4.2.4}認証基盤に基づく信頼されるレコード情報}{19}{subsubsection.4.2.4}
+\contentsline {subsubsection}{\numberline {4.2.5}強い型付けのレコード情報によるDNS Infiltration}{20}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.6}コンテンツのデータフォーマット}{22}{subsubsection.4.2.6}
+\contentsline {subsection}{\numberline {4.3}動作メカニズム}{22}{subsection.4.3}
+\contentsline {subsubsection}{\numberline {4.3.1}レコード情報に対する操作}{22}{subsubsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.2}名前解決}{22}{subsubsection.4.3.2}
+\contentsline {section}{\numberline {5.}評価}{23}{section.5}
+\contentsline {subsection}{\numberline {5.1}実装}{23}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}実験環境}{23}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}DNS Tunnelingに対する理論評価}{23}{subsection.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}評価要素 : 対Exfiltration}{23}{subsubsection.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}評価要素 : 対Infiltration}{23}{subsubsection.5.3.2}
+\contentsline {subsection}{\numberline {5.4}シミュレーション実験に基づく特性評価}{23}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}評価要素 : パケットサイズ}{23}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}評価要素 : RTT(Round Trip Time)}{23}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}評価要素 : トラフィック量}{23}{subsubsection.5.4.3}
+\contentsline {section}{\numberline {6.}議論}{25}{section.6}
+\contentsline {subsection}{\numberline {6.1}クエリにおけるハッシュ値計算の最適ノード}{25}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}今後の課題}{25}{subsection.6.2}
+\contentsline {section}{\numberline {7.}結論}{26}{section.7}
+\contentsline {section}{謝辞}{27}{section*.4}
+\contentsline {section}{参考文献}{28}{section*.5}
+\contentsline {section}{付録}{31}{section*.6}
+\contentsline {section}{\numberline {A.}発表リスト(国内研究会)}{31}{appendix.A}

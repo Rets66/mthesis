@@ -1,0 +1,51 @@
+\begin{table}[h]
+ \centering
+  \begin{tabular}{cl}
+    \toprule
+    \multicolumn{1}{c}{\textbf{表記}} & \multicolumn{1}{c}{\textbf{意味もしくは機能}}\\
+    \midrule
+
+    コンテンツ & \begin{tabular}{l}・識別子に関連づけられたレコード情報の実体\end{tabular}\\ \hline
+
+    コンテンツID & \begin{tabular}{l}・識別子\end{tabular}\\ \hline
+
+    レコード情報 &
+      \begin{tabular}{l}
+        ・リソースレコードの具体的な値\\
+        (E.g. IPアドレス)
+      \end{tabular}\\ \hline
+
+     リソースレコードタイプ &
+      \begin{tabular}{l}
+        ・オブジェクトに関連づけるリソースレコードの型\\
+        (E.g. A, AAAA, MX)
+      \end{tabular}\\ \hline
+
+    オブジェクト &
+      \begin{tabular}{l}
+       ・問い合わせる対象\\
+       (E.g. ドメイン名もしくはIPアドレス)
+      \end{tabular}\\ \hline
+
+    スタブリゾル & \begin{tabular}{l}・名前解決クライアント\end{tabular}\\ \hline
+
+    フルサービスリゾルバ &
+      \begin{tabular}{l}
+       ・スタブリゾルバからのクエリハンドリング\\
+       ・識別子の作成
+      \end{tabular}\\ \hline
+
+    マネージャ &
+      \begin{tabular}{l}
+       ・フルサービスリゾルバからのクエリハンドリング\\
+       ・ゾーンの管理\\
+       ・コンテンツの保持
+      \end{tabular}\\ \hline
+
+    プロバイダ & \begin{tabular}{l}・コンテンツの作成・更新・削除操作\end{tabular}\\
+
+    \bottomrule
+  \end{tabular}
+ \label{tab:refres-terminology}
+ \caption{REFRESにおける用語}
+\end{table}
