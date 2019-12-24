@@ -24,7 +24,7 @@
 \contentsline {subsubsection}{\numberline {4.2.2}ハッシュ関数に基づくレコード情報の識別子とハッシュアルゴリズム}{16}{subsubsection.4.2.2}
 \contentsline {subsubsection}{\numberline {4.2.3}ソートされたハッシュ空間の範囲に基づいたゾーン}{18}{subsubsection.4.2.3}
 \contentsline {subsubsection}{\numberline {4.2.4}認証基盤に基づく信頼されるレコード情報}{19}{subsubsection.4.2.4}
-\contentsline {subsubsection}{\numberline {4.2.5}強い型付けのレコード情報によるDNS Infiltration}{20}{subsubsection.4.2.5}
+\contentsline {subsubsection}{\numberline {4.2.5}リソースレコードタイプの選別によるDNS Infiltration対策}{20}{subsubsection.4.2.5}
 \contentsline {subsubsection}{\numberline {4.2.6}コンテンツのデータフォーマット}{22}{subsubsection.4.2.6}
 \contentsline {subsection}{\numberline {4.3}動作メカニズム}{22}{subsection.4.3}
 \contentsline {subsubsection}{\numberline {4.3.1}レコード情報に対する操作}{22}{subsubsection.4.3.1}

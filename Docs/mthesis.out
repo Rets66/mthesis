@@ -25,7 +25,7 @@
 \BOOKMARK [3][-]{subsubsection.4.2.2}{ハッシュ関数に基づくレコード情報の識別子とハッシュアルゴリズム}{subsection.4.2}% 24
 \BOOKMARK [3][-]{subsubsection.4.2.3}{ソートされたハッシュ空間の範囲に基づいたゾーン}{subsection.4.2}% 25
 \BOOKMARK [3][-]{subsubsection.4.2.4}{認証基盤に基づく信頼されるレコード情報}{subsection.4.2}% 26
-\BOOKMARK [3][-]{subsubsection.4.2.5}{強い型付けのレコード情報によるDNS Infiltration}{subsection.4.2}% 27
+\BOOKMARK [3][-]{subsubsection.4.2.5}{リソースレコードタイプの選別によるDNS Infiltration対策}{subsection.4.2}% 27
 \BOOKMARK [3][-]{subsubsection.4.2.6}{コンテンツのデータフォーマット}{subsection.4.2}% 28
 \BOOKMARK [2][-]{subsection.4.3}{動作メカニズム}{section.4}% 29
 \BOOKMARK [3][-]{subsubsection.4.3.1}{レコード情報に対する操作}{subsection.4.3}% 30

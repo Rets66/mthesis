@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  24 DEC 2019 22:43
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  24 DEC 2019 23:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,10 +666,10 @@ Overfull \hbox (12.36766pt too wide) in paragraph at lines 3--50
 File: figure/certificate-procedure.png Graphic file (type bmp)
 <figure/certificate-procedure.png>
  [20]
-(./table/infil-type.tex)
+(./table/infil-type.tex) [21]
 File: figure/content-file.png Graphic file (type bmp)
 <figure/content-file.png>
- [21]) [22]
+) [22]
 \openout2 = `section/evaluation.aux'.
 
  (./section/evaluation.tex) [23
@@ -768,7 +768,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 303.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
 Package rerunfilecheck Info: File `mthesis.out' has not changed.
-(rerunfilecheck)             Checksum: 128D037F2629ADAE5326B4E18B7D21D4;3938.
+(rerunfilecheck)             Checksum: F5A8DE09476F1415268835AD1C3FBD43;3950.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -784,10 +784,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  8291 strings out of 493248
  113287 string characters out of 6144402
- 221068 words of memory out of 5000000
+ 221072 words of memory out of 5000000
  12050 multiletter control sequences out of 15000+600000
  44467 words of font info for 139 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  30i,15n,35p,911b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mthesis.dvi (38 pages, 129956 bytes).
+Output written on mthesis.dvi (38 pages, 130592 bytes).
