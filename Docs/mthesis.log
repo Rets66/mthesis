@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  24 DEC 2019 23:03
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  25 DEC 2019 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -459,54 +459,54 @@ LaTeX Warning: Label `fig:manager-provider' multiply defined.
 (./section/conclusion.aux))
 \openout1 = `mthesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 209.
-LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 20
-9.
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 210.
+LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 21
+0.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 209.
-LaTeX Font Info:    Try loading font information for U+ntxexa on input line 209
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 210.
+LaTeX Font Info:    Try loading font information for U+ntxexa on input line 210
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 209.
-LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 20
-9.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 210.
+LaTeX Font Info:    Try loading font information for LMS+ntxsy on input line 21
+0.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 209.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 210.
 LaTeX Font Info:    Try loading font information for LMX+ntxexx on input line 2
-09.
+10.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 209.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 209.
-LaTeX Font Info:    ... okay on input line 209.
+LaTeX Font Info:    ... okay on input line 210.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 210.
+LaTeX Font Info:    ... okay on input line 210.
 \AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring ON on input line 209.
+Package hyperref Info: Link coloring ON on input line 210.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -516,44 +516,44 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count138
 )
-LaTeX Info: Redefining \ref on input line 209.
-LaTeX Info: Redefining \pageref on input line 209.
-LaTeX Info: Redefining \nameref on input line 209.
+LaTeX Info: Redefining \ref on input line 210.
+LaTeX Info: Redefining \pageref on input line 210.
+LaTeX Info: Redefining \nameref on input line 210.
 
 (./mthesis.out) (./mthesis.out)
 \@outlinefile=\write3
 \openout3 = `mthesis.out'.
 
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 210.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 211.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 210.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 211.
  [1
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 211.
+LaTeX Font Info:    Try loading font information for U+msa on input line 212.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 211.
+LaTeX Font Info:    Try loading font information for U+msb on input line 212.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 211
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 212
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 211
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 212
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 211
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 212
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newtx/untxsyc.fd
@@ -561,30 +561,30 @@ File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 ) [2]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 212.
+(Font)              size <12> substituted on input line 213.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 212.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 213.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12.5> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 212.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 212.
+(Font)              size <12> substituted on input line 213.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 212.
+(Font)              size <5> substituted on input line 213.
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7.3> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 212.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 213.
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 212.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 213.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 212.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 213.
 [1] [2] (./mthesis.toc [3])
 \tf@toc=\write4
 \openout4 = `mthesis.toc'.
@@ -618,20 +618,28 @@ LaTeX Warning: Reference `eq:sample_qname' on page 1 undefined on input line 15
 
  (./section/preliminaries.tex
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 21.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 23.
  [3
 
 
-]
+] [4]
 File: figure/dns-name-resolution.png Graphic file (type bmp)
 <figure/dns-name-resolution.png>
- [4] [5]
+ [5]
 File: figure/dns-architecture.png Graphic file (type bmp)
 <figure/dns-architecture.png>
  (./table/resource-record.tex) [6]
+
+LaTeX Warning: Reference `sec:dns' on page 7 undefined on input line 107.
+
+[7]
 File: figure/dns-exfiltration.png Graphic file (type bmp)
 <figure/dns-exfiltration.png>
- [7] [8]
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8]
 File: figure/dns-infiltration.png Graphic file (type bmp)
 <figure/dns-infiltration.png>
 
@@ -641,134 +649,135 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 ) [9] [10]
 \openout2 = `section/related_works.aux'.
 
- (./section/related_works.tex) [11
+ (./section/related_works.tex [11
 
 
-] [12]
+]) [12]
 \openout2 = `section/proposed_method.aux'.
 
 
-(./section/proposed_method.tex
+(./section/proposed_method.tex [13
+
+
+]
 File: figure/abstruct-architecture.png Graphic file (type bmp)
 <figure/abstruct-architecture.png>
- [13
-
-
-] [14]
 File: figure/manager-provider.png Graphic file (type bmp)
 <figure/manager-provider.png>
- (./table/refres-terminology.tex
+ [14] [15] (./table/refres-terminology.tex
 Overfull \hbox (12.36766pt too wide) in paragraph at lines 3--50
  [][][][] 
  []
 
-) [15] [16] [17] (./table/managemnt_range.tex) [18] [19]
+)
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[16] [17] [18] (./table/managemnt_range.tex)
 File: figure/certificate-procedure.png Graphic file (type bmp)
 <figure/certificate-procedure.png>
- [20]
-(./table/infil-type.tex) [21]
+ [19] [20] (./table/infil-type.tex) [21]
 File: figure/content-file.png Graphic file (type bmp)
 <figure/content-file.png>
-) [22]
+ [22]) [23]
 \openout2 = `section/evaluation.aux'.
 
- (./section/evaluation.tex) [23
+ (./section/evaluation.tex [24
 
 
-] [24]
+]) [25]
 \openout2 = `section/discussion.aux'.
 
-
-(./section/discussion.tex) [25
+ (./section/discussion.tex) [26
 
 
 ]
 \openout2 = `section/conclusion.aux'.
 
- (./section/conclusion.tex) [26
+ (./section/conclusion.tex) [27
 
 
-] [27
+] [28
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 [][]\OT1/cmr/m/n/10.95 https://krebsonsecurity.com/2015/05/deconstructing-the-2
 014-sally-beauty-
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 264--265
+Underfull \hbox (badness 2418) in paragraph at lines 266--267
 []\OT1/cmr/m/n/10.95 Fireeye. ``MULTI-GRAIN { Point of Sale At-tack-ers Make an
  Un-healthy
  []
 
 
-Underfull \hbox (badness 2334) in paragraph at lines 264--265
+Underfull \hbox (badness 2334) in paragraph at lines 266--267
 \OT1/cmr/m/n/10.95 Ad-di-tion to the Pantry," April 2016. [][]https://www.fieey
 e.com/blog/threat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--266
+Underfull \hbox (badness 10000) in paragraph at lines 267--268
 \OT1/cmr/m/n/10.95 new-wekby-attacks-use-dns-requests-as-command-and-control-me
 chanism/[][].
  []
 
 
-Underfull \hbox (badness 5217) in paragraph at lines 266--267
+Underfull \hbox (badness 5217) in paragraph at lines 268--269
 []\OT1/cmr/m/n/10.95 Kaspersky. ``Use of DNS Tun-nel-ing for C&C Com-mu-ni-ca-t
 ions," April
  []
 
-[28]
-Underfull \hbox (badness 8170) in paragraph at lines 267--268
+[29]
+Underfull \hbox (badness 8170) in paragraph at lines 269--270
 []\OT1/cmr/m/n/10.95 CISCO Ta-los. ``Spoofed SEC Emails Dis-tribute Evolved DNS
 -Mes-sen-
  []
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 267--268
+Underfull \hbox (badness 1331) in paragraph at lines 269--270
 \OT1/cmr/m/n/10.95 ger," Oc-to-ber 2017. [][]https://blog.talosintelligence.com
 /2017/10/dnsmessenger-
  []
 
 
-Underfull \hbox (badness 2173) in paragraph at lines 268--269
+Underfull \hbox (badness 2173) in paragraph at lines 270--271
 []\OT1/cmr/m/n/10.95 Cylance. ``Threat Spot-light: In-side UD-PoS Mal-ware," Fe
 brary 27 2018.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
+Underfull \hbox (badness 10000) in paragraph at lines 270--271
 [][]\OT1/cmr/m/n/10.95 https://threatvector.cylance.com/en[]us/home/threat-spot
 light-inside-udpos-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 []\OT1/cmr/m/n/10.95 ``OzymanDNS - Tun-nel-ing SSH over DNS,"
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--276
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
 [][]\OT1/cmr/m/n/10.95 https://room362.com/post/2009/2009310ozymandns-tunneling
 -ssh-over-dns-
  []
 
-[29]
-No file mthesis.bbl.
 [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 303.
- [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 303.
+No file mthesis.bbl.
+[31]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
+ [32]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
  (./mthesis.aux (./section/introduction.aux)
 (./section/preliminaries.aux) (./section/related_works.aux)
 (./section/proposed_method.aux) (./section/evaluation.aux)
 (./section/discussion.aux) (./section/conclusion.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 303.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 303.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 305.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `mthesis.out' has not changed.
-(rerunfilecheck)             Checksum: F5A8DE09476F1415268835AD1C3FBD43;3950.
+(rerunfilecheck)             Checksum: 632A241F83F47F2393A5413AB27963E3;3955.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -782,12 +791,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8291 strings out of 493248
- 113287 string characters out of 6144402
- 221072 words of memory out of 5000000
- 12050 multiletter control sequences out of 15000+600000
+ 8292 strings out of 493248
+ 113288 string characters out of 6144402
+ 220095 words of memory out of 5000000
+ 12051 multiletter control sequences out of 15000+600000
  44467 words of font info for 139 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 30i,15n,35p,911b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,15n,35p,911b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mthesis.dvi (38 pages, 130592 bytes).
+Output written on mthesis.dvi (39 pages, 134560 bytes).

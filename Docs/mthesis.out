@@ -3,23 +3,23 @@
 \BOOKMARK [2][-]{subsection.1.1}{背景}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{目的}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{本論構成}{section.1}% 4
-\BOOKMARK [1][-]{section.2}{準備}{}% 5
+\BOOKMARK [1][-]{section.2}{DNS Tunneling}{}% 5
 \BOOKMARK [2][-]{subsection.2.1}{DNS プロトコル}{section.2}% 6
 \BOOKMARK [3][-]{subsubsection.2.1.1}{概要}{subsection.2.1}% 7
 \BOOKMARK [3][-]{subsubsection.2.1.2}{構造}{subsection.2.1}% 8
-\BOOKMARK [2][-]{subsection.2.2}{DNS Tunneling}{section.2}% 9
-\BOOKMARK [3][-]{subsubsection.2.2.1}{流出メソッド : DNS Exfiltration}{subsection.2.2}% 10
-\BOOKMARK [3][-]{subsubsection.2.2.2}{流入メソッド : DNS Infiltration}{subsection.2.2}% 11
-\BOOKMARK [1][-]{section.3}{関連研究}{}% 12
-\BOOKMARK [2][-]{subsection.3.1}{特徴量に基づく検知手法}{section.3}% 13
-\BOOKMARK [3][-]{subsubsection.3.1.1}{閾値推定}{subsection.3.1}% 14
-\BOOKMARK [3][-]{subsubsection.3.1.2}{機械学習に基づくモデル}{subsection.3.1}% 15
+\BOOKMARK [2][-]{subsection.2.2}{データ流出方法 : DNS Exfiltration}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.3}{データ流入方法 : DNS Infiltration}{section.2}% 10
+\BOOKMARK [1][-]{section.3}{関連研究}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{特徴量に基づく検知手法}{section.3}% 12
+\BOOKMARK [3][-]{subsubsection.3.1.1}{DNS Tunnelingにおける特徴量}{subsection.3.1}% 13
+\BOOKMARK [3][-]{subsubsection.3.1.2}{閾値推定}{subsection.3.1}% 14
+\BOOKMARK [3][-]{subsubsection.3.1.3}{機械学習に基づくモデル}{subsection.3.1}% 15
 \BOOKMARK [2][-]{subsection.3.2}{ポスト名前解決システム}{section.3}% 16
 \BOOKMARK [3][-]{subsubsection.3.2.1}{P2Pネットワークを利用した名前解決システム}{subsection.3.2}% 17
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Blockchainを利用した名前解決システム}{subsection.3.2}% 18
 \BOOKMARK [2][-]{subsection.3.3}{課題}{section.3}% 19
 \BOOKMARK [1][-]{section.4}{提案システム}{}% 20
-\BOOKMARK [2][-]{subsection.4.1}{フラットな名前空間に基づく名前解決システム : REFRES}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.1}{シンボル指向型名前解決システム : SORES}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.2}{デザイン}{section.4}% 22
 \BOOKMARK [3][-]{subsubsection.4.2.1}{P2Pを組み合わせたハイブリッドなアーキテクチャ}{subsection.4.2}% 23
 \BOOKMARK [3][-]{subsubsection.4.2.2}{ハッシュ関数に基づくレコード情報の識別子とハッシュアルゴリズム}{subsection.4.2}% 24

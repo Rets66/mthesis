@@ -1,6 +1,7 @@
 \relax 
 \providecommand\hyper@newdestlabel[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {2.}準備}{3}{section.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.}DNS Tunneling}{3}{section.2}}
+\newlabel{sec:dns-tunneling}{{2}{3}{DNS Tunneling}{section.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}DNS プロトコル}{3}{subsection.2.1}}
 \newlabel{sec:dns-protocol}{{2.1}{3}{DNS プロトコル}{subsection.2.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}概要}{3}{subsubsection.2.1.1}}
@@ -9,16 +10,15 @@
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}構造}{5}{subsubsection.2.1.2}}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces ドメインの名前空間}}{6}{figure.2}}
 \newlabel{fig:dns-architecture}{{2}{6}{ドメインの名前空間}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}DNS Tunneling}{6}{subsection.2.2}}
-\newlabel{sec:dns-tunneling}{{2.2}{6}{DNS Tunneling}{subsection.2.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 主要リソースレコード一覧}}{7}{table.1}}
 \newlabel{tab:resource-record}{{1}{7}{主要リソースレコード一覧}{table.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}流出メソッド : DNS Exfiltration}{7}{subsubsection.2.2.1}}
-\newlabel{sec:dns-exfiltration}{{2.2.1}{7}{流出メソッド : DNS Exfiltration}{subsubsection.2.2.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子}}{8}{figure.3}}
-\newlabel{fig:dns-exfiltration}{{3}{8}{arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}流入メソッド : DNS Infiltration}{9}{subsubsection.2.2.2}}
-\newlabel{sec:dns-infiltration}{{2.2.2}{9}{流入メソッド : DNS Infiltration}{subsubsection.2.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}データ流出方法 : DNS Exfiltration}{7}{subsection.2.2}}
+\newlabel{sec:dns-exfiltration}{{2.2}{7}{データ流出方法 : DNS Exfiltration}{subsection.2.2}{}}
+\citation{rfc4648}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子}}{9}{figure.3}}
+\newlabel{fig:dns-exfiltration}{{3}{9}{arbitrary-stringという任意の文字列が，DNSクエリのラベル部を用いて，事前に用意した権威サーバ(exfil.com)に転送される様子}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}データ流入方法 : DNS Infiltration}{9}{subsection.2.3}}
+\newlabel{sec:dns-infiltration}{{2.3}{9}{データ流入方法 : DNS Infiltration}{subsection.2.3}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces TXTレコードに登録された情報について，DNSクエリで問い合わせることで権威サーバから命令情報を取得している様子}}{10}{figure.4}}
 \newlabel{fig:dns-infiltration}{{4}{10}{TXTレコードに登録された情報について，DNSクエリで問い合わせることで権威サーバから命令情報を取得している様子}{figure.4}{}}
 \@setckpt{section/preliminaries}{
@@ -33,8 +33,8 @@
 \setcounter{@paper}{1}
 \setcounter{part}{0}
 \setcounter{section}{2}
-\setcounter{subsection}{2}
-\setcounter{subsubsection}{2}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
 \setcounter{figure}{4}
@@ -43,7 +43,7 @@
 \setcounter{Item}{0}
 \setcounter{Hfootnote}{2}
 \setcounter{Hy@AnnotLevel}{0}
-\setcounter{bookmark@seq@number}{11}
+\setcounter{bookmark@seq@number}{10}
 \setcounter{float@type}{4}
-\setcounter{section@level}{3}
+\setcounter{section@level}{2}
 }
