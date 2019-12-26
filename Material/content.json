@@ -1,7 +1,14 @@
+
 {
  "ContentID" : "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
- "Value" : ["DomainID", "QNAME", "RType", "TTL", "Record Infomation", "Certificate"]
+ "Value" : ["DomainID", "QNAME", "RType", "TTL", "Record Infomation", "Certificate Signature"]
 },
+{
+ "contentID" : "47d87f616f550758706e1633f4de3bf28f049814eb0a52da6b554cb6",
+ "message" : ["86ff", "www.example.com","A",3800,"93.184.216.34", '']
+},
+
+
 {
  "method" : "store",
  "contentID" : "47d87f616f550758706e1633f4de3bf28f049814eb0a52da6b554cb6",
