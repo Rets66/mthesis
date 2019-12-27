@@ -19,10 +19,10 @@
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Blockchainを利用した名前解決システム}{subsection.3.2}% 18
 \BOOKMARK [2][-]{subsection.3.3}{課題}{section.3}% 19
 \BOOKMARK [1][-]{section.4}{提案システム}{}% 20
-\BOOKMARK [2][-]{subsection.4.1}{シンボル指向型名前解決システム : SORES}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Tunneling抑止指向型名前解決システム : SORES}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.2}{デザイン}{section.4}% 22
 \BOOKMARK [3][-]{subsubsection.4.2.1}{P2Pを組み合わせたハイブリッドなアーキテクチャ}{subsection.4.2}% 23
-\BOOKMARK [3][-]{subsubsection.4.2.2}{ハッシュ関数に基づくレコード情報の識別子とハッシュアルゴリズム}{subsection.4.2}% 24
+\BOOKMARK [3][-]{subsubsection.4.2.2}{識別子と名前空間}{subsection.4.2}% 24
 \BOOKMARK [3][-]{subsubsection.4.2.3}{ソートされたハッシュ空間の範囲に基づいたゾーン}{subsection.4.2}% 25
 \BOOKMARK [3][-]{subsubsection.4.2.4}{認証基盤に基づく信頼されるレコード情報}{subsection.4.2}% 26
 \BOOKMARK [3][-]{subsubsection.4.2.5}{リソースレコードタイプの選別によるDNS Infiltration対策}{subsection.4.2}% 27
@@ -33,13 +33,13 @@
 \BOOKMARK [1][-]{section.5}{評価}{}% 32
 \BOOKMARK [2][-]{subsection.5.1}{実装}{section.5}% 33
 \BOOKMARK [2][-]{subsection.5.2}{実験環境}{section.5}% 34
-\BOOKMARK [2][-]{subsection.5.3}{DNS Tunnelingに対する理論評価}{section.5}% 35
-\BOOKMARK [3][-]{subsubsection.5.3.1}{評価要素 : 対Exfiltration}{subsection.5.3}% 36
-\BOOKMARK [3][-]{subsubsection.5.3.2}{評価要素 : 対Infiltration}{subsection.5.3}% 37
-\BOOKMARK [2][-]{subsection.5.4}{シミュレーション実験に基づく特性評価}{section.5}% 38
-\BOOKMARK [3][-]{subsubsection.5.4.1}{評価要素 : パケットサイズ}{subsection.5.4}% 39
-\BOOKMARK [3][-]{subsubsection.5.4.2}{評価要素 : RTT\(Round Trip Time\)}{subsection.5.4}% 40
-\BOOKMARK [3][-]{subsubsection.5.4.3}{評価要素 : トラフィック量}{subsection.5.4}% 41
+\BOOKMARK [2][-]{subsection.5.3}{DNS Tunneling}{section.5}% 35
+\BOOKMARK [3][-]{subsubsection.5.3.1}{DNS Exfiltration}{subsection.5.3}% 36
+\BOOKMARK [3][-]{subsubsection.5.3.2}{DNS Infiltration}{subsection.5.3}% 37
+\BOOKMARK [2][-]{subsection.5.4}{要素ごとの特性}{section.5}% 38
+\BOOKMARK [3][-]{subsubsection.5.4.1}{RTT\(Round Trip Time\)}{subsection.5.4}% 39
+\BOOKMARK [3][-]{subsubsection.5.4.2}{パケットサイズ}{subsection.5.4}% 40
+\BOOKMARK [3][-]{subsubsection.5.4.3}{トラフィック量}{subsection.5.4}% 41
 \BOOKMARK [1][-]{section.6}{議論}{}% 42
 \BOOKMARK [2][-]{subsection.6.1}{クエリにおけるハッシュ値計算の最適ノード}{section.6}% 43
 \BOOKMARK [2][-]{subsection.6.2}{今後の課題}{section.6}% 44

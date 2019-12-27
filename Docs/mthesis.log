@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  25 DEC 2019 20:09
+This is e-pTeX, Version 3.14159265-p3.8.1-180226-2.6 (utf8.euc) (TeX Live 2018) (preloaded format=platex 2018.11.6)  27 DEC 2019 19:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,8 +455,11 @@ LaTeX Warning: Label `fig:manager-provider' multiply defined.
 
 LaTeX Warning: Label `fig:manager-provider' multiply defined.
 
-) (./section/evaluation.aux) (./section/discussion.aux)
-(./section/conclusion.aux))
+) (./section/evaluation.aux
+
+LaTeX Warning: Label `tab:resource-record' multiply defined.
+
+) (./section/discussion.aux) (./section/conclusion.aux))
 \openout1 = `mthesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 210.
@@ -685,19 +688,25 @@ File: figure/content-file.png Graphic file (type bmp)
  (./section/evaluation.tex [24
 
 
-]) [25]
+] (./table/diff_sores_dns.tex
+Overfull \hbox (26.32925pt too wide) in paragraph at lines 3--14
+ [][][][] 
+ []
+
+) [25]) [26]
 \openout2 = `section/discussion.aux'.
 
- (./section/discussion.tex) [26
+ (./section/discussion.tex) [27
 
 
 ]
 \openout2 = `section/conclusion.aux'.
 
- (./section/conclusion.tex) [27
+ (./section/conclusion.tex)
+[28
 
 
-] [28
+] [29
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 263--264
@@ -729,7 +738,7 @@ Underfull \hbox (badness 5217) in paragraph at lines 268--269
 ions," April
  []
 
-[29]
+[30]
 Underfull \hbox (badness 8170) in paragraph at lines 269--270
 []\OT1/cmr/m/n/10.95 CISCO Ta-los. ``Spoofed SEC Emails Dis-tribute Evolved DNS
 -Mes-sen-
@@ -764,11 +773,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 277--278
 -ssh-over-dns-
  []
 
-[30]
-No file mthesis.bbl.
 [31]
+No file mthesis.bbl.
+[32]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 305.
- [32]
+ [33]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
  (./mthesis.aux (./section/introduction.aux)
 (./section/preliminaries.aux) (./section/related_works.aux)
@@ -777,7 +786,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 305.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 305.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 305.
 Package rerunfilecheck Info: File `mthesis.out' has not changed.
-(rerunfilecheck)             Checksum: 632A241F83F47F2393A5413AB27963E3;3955.
+(rerunfilecheck)             Checksum: FAA6A4F6F5E0D105E8D7EA38E6904976;3759.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -791,12 +800,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8292 strings out of 493248
- 113288 string characters out of 6144402
- 220095 words of memory out of 5000000
+ 8295 strings out of 493248
+ 113352 string characters out of 6144402
+ 220071 words of memory out of 5000000
  12051 multiletter control sequences out of 15000+600000
  44467 words of font info for 139 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 30i,15n,35p,911b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,16n,35p,911b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on mthesis.dvi (39 pages, 134560 bytes).
+Output written on mthesis.dvi (40 pages, 139492 bytes).
