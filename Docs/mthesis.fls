@@ -1,8 +1,0 @@
-PWD /Users/shoretsu-t/Documents/mthesis/Docs
-INPUT /usr/local/texlive/2018/texmf.cnf
-INPUT /usr/local/texlive/2018/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2018/texmf-var/web2c/pdftex/latex.fmt
-INPUT mthesis.tex
-OUTPUT mthesis.log
-INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls
-INPUT /usr/local/texlive/2018/texmf-dist/tex/platex/base/jarticle.cls
