@@ -5,9 +5,9 @@
      & \textbf{DNS} & \textbf{SORES} \\
     \midrule
     \textbf{RTT} & 全ての権威サーバとのRTTの総和 & マネージャとのRTT  \\ \hline
-    \textbf{Data Size/packet} & ドメイン長依存 & 固定長224bit  \\ \hline
+		\textbf{ドメイン長(パケットサイズ)} & 変長(最大253byte) & 固定長(56byte)  \\ \hline
     \textbf{トランザクション回数} & ラベル数依存 & 1 \\ \hline
-    \textbf{トラフィック量} & 線形増加 & 線形増加 \\
+    \textbf{トラフィック量} & 線形増加 & 線形増加 \\ \hline
     \textbf{リクエスト速度} & N/A & ハッシュ計算分遅延 \\
     \bottomrule
   \end{tabular}

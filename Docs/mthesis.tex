@@ -7,6 +7,7 @@
 
 %package
 \usepackage{amssymb, amsmath, newtxmath}
+\usepackage{cite}
 \usepackage[utf8]{inputenc}
 %\usepackage{utf}
 \usepackage{naist-jmthesis} %Japanese
@@ -33,7 +34,7 @@
  pdfborder={0, 0, 1},
  linktoc=all
 }
-
+\renewcommand\thefootnote{\textcolor{purple}{\Roman{footnote}}}
 
 
 % Page style
@@ -49,11 +50,7 @@
 
 
 % 日本語題目 (in LaTeX)
-%\title{DNS Exfiltration抑止を目的とした分散ハッシュテーブルに基づく名前解決システム}
-%\title{DNS Tunneling抑止を目的とした\\シンボル指向型名前解決システム}
-\title{トンネリング抑止のための分散ハッシュテーブルを利用したDNSに関する研究}
-%\title{DNS Exfiltration対策を目的としたスーパーノード型P2Pネットワークに基づく名前解決システムの提案}
-%\title{スーパーノード型P2Pネットワークに基づくDNS Exfiltration抑制名前解決システムに関する研究}
+\title{トンネリング抑止を目的とした\\分散ハッシュテーブルを利用したDNSに関する研究}
 % 日本語題目 (in plain text)
 %   注: (in LaTeX)と同じ場合は指定する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -275,8 +272,11 @@
  \bibitem{steadman} J. Steadman and S. Scott-Hayward, ``DNSxD: Detecting Data Exfiltration Over DNS," 2018 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Verona, Italy, 2018, pp. 1-6.
  \bibitem{jawad} J. Ahmed, H. H. Gharakheili, Q. Raza, C. Russell and V. Sivaraman, ``Monitoring Enterprise DNS Queries for Detecting Data Exfiltration from Internal Hosts," in IEEE Transactions on Network and Service Management.
  \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," \href{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}, (accessed 2019-11-20).
- \bibitem{iodine} ``iodine," \href{http://code.kryo.se/iodine/}{http://code.kryo.se/iodine/}, (accessd 2019-11-20).
+ \bibitem{iodine} ``iodine," \href{http://code.kryo.se/iodine/}{http://code.kryo.se/iodine/}, (accessed 2019-11-20).
  \bibitem{dnscat2} ``DNScat2," \href{https://github.com/iagox86/dnscat2}{https://github.com/iagox86/dnscat2}, (accessed 2019-11-20).
+ \bibitem{Ramasubramanian} Ramasubramanian, Venugopalan and Sirer, Emin G\"{u}n, ``The Design and Implementation of a next Generation Name Service for the Internet, " Association for Computing Machinery, NY, USA, SIGCOMM Comput. Commun. Rev, number 4 Volume 34, pp.331–342.
+ \bibitem{Danielis} P. Danielis, V. Altmann, J. Skodzik, T. Wegner, A. Koerner and D. Timmermann, "P-DONAS: A P2P-Based Domain Name System in Access Networks," in ACM Transactions on Internet Technology (TOIT), vol. 15, no. 3, pp. 1-21, September 2015.
+ \bibitem{namecoin} ``Namecoin, " \href{https://www.namecoin.org/}{https://www.namecoin.org/}, (accessed 2019-12-30)
 \end{thebibliography}
 \bibliography{mthesis}
 

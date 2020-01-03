@@ -153,14 +153,12 @@ DNSのラベルは，数字・アルファベット・先頭以外でハイフ�
 
 \subsubsection{データ流入}
 \label{sec:dns-infiltration}
-
 \begin{figure}[h]
  \centering
  \includegraphics[width=10.0cm]{figure/dns-infiltration.png}
  \caption{TXTレコードに登録された情報について，DNSクエリで問い合わせることで権威サーバから命令情報を取得している様子}
  \label{fig:dns-infiltration}
 \end{figure}
-
 DNS Infiltrationは，DNS Exfiltrationと逆方向の権威サーバからクライアント方向にデータを転送する手法である．
 この手法は，DNSのリソースレコードに任意の文字列が含められる設計になっていることを利用したものである．
 リソースレコードのタイプは多種多様であるが，ゾーンファイルを自由に編集できる現在のDNSエコシステムでは，ドメイン名との関わりに関係なく任意の情報をドメイン名に関連づけることが可能である．
