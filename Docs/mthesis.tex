@@ -44,8 +44,8 @@
 %\lang{English} % English
 % Student Number
 \studentnumber{1811147}
-\doctitle{\mastersthesis}       % 修士論文
-\major{\engineering}    % 工学
+\doctitle{\mastersthesis}% 修士論文
+\major{\engineering}     % 工学
 
 
 
@@ -83,8 +83,8 @@
 
 % 論文提出年月日
 \syear{2020}
-\smonth{3}
-\sday{15}
+\smonth{1}
+\sday{28}
 
 
 
@@ -141,13 +141,11 @@
 %           {Professor xx xx}{(Co-supervisor)}
 %           {}{}
 %           {}{}
-% キーワード５〜６個 (in LaTeX)
-%\keywords{$\pi$, 天文学, 数学, 計算機, アルゴリズム}
 
 
 
 % ===================キーワード===================
-\keywords{ドメインネームシステム，分散ハッシュテーブル，P2Pネットワーク，DNS Tunneling，ネットワークセキュリティ}
+\keywords{ドメインネームシステム，DNSトンネリング，分散ハッシュテーブル，P2Pネットワーク}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -159,7 +157,7 @@
 
 
 % ===================Keyword===================
-\ekeywords{Domain Name System(DNS), Distributed Hash Table(DHT), P2P Network, DNS Tunneling, ネットワークセキュリティ}
+\ekeywords{Domain Name System(DNS), DNS Tunneling, Distributed Hash Table(DHT), P2P Network}
 % 5 or 6 Keywords (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
@@ -251,8 +249,8 @@
 %\reference
 %\bibliographystyle{plain}
 \begin{thebibliography} {25}\small
- \bibitem{rfc1034} P.V. Mockapetris. ``Domain names - concepts and facilities. RFC 1034 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936.
- \bibitem{rfc1035} P.V. Mockapetris. ``Domain names - implementation and specification. RFC 1035 (INTERNET STANDARD)," November 1987. Updated by RFCs 1101, 1183, 1348, 1876, 1982, 1995, 1996, 2065, 2136, 2181, 2137, 2308, 2535, 2673, 2845, 3425, 3658, 4033, 4034, 4035, 4343, 5936, 5966, 6604."
+ \bibitem{rfc1034} P.V. Mockapetris. ``Domain names - concepts and facilities. RFC 1034 (INTERNET STANDARD)," November 1987.
+ \bibitem{rfc1035} P.V. Mockapetris. ``Domain names - implementation and specification. RFC 1035 (INTERNET STANDARD)," November 1987.
  \bibitem{rfc4033} R. Arends, R. Austein, M. Larson, D. Massey, S. Rose. ``DNS Security Introduction and Requirements, " March 2005. Updated by RFCs 6014, 6840.
  \bibitem{rfc4648} S. Josefsson. ``The Base16, Base32, and Base64 Data Encodings, " October 2006. Updated by RFC 3548.
  \bibitem{covertchannel} ICANN, ``What Is an Internet Covert Channel?," August 2016. \href{https://www.icann.org/news/blog/what-is-an-internet-covert-channel}{https://www.icann\\.org/news/blog/what-is-an-internet-covert-channel}. (accessed 2019-12-12).
@@ -274,9 +272,20 @@
  \bibitem{ozymandns} ``OzymanDNS - Tunneling SSH over DNS," \href{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}{https://room362.com/post/2009/2009310ozymandns-tunneling-ssh-over-dns-html/}, (accessed 2019-11-20).
  \bibitem{iodine} ``iodine," \href{http://code.kryo.se/iodine/}{http://code.kryo.se/iodine/}, (accessed 2019-11-20).
  \bibitem{dnscat2} ``DNScat2," \href{https://github.com/iagox86/dnscat2}{https://github.com/iagox86/dnscat2}, (accessed 2019-11-20).
+ \bibitem{tcp-over-dns} ``TCP-over-DNS, " \href{http://analogbit.com/software/tcp-over-dns/}{http://analogbit.com/software/tcp-over-dns/}
+ \bibitem{dnscat} ``dnscat, " \href{https://wiki.skullsecurity.org/Dnscat}{https://wiki.skullsecurity.org/Dnscat}
+ \bibitem{denise} ``DeNiSe, " \href{https://github.com/mdornseif/DeNiSe}{https://github.com/mdornseif/DeNiSe}
+ \bibitem{dns-shell} ``DNS-shell, " \href{https://github.com/sensepost/DNS-Shell}{https://github.com/sensepost/DNS-Shell}
+ \bibitem{dnsbotnet} ``DNSBotnet, " \href{https://github.com/magisterquis/dnsbotnet}{https://github.com/magisterquis/dnsbotnet}
+ \bibitem{dnscapy} ``DNScapy, " \href{https://github.com/FedericoCeratto/dnscapy}{https://github.com/FedericoCeratto/dnscapy}
+ \bibitem{dohtunnel} ``dohtunnel, " \href{https://github.com/jansect/dohtunnel/blob/master/doh/doh.go}{https://github.com/jansect/dohtunnel/blob/master/doh/doh.go}
+ \bibitem{godoh} ``goDoH, " \href{https://github.com/sensepost/goDoH}{https://github.com/sensepost/goDoH}
+ \bibitem{dohc2} ``DoHC2, " \href{https://github.com/SpiderLabs/DoHC2}{https://github.com/SpiderLabs/DoHC2}
+ \bibitem{magictunnelandroid} ``magicTunnelAndroid, " \href{https://github.com/MagicTunnel/MagicTunnelAndroid}{https://github.com/MagicTunnel/MagicTunnelAndroid}
  \bibitem{Ramasubramanian} Ramasubramanian, Venugopalan and Sirer, Emin G\"{u}n, ``The Design and Implementation of a next Generation Name Service for the Internet, " Association for Computing Machinery, NY, USA, SIGCOMM Comput. Commun. Rev, number 4 Volume 34, pp.331–342.
  \bibitem{Danielis} P. Danielis, V. Altmann, J. Skodzik, T. Wegner, A. Koerner and D. Timmermann, "P-DONAS: A P2P-Based Domain Name System in Access Networks," in ACM Transactions on Internet Technology (TOIT), vol. 15, no. 3, pp. 1-21, September 2015.
  \bibitem{namecoin} ``Namecoin, " \href{https://www.namecoin.org/}{https://www.namecoin.org/}, (accessed 2019-12-30)
+ \bibitem{nmap} ``Bugtraq mailing list archives DNS Tunnel - through bastion hosts, " \href{https://seclists.org/bugtraq/1998/Apr/79}{https://seclists.org/bugtraq/1998/Apr/79}, (accessed 2019-1-4)
 \end{thebibliography}
 \bibliography{mthesis}
 
