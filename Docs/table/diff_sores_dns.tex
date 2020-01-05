@@ -4,11 +4,11 @@
     \toprule
      & \textbf{DNS} & \textbf{SORES} \\
     \midrule
-    \textbf{RTT} & 全ての権威サーバとのRTTの総和 & マネージャとのRTT  \\ \hline
-		\textbf{ドメイン長(パケットサイズ)} & 変長(最大253byte) & 固定長(56byte)  \\ \hline
-    \textbf{トランザクション回数} & ラベル数依存 & 1 \\ \hline
-    \textbf{トラフィック量} & 線形増加 & 線形増加 \\ \hline
-    \textbf{リクエスト速度} & N/A & ハッシュ計算分遅延 \\
+    \textbf{ドメイン長} & \begin{tabular}{c}変長\\(最大253octets)\end{tabular} & \begin{tabular}{c}固定長(72octets)\\(コンテンツID(56) \& \\ ドメインID(16))\end{tabular} \\ \hline
+    \textbf{\begin{tabular}{c}トランザクション\\試行回数\end{tabular}} & ラベル数回 & 1 \\ \hline
+    \textbf{RTT} & \begin{tabular}{c}全ての権威サーバ\\とのRTT総和\end{tabular} & マネージャとのRTTのみ  \\ \hline
+		 \textbf{ゾーンファイル} & ファイル & インメモリデータベース\\ \hline
+		 \textbf{その他} & & \begin{tabular}{l}・ハッシュ計算の発生\\・マネージャ探索\end{tabular}\\
     \bottomrule
   \end{tabular}
  \caption{DNSとSORESの特性比較}

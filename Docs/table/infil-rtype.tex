@@ -1,0 +1,25 @@
+\begin{table}[h]
+ \centering
+  \begin{tabular}{cccc}
+    \toprule
+		\textbf{タイプ} & \textbf{最大サイズ(octets)} & \textbf{説明}\\
+    \midrule
+    A & 4 &  ホストのIPv4アドレス \\
+    NS & 4 & 権威サーバ \\
+    %MF & 4 & メール転送サーバ \\
+    CNAME & 253 & 別名 \\
+    SOA & 6 & 権威ゾーンの開始 \\
+    NULL & 10 & NULL(実験用) \\
+    PTR & 12 & ドメイン名のポインター(逆引き) \\
+    %HINFO & 13 & ホスト情報 \\
+    %MINFO & 14 & メールボックスおよびメールリスト情報 \\
+    MX & 253 & メール交換 \\
+    TXT & 255 & 任意文字列 \\
+    AAAA & 32 & ホストのIPv6アドレス \\
+    DNSKEY & 48 & DNSSECのための公開鍵\\
+    %TLSA & 52 & \\
+    \bottomrule
+  \end{tabular}
+ \caption{主要リソースレコード一覧}
+ \label{tab:infil-rtype}
+\end{table}
