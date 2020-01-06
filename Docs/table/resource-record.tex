@@ -1,27 +1,28 @@
 \begin{table}[h]
  \centering
-  \begin{tabular}{ccc}
+  \begin{tabular}{ll}
     \toprule
-    \textbf{タイプ} & \textbf{値} & \textbf{意味} \\
+    \textbf{タイプ} & \textbf{意味} \\
     \midrule
-    A & 1 &  ホストのIPv4アドレス \\
-    NS & 2 & 権威サーバ \\
+    A &  ホストのIPv4アドレス \\
+    NS & 権威サーバ \\
     %MF & 4 & メール転送サーバ \\
-    CNAME & 5 & 別名 \\
-    SOA & 6 & 権威ゾーンの開始 \\
-    NULL & 10 & NULL(実験用) \\
-    PTR & 12 & ドメイン名のポインター(逆引き) \\
+    CNAME & 別名 \\
+    SOA & 権威ゾーンの開始 \\
+    NULL & NULL(実験用) \\
+    PTR & ドメイン名のポインター(逆引き) \\
     %HINFO & 13 & ホスト情報 \\
     %MINFO & 14 & メールボックスおよびメールリスト情報 \\
-    MX & 15 & メール交換 \\
-    TXT & 16 & 任意文字列 \\
-    AAAA & 28 & ホストのIPv6アドレス \\
-    RRSIG & 46 & リソースレコード署名\\
-    NSEC & 47 & DNSSECのための不在署名\\
-    DNSKEY & 48 & DNSSECのための公開鍵\\
-    NSEC3 & 50 & NSECのバージョン3\\
+    MX & メール交換 \\
+    TXT & 任意文字列 \\
+    AAAA & ホストのIPv6アドレス \\
+		SRV & ドメイン名に対するサービスの場所\\
+    RRSIG & リソースレコード署名\\
+    NSEC & DNSSECのための不在署名\\
+    DNSKEY & DNSSECのための公開鍵\\
+    NSEC3 & NSECのバージョン3\\
     %TLSA & 52 & \\
-    CAA & 257 & 証明書を発行する認証局の指定\\
+    CAA & 証明書を発行する認証局の指定\\
     \bottomrule
   \end{tabular}
  \caption{主要リソースレコード一覧}

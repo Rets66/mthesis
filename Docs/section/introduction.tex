@@ -4,6 +4,8 @@
 %他には，セキュリティ脅威対策におけるSOCエンジニアの業務の大半が誤検知とのハンドリングに時間を取られている背景から入るとか
 %膨大なセキュリティアラートにおける優先度やアラートが誤検知であるのかないのかの判別に業務が取られるているという報告がある．
 %これを引き合いに対して，そもそも設計の脆弱性を廃止することの必要性について問題提起するとか
+%security soc false positive handling
+%https://medium.com/analytics-vidhya/classification-of-false-positive-security-alerts-in-soc-environment-5b6fa97ac2ef
 増加のし続けているサイバー攻撃に対して，現在多くの組織は，SIEM\footnotetext{SIEM : Security Information and Event Management}のようなネットワークトラフィックを監視するシステムを導入し，そのシステムから発せられるアラートを処理することで脅威に対処している．
 %しかし，実際の運用では，システムからのアラートの量は膨大であり，全てのアラートを完全に網羅することは人数的・スキル的要因により極めて困難である．
 他方で，機密情報の流出や諜報活動といった目的を実行する者は，目的を成功するため，またはその攻撃を特定・解析されないために，目的達成のために必要な通信を他の通信プロトコルに偽装させるといった秘匿通信手法\footnotetext{秘匿通信 : 情報を不正・秘密裏に転送するために使用される回避通信手法}~\cite{covertchannel}を用いることが知られている~\cite{mitre-custom-c2}．
