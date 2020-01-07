@@ -1,0 +1,58 @@
+%client.addr = address
+%client.port = port
+%client.data = payload
+%clinet.data.header
+%client.data.qname
+%client.data.rtype
+%hash.sha3_224()
+%hash.md5()
+%map.range.start : list
+%map.range.end : list
+%map.addr : list
+%map.name : list
+%zone_x
+
+
+\begin{algorithm}[!h]
+ \caption{スタブリゾルバからのクエリ処理}
+ \label{algo:full-service}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Calc}{calculate\_id}
+  \SetKwFunction{Find}{find\_manager}
+  \SetKwFunction{Query}{query\_content}
+  \SetKwFunction{Transfer}{transfer\_answer}
+ $qname \leftarrow client.data.qname$\;
+ $rtype \leftarrow client.data.rtype$\;
+ $start \leftarrow map.range.start$\;
+ $end \leftarrow map.range.end$\;
+ $\vspace{-0.3cm}$\;
+
+ Calculate the Content ID and the Domain ID\;
+ \Fn{\Calc{qname, rtype}}{
+   $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
+   $domain\_id \leftarrow hash.md5(qname) / 2$\;
+   $return \ content\_id,\ domain\_id$
+ }
+
+
+ $\vspace{-0.3cm}$\;
+ Find a manager who has zone includes the Content ID\;
+ \Fn{\Find{start, end}}{
+   \For {$i,\ j\ \textbf{in}\ map.range.start,\ map.range.end$} {
+     \If {$i \leq content\_id \leq j$} {
+       $p \leftarrow map.range.start.index(i)$\;
+       $manager\_addr \leftarrow map.addr[p]$\;
+       $break$\;
+     }
+   }
+ }
+ $\vspace{-0.3cm}$\;
+
+ Query the content to the manager\;
+ $answer \leftarrow query(manager\_addr,\ content\_id,\ domain\_id)$\;
+ $\vspace{-0.3cm}$\;
+
+ Transfer the answer to Client\;
+ $transfer((client.addr,\ client.port),$\;
+ $\qquad\qquad client.data.qname,\ answer.header.rcode,\ answer.rdata)$\;
+\end{algorithm}

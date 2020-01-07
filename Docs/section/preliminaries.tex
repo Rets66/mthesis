@@ -90,7 +90,7 @@ DNSによる名前解決の一連の動作を図~\ref{fig:dns-name-resolution}�
 \end{figure}
 
 解決したいドメイン名は，図~\ref{fig:dns-answer}におけるQnameフィールドである．
-各フィールドはサイズが決まっており，Qnameフィールドが最大長255バイト，リソースレコードのタイプを表すQtypeフィールドとクエリクラスを表すQclassフィールドがそれぞれ2バイトである．
+各フィールドはサイズが決まっており，Qnameフィールドが最大長255バイト，リソースレコードのタイプを表すQtypeフィールドとクエリクラスを表すQclassフィールドがそれぞれ2バイトとなっている．
 
 \begin{eqnarray}
  (LablD).(LabelC).(LabelB).(LabelA). \label{eq:domain-name} \\
@@ -109,7 +109,7 @@ Questionセクションの最大長255バイトは，ラベルの長さとラベ
 \input{table/resource-record}
 ラベルには，数字とアルファベットおよびハイフン(``-")を使用することができ，ラベル中に大文字・小文字の区別はない．
 他方で，アルファベットなどのASCII以外にも，国際化ドメイン名(IDN: Internationalized Domain Name)を使用すると日本語やアラビア語なども使用することができる．
-IDNは，Punnycode~\cite{punnycode}\footnotetext{Punnycode:Unicode文字列を一意かつ可逆的にASCII文字列に変換する符号化方式}などのエンコーディング手法に基づき，DNSクエリする際にはASCIIコードに変換される．
+IDNは，Punnycode~\cite{punnycode}\footnotetext{Punnycode: Unicode文字列を一意かつ可逆的にASCII文字列に変換する符号化方式}などのエンコーディング手法に基づき，DNSクエリする際にはASCIIコードに変換される．
 
 ドメイン名に関連づけられる情報であるリソースレコードには複数のタイプが定義されており，目的ごとに使い分けられる．
 例えば，Aというレコードタイプは，ドメイン名に対するIPv4アドレスを対応づけるために用いられる．
@@ -124,6 +124,7 @@ IDNは，Punnycode~\cite{punnycode}\footnotetext{Punnycode:Unicode文字列を�
 \subsection{DNSトンネリング}
 \label{sec:dns-tunneling}
 %DNSトンネリングが脅威となりうる点に関する説明
+%Botnetなどに使用されることについて言及するべき
 %概念
 DNSトンネリングは，DNSをデータ転送のメディアとした秘匿通信手法の総称であり，転送元と転送先の方向性によって二つに分類することができる．
 一つ目がDNS Exfiltrationと呼ばれる，スタブリゾルバから権威サーバ方向へのデータ転送手法であり，二つ目がDNS Infiltrationと呼ばれ，権威サーバからスタブリゾルバ方向へのデータを転送手法である．
@@ -288,3 +289,5 @@ DNSトンネリングメソッドを使用した時のDNSクエリは，で述�
 \subsubsection{検知迂回手法}
 %パフォーマンスを下げる手法(Low Latency)
 %DNSエイリアスに対応づける手法
+% 慣習的に命名されるラベル(Naming Convention)に意味を持たせることによって，例えば1byteの情報を持たせること
+%特別Alexaなどの人気ラベルを調査しなくてもいいのかもしれない

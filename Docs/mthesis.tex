@@ -7,6 +7,8 @@
 
 %package
 \usepackage{amssymb, amsmath, newtxmath}
+\usepackage[ruled, vlined]{algorithm2e}
+%\usepackage{algorithm}
 \usepackage{cite}
 \usepackage[utf8]{inputenc}
 %\usepackage{utf}
@@ -21,6 +23,19 @@
 \usepackage{here}
 
 
+\SetAlgorithmName{アルゴリズム}{アルゴリズム}{アルゴリズム目次}
+\DontPrintSemicolon
+\RestyleAlgo{algoruled}
+\SetAlgoCaptionSeparator{.}
+\SetFuncSty{textbf}
+\SetKwIF{If}{ElseIf}{Else}{if}{:}{elif}{else:}{}
+\SetKwFor{For}{for}{\string:}{}
+\SetKwFor{While}{while}{\string:}{}
+\SetKw{To}{to}
+\SetKw{Break}{break}
+\SetKw{Continue}{continue}
+\SetKw{True}{True}
+\SetKw{False}{False}
 
 %definition
 \definecolor{purple}{RGB}{98, 114, 164}
@@ -216,6 +231,7 @@
 \listoffigures
 %\newpage
 \listoftables
+\listofalgorithms
 
 
 
