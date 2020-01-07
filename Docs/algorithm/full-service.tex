@@ -27,21 +27,22 @@
  $end \leftarrow map.range.end$\;
  $\vspace{-0.3cm}$\;
 
- Calculate the Content ID and the Domain ID\;
+ Calculate the Content'{}s Content ID and Domain ID\;
  \Fn{\Calc{qname, rtype}}{
    $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
-   $domain\_id \leftarrow hash.md5(qname) / 2$\;
+   $domain\_id \leftarrow hash.md5(qname)\ /\ 2$\;
    $return \ content\_id,\ domain\_id$
  }
 
 
  $\vspace{-0.3cm}$\;
- Find a manager who has zone includes the Content ID\;
- \Fn{\Find{start, end}}{
+ Find the manager who has zone includes the Content ID\;
+ \Fn{\Find{start, end, content\_id}}{
    \For {$i,\ j\ \textbf{in}\ map.range.start,\ map.range.end$} {
      \If {$i \leq content\_id \leq j$} {
        $p \leftarrow map.range.start.index(i)$\;
        $manager\_addr \leftarrow map.addr[p]$\;
+       $return\ manager\_addr$\;
        $break$\;
      }
    }

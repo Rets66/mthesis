@@ -93,8 +93,8 @@ DNSによる名前解決の一連の動作を図~\ref{fig:dns-name-resolution}�
 各フィールドはサイズが決まっており，Qnameフィールドが最大長255バイト，リソースレコードのタイプを表すQtypeフィールドとクエリクラスを表すQclassフィールドがそれぞれ2バイトとなっている．
 
 \begin{eqnarray}
- (LablD).(LabelC).(LabelB).(LabelA). \label{eq:domain-name} \\
- (Length) + (LabelD) + ... + (length) + (LableB) + (length) + (LabelA) + 0 \label{eq:label-name} \\ 
+ (LabelD).(LabelC).(LabelB).(LabelA). \label{eq:domain-name} \\
+ (Length) + (LabelD) + ... + (length) + (LabelB) + (length) + (LabelA) + 0 \label{eq:label-name} \\ 
  1 + (Max 63) + ... + 1 + (Max 63) + 1 + (Max 63) + 1 = (Max 255) \label{eq:length-label-domain}
 \end{eqnarray}
 
