@@ -1,9 +1,31 @@
 \section{評価}
+\label{sec:evaluation}
+%評価基準
+%Fialure Resilience, Performance(Latency, Misconfiguration, Load Balance)
+%サービスとして要求されるもの
+% Resolution response time
+% Resolution Accuracy
+% Resolution guarantee
+% Resolution fairness
+%
+%システムとして要求されるもの
+% スケーラビリティ
+% マネージビリティ
+% Deployed System
+% Fault Torrelance
+%
+%セキュリティ
+% アクセシビリティ
+% Aurhontication
+% Data Confidentialy
+% プライバシー保護
+% ロバストネス
+% ネットワークプライバシー
 本章では，提案システムのプロトタイプ上でのトンネリング実装の動作に基づき，権威サーバにおける機能の分離と名前空間をフラットにするメソッドがトンネリング抑止に機能することを明らかにする．
 また，提案システムの特性に関して，既存のDNSとの比較に基づき評価し，その特性を
 トラフィック量の緩和と名前解決を高速化する有意性を示すことを説明する．
 
-システムのプロトタイプでは，簡単のため，フルサービスリゾルバとマネージャ，プロバイダをPython 3を用いて実装した．
+システムのプロトタイプには，Python3を用いて，フルサービスリゾルバとマネージャ，プロバイダを実装した．
 DNSトンネリングに対する抑止効果については，第~\ref{sec:eval-tunnel}節で述べ，システムの特性については，第~\ref{sec:eval-feature}節でそれぞれ詳細に述べる．
 
 
