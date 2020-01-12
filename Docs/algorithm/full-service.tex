@@ -27,7 +27,8 @@
  $end \leftarrow map.range.end$\;
  $\vspace{-0.3cm}$\;
 
- Calculate the Content'{}s Content ID and Domain ID\;
+ コンテンツIDとドメインIDの算出\;
+ %Calculate the content'{}s content id and domain id\;
  \Fn{\Calc{qname, rtype}}{
    $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
    $domain\_id \leftarrow hash.md5(qname)\ /\ 2$\;
@@ -36,7 +37,8 @@
 
 
  $\vspace{-0.3cm}$\;
- Find the manager who has zone includes the Content ID\;
+ %Find the manager who has zone includes the content id\;
+ コンテンツIDが含まれるゾーンを保持するマネージャアドレスの解決\;
  \Fn{\Find{start, end, content\_id}}{
    \For {$i,\ j\ \textbf{in}\ map.range.start,\ map.range.end$} {
      \If {$i \leq content\_id \leq j$} {
@@ -49,11 +51,13 @@
  }
  $\vspace{-0.3cm}$\;
 
- Query the content to the manager\;
+ %Query the content to the manager\;
+ マネージャへの問い合わせ\;
  $answer \leftarrow query(manager\_addr,\ content\_id,\ domain\_id)$\;
  $\vspace{-0.3cm}$\;
 
- Transfer the answer to Client\;
+ %Transfer the answer to client\;
+ レコード情報をスタブリゾルバへ応答\;
  $transfer((client.addr,\ client.port),$\;
  $\qquad\qquad client.data.qname,\ answer.header.rcode,\ answer.rdata)$\;
 \end{algorithm}

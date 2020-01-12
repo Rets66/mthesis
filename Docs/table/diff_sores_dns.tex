@@ -1,15 +1,15 @@
 \begin{table}[htb]
  \caption{DNSとSORESの特性比較}
  \centering
-  \begin{tabular}{ccc}
+  \begin{tabular}{lll}
     \toprule
-     & \textbf{DNS} & \textbf{SORES} \\
+		 & \multicolumn{1}{c}{\textbf{DNS}} & \multicolumn{1}{c}{\textbf{SORES}} \\
     \midrule
-    \textbf{ドメイン長} & \begin{tabular}{c}変長\\(最大253byte)\end{tabular} & \begin{tabular}{c}固定長(72byte)\\(コンテンツID(56) \& \\ ドメインID(16))\end{tabular} \\ \hline
-    \textbf{\begin{tabular}{c}トランザクション\\試行回数\end{tabular}} & ラベル数回 & 1 \\ \hline
-    \textbf{RTT} & \begin{tabular}{c}全ての権威サーバ\\とのRTT総和\end{tabular} & マネージャとのRTTのみ  \\ \hline
-		 \textbf{ゾーンファイル} & ファイル & インメモリデータベース\\ \hline
-		 \textbf{その他} & & \begin{tabular}{l}・ハッシュ計算の発生\\・マネージャ探索\end{tabular}\\
+    \ \textbf{ドメイン長} & \begin{tabular}{l}変長\\(最大253byte)\end{tabular} & \begin{tabular}{l}固定長(72byte)\\(コンテンツID(56) \& \\ ドメインID(16))\end{tabular} \\ \hline
+    \textbf{\begin{tabular}{l}トランザクション\\試行回数\end{tabular}} &\ ラベル数回 & 1 \\ \hline
+    \ \textbf{RTT} & \begin{tabular}{l}全ての権威サーバ\\とのRTT総和\end{tabular} & マネージャとのRTTのみ  \\ \hline
+		\ \textbf{ゾーンファイル} &\ ファイル & インメモリデータベース\\ \hline
+		\ \textbf{その他} & & \begin{tabular}{l}・ハッシュ計算の発生\\・マネージャ探索\end{tabular}\\
     \bottomrule
   \end{tabular}
  \label{tab:diff_sores_dns}

@@ -3,23 +3,23 @@
  \centering
   \begin{tabular}{lrll}
     \toprule
-		\textbf{タイプ} & \textbf{\begin{tabular}{c}最大サイズ\\(byte)\end{tabular}} & \textbf{説明} & 実装\\
+		\multicolumn{1}{c}{\textbf{タイプ}} & \multicolumn{1}{c}{\textbf{\begin{tabular}{c}最大サイズ\\(byte)\end{tabular}}} & \multicolumn{1}{c}{\textbf{説明}} &\multicolumn{1}{c}{\textbf{実装}}\\
     \midrule
 		A & 4 & \ ホストのIPv4アドレス &\\ \hline
-		NS & 4 & \ 権威サーバ & \ \cite{dnscat2}\\ \hline
+		NS & 4 & \ 権威サーバ & \, \cite{dnscat2}\\ \hline
     %MF & 4 & メール転送サーバ \\
-		CNAME & 253 & \ 別名 & \ \cite{iodine},\cite{dnscat2}, \cite{dnscapy}, \cite{tuns}\\ \hline
+		CNAME & 253 & \ 別名 & \, \cite{iodine},\cite{dnscat2}, \cite{dnscapy}, \cite{tuns}\\ \hline
 		%SOA & 253 & 権威ゾーンの開始 & \\
-		NULL & 255 & \ NULL(実験用) & \ \cite{iodine}\\ \hline
+		NULL & 255 & \ NULL(実験用) & \, \cite{iodine}\\ \hline
 		PTR & 4 & \begin{tabular}{l}ドメイン名のポインター\\(逆引き)\end{tabular} & \\ \hline
     %HINFO & 13 & ホスト情報 \\
     %MINFO & 14 & メールボックスおよびメールリスト情報 \\
-		MX & 253 & \ メール交換 & \ \cite{iodine},\cite{dnscat2}\\ \hline
+		MX & 253 & \ メール交換 & \, \cite{iodine},\cite{dnscat2}\\ \hline
 		TXT & 255 & \ 任意文字列 & \begin{tabular}{l}\cite{iodine},\cite{dnscat2}, \cite{denise}, \cite{dns-shell},\\ \cite{dnscapy}, \cite{dohtunnel}, \cite{dohc2}\end{tabular}\\ \hline
 		AAAA & 32 & \ ホストのIPv6アドレス & \\ \hline
-		SRV & 180 & \begin{tabular}{l}ドメイン名に対する\\サービスの場所\end{tabular} & \ \cite{iodine}\\ \hline
-		 DNSKEY & 40 & \ DNSSECのための公開鍵 & \ \cite{dns2tcp}\\ \hline
-		 EDNS & 1280 & \ 応答パケットの拡張 & \ \cite{ozymandns}\\
+		SRV & 180 & \begin{tabular}{l}ドメイン名に対する\\サービスの場所\end{tabular} & \, \cite{iodine}\\ \hline
+		 DNSKEY & 40 & \ DNSSECのための公開鍵 & \, \cite{dns2tcp}\\ \hline
+		 EDNS & 1280 & \ 応答パケットの拡張 & \, \cite{ozymandns}\\
     %TLSA & 52 & \\
     \bottomrule
   \end{tabular}

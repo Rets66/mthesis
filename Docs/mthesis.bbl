@@ -88,11 +88,6 @@ J.~{Ahmed}, H.~H. {Gharakheili}, Q.~{Raza}, C.~{Russell}, and V.~{Sivaraman},
   internal hosts,'' {\em IEEE Transactions on Network and Service Management},
   pp.~1--1, 2019.
 
-\bibitem{ozymandns}
-D.~Kaminsky, ``Ozymandns.''
-  https://dankaminsky.com{\slash}2004{\slash}07{\slash}29{\slash}51{\slash}.
-\newblock (accessed at 2020-1-5).
-
 \bibitem{iodine}
 E.~Ekman, ``iodine.'' http://code.kryo.se/iodine/.
 \newblock (accessed at 2020-1-5).
@@ -103,19 +98,19 @@ R.~Bowes, ``dnscat2.'' https://github.com/iagox86/dnscat2.
 
 \bibitem{rfc1034}
 P.~Mockapetris, ``Domain names - concepts and facilities.''
-  https://www.rfc-editor.org{\slash}info{\slash}std13, 1987.
+  https://www.rfc-editor.org{\slash}info{\slash}std13, November 1987.
 \newblock RFC1034.
 
 \bibitem{rfc1035}
 P.~Mockapetris, ``Domain names - implementation and specification.''
-  https://www.rfc-editor.org/info/std13, 1987.
+  https://www.rfc-editor.org/info/std13, November 1987.
 \newblock RFC1035.
 
-\bibitem{punnycode}
-A.~Costello, ``Punycode: A bootstring encoding of unicode for internationalized
-  domain names in applications (idna).''
-  https://www.rfc-editor.org/info/rfc3492, 2003.
-\newblock RFC3492.
+\bibitem{idn}
+J.~Klensin, ``Internationalized domain names for applications (idna):
+  Definitions and document framework.''
+  https://www.rfc-editor.org/info/rfc5890, August 2010.
+\newblock RFC5890.
 
 \bibitem{nmap}
 O.~Pearson, ``Bugtraq mailing list archives dns tunnel - through bastion
@@ -125,6 +120,11 @@ O.~Pearson, ``Bugtraq mailing list archives dns tunnel - through bastion
 \bibitem{maarten}
 M.~V. Horenbeeck, ``Dns tunneling.''
   http://web.archive.org{\slash}web{\slash}20060709044338{\slash}www.daemon.be{\slash}maarten{\slash}dnstunnel.html.
+\newblock (accessed at 2020-1-5).
+
+\bibitem{ozymandns}
+D.~Kaminsky, ``Ozymandns.''
+  https://dankaminsky.com{\slash}2004{\slash}07{\slash}29{\slash}51{\slash}.
 \newblock (accessed at 2020-1-5).
 
 \bibitem{dan-kaminsky}
@@ -188,13 +188,13 @@ L.~Nussbaum, ``Tuns.'' https://github.com/lnussbaum/tuns.
 
 \bibitem{rfc4648}
 S.~Josefsson, ``The base16, base32, and base64 data encodings.''
-  https://www.rfc-editor.org/info/rfc4648, 2006.
+  https://www.rfc-editor.org/info/rfc4648, October 2006.
 \newblock RFC4648.
 
 \bibitem{rfc4033}
 R.~Arends, R.~Austein, M.~Larson, D.~Massey, and S.~Rose, ``Dns security
   introduction and requirements.'' https://www.rfc-editor.org/info/rfc4033,
-  2005.
+  March 2005.
 \newblock RFC4033.
 
 \end{thebibliography}
