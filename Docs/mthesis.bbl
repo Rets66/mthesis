@@ -58,7 +58,8 @@ Cylance, ``Threat spotlight: Inside udpos malware.''
 K.~Born and D.~Gustafson, ``Ngviz: Detecting dns tunnels through n-gram
   visualization and quantitative analysis,'' in {\em Proceedings of the Sixth
   Annual Workshop on Cyber Security and Information Intelligence Research},
-  CSIIRW ’10, (New York, NY, USA), Association for Computing Machinery, 2010.
+  CSIIRW ’10, (New York, NY, USA), p.~4, Association for Computing Machinery,
+  2010.
 
 \bibitem{cheng}
 C.~Qi, X.~Chen, C.~Xu, J.~Shi, and P.~Liu, ``A bigram based real time dns
@@ -190,6 +191,17 @@ L.~Nussbaum, ``Tuns.'' https://github.com/lnussbaum/tuns.
 S.~Josefsson, ``The base16, base32, and base64 data encodings.''
   https://www.rfc-editor.org/info/rfc4648, October 2006.
 \newblock RFC4648.
+
+\bibitem{morishita}
+�.~泰宏 and 尾崎勝義,
+  ``Dns運用の「見抜く」を探る～インシデント事例の紹介と必要な要素・項目～ランチのおともにdns.''
+  https://jprs.jp/tech/material/iw2016-lunch-L3-01.pdf.
+\newblock (accessed at 2020-1-13).
+
+\bibitem{Herrymann}
+D.~Herrmann, C.~Banse, and H.~Federrath, ``Behavior-based tracking: Exploiting
+  characteristic patterns in dns traffic,'' {\em Comput. Secur.}, vol.~39,
+  p.~17–33, Nov. 2013.
 
 \bibitem{rfc4033}
 R.~Arends, R.~Austein, M.~Larson, D.~Massey, and S.~Rose, ``Dns security
