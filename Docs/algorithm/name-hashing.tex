@@ -1,0 +1,39 @@
+\begin{algorithm}[!h]
+ \caption{フルサービスリゾルバにおける問い合わせ転送処理}
+ \label{algo:full-service}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Handle}{handler}
+  \SetKwFunction{Calc}{calculate\_id}
+  \SetKwFunction{Find}{find\_manager}
+
+ クエリハンドリング\;
+ \Fn{\Handle{data}}{
+   $content\_id,\ domain\_id \leftarrow calculate\_id(data)$\;
+	 $manager\_addr \leftarrow find\_manager(start,\ end,\ content\_id)$\;
+	 $answer \leftarrow query\_manager(manager\_addr,\ content\_id,\ domain\_id)$\;
+	 $response\_client(client\_address,\ qname,\ answer.rcode,\ answer.rdata)$\;
+ }
+
+ $\vspace{-0.3cm}$\;
+ %Calculate the content'{}s content id and domain id\;
+ コンテンツIDとドメインIDの算出\;
+ \Fn{\Calc{qname, rtype}}{
+   $content\_id \leftarrow hash.sha3\_224(qname+qtype)$\;
+   $domain\_id \leftarrow hash.md5(qname)\ /\ 2$\;
+   $return \ content\_id,\ domain\_id$
+ }
+
+ $\vspace{-0.3cm}$\;
+ %Find the manager who has zone includes the content id\;
+ コンテンツIDが含まれるゾーンを保持するマネージャアドレスの解決\;
+ \Fn{\Find{start, end, content\_id}}{
+   \For {$i,\ j\ \textbf{in}\ map\_start,\ map\_end$} {
+     \If {$i \leq content\_id \leq j$} {
+       $p \leftarrow map\_start.index(i)$\;
+       $manager\_addr \leftarrow map.addr[p]$\;
+       $return\ manager\_addr$\;
+     }
+   }
+ }
+ $\vspace{-0.3cm}$\;
+\end{algorithm}

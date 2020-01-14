@@ -1,0 +1,62 @@
+\begin{algorithm}[!h]
+ \caption{マネージャにおける名前解決問い合わせ処理}
+ \label{algo:manager}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Handler}{handler}
+  \SetKwFunction{Parse}{parser}
+  \SetKwFunction{Database}{db\_accesser}
+  \SetKwFunction{Noerror}{generate\_packet}
+  \SetKwFunction{Error}{generate\_errror}
+ $\vspace{-0.3cm}$\;
+
+ フルサービスリゾルバからのクエリハンドリング\;
+ %Calculate the content'{}s content id and domain id\;
+ \Fn{\Handler{data}}{
+	 $content\_id,\ qtype \leftarrow parser(data)$\;
+	 $record\_value \leftarrow db\_accesser(content\_id)$\;
+	 \If{$value$}{
+		 $payload \leftarrow benigh\_response(content\_id,\ qtype,\ ttl,\ record\_value) $\;
+		}
+		\Else{
+		 $payload \leftarrow error\_response(content\_id,\ qtype)$\;
+		 }
+		$payload \leftarrow payload.pack()$\;
+		$connection.sendto(payload,\ client\_address)$\;
+ }
+
+%クエリのパース\;
+% %Calculate the content'{}s content id and domain id\;
+% \Fn{\Parse{data}}{
+%   $payload = DNSRecord.parse(data)$\;
+%	 $return \ {'packet\_id':payload[0], 'content\_id':payload[1], 'q\_type':payload[2]}$\;
+% }
+%
+%
+% $\vspace{-0.3cm}$\;
+% %Find the manager who has zone includes the content id\;
+% DBへアクセス\;
+% \Fn{\Database{content\_id}}{
+%	$return \ Redis("127.0.0.1", 6379).get(content\_id)$\;
+% }
+% $\vspace{-0.3cm}$\;
+%
+% %Query the content to the manager\;
+% 応答パケットの作成\;
+% \Fn{\Noerror{packet\_id, content\_id, q\_type, ttl, record}}{
+%	$payload = DNSRecord(DNSHeader($\;
+%				$qr=1, aa=1, ra=1,id=packet\_id, rcode=RCODE["NoError"]))$\;
+%	$payload.add\_question(content\_id, q\_type)$\;
+%	$payload.add\_answer(c\_id, ttl, record)$\;
+%  $return \ payload$\;
+% }
+% $\vspace{-0.3cm}$\;
+%
+% %Transfer the answer to client\;
+% エラー応答パケットの作成\;
+% \Fn{\Error{packet\_id, content\_id, q\_type, ttl, record}}{
+%	$payload = DNSRecord(DNSHeader($\;
+%				 $qr=1, aa=1, ra=1,id=packet\_id, rcode=RCODE["NXDomain"]))$\;
+%	$payload.add\_question(content\_id, q\_type)$\;
+%  $return \ payload$\;
+% }
+\end{algorithm}

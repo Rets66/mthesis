@@ -198,6 +198,13 @@ S.~Josefsson, ``The base16, base32, and base64 data encodings.''
   https://jprs.jp/tech/material/iw2016-lunch-L3-01.pdf.
 \newblock (accessed at 2020-1-13).
 
+\bibitem{vern}
+V.~Paxson, M.~Christodorescu, M.~Javed, J.~Rao, R.~Sailer, D.~L. Schales,
+  M.~Stoecklin, K.~Thomas, W.~Venema, and N.~Weaver, ``Practical comprehensive
+  bounds on surreptitious communication over {DNS},'' in {\em Presented as part
+  of the 22nd {USENIX} Security Symposium ({USENIX} Security 13)}, (Washington,
+  D.C.), pp.~17--32, {USENIX}, 2013.
+
 \bibitem{Herrymann}
 D.~Herrmann, C.~Banse, and H.~Federrath, ``Behavior-based tracking: Exploiting
   characteristic patterns in dns traffic,'' {\em Comput. Secur.}, vol.~39,
