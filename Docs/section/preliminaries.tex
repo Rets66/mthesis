@@ -24,7 +24,7 @@ DNSには，委譲という仕組みを利用することでゾーンを分割�
 しかし，``com."がそれぞれのドメインにゾーンを委譲した場合，先の``www.example.com"は``example.com."が管理し，``mail.google.com."は``google.com."が管理することになる．
 DNSでは，この委譲の仕組みを利用することで，ゾーンの肥大を抑止させ，サーバの負荷分散を実現する設計になっている．
 
-\begin{figure}[h]
+\begin{figure}[th]
  \centering
  \includegraphics[width=12.0cm]{figure/dns-architecture.png}
  \caption[ゾーンごとに分割された名前空間]{ゾーンごとに名前空間を色で区分した様子．Root権威が管理するオレンジで表現されたゾーンには，comやorgをはじめとしたドメインが含まれる．Rootの直下に位置するTLDの一つであるcomドメインは，青色で囲まれたexampleドメインを含むゾーンを管理する．comに紐づけられるexampleドメインは，wwwなどを管理する．}
@@ -84,7 +84,7 @@ DNSでは，IPv4アドレス以外にも様々な情報をドメイン名に関�
 
 次に，DNSのパケットフォーマットについて説明する．
 図~\ref{fig:dns-format}で示すように，DNSのパケットは５つのセクションに分けられる．
-\begin{figure}[h]
+\begin{figure}[bh]
  \centering
  \includegraphics[scale=0.7]{figure/dns-format.png}
  \caption{DNSのパケットフォーマット}
@@ -92,7 +92,7 @@ DNSでは，IPv4アドレス以外にも様々な情報をドメイン名に関�
 \end{figure}
 クライアントがDNSの名前解決をする際，解決したいレコードタイプとそのドメイン名は図~\ref{fig:dns-answer}におけるQnameフィールに含まれる．
 各フィールドはサイズが決まっており，Qnameフィールドが最大長255バイト，リソースレコードのタイプを表すQtypeフィールドとクエリクラスを表すQclassフィールドがそれぞれ2バイトとなっている．
-\begin{figure}[h]
+\begin{figure}[th]
  \centering
  \includegraphics[scale=0.6]{figure/dns-answer.png}
  \caption{DNSのパケットのAnswerセクション(bytes)}
