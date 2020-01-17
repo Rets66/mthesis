@@ -5,11 +5,11 @@
     \toprule
 		 & \multicolumn{1}{c}{\textbf{DNS}} & \multicolumn{1}{c}{\textbf{DNS-TD}} \\
     \midrule
-    \ \textbf{ドメイン長} & \begin{tabular}{l}変長\\(最大253byte)\end{tabular} & \begin{tabular}{l}固定長(72byte)\\(コンテンツID(56) \& \\ ドメインID(16))\end{tabular} \\ \hline
-    \textbf{\begin{tabular}{l}トランザクション\\試行回数\end{tabular}} &\ ラベルに依存 & 1 \\ \hline
+    \ \textbf{ドメイン長} & \begin{tabular}{l}変長\\(最大253byte)\end{tabular} & \begin{tabular}{l}固定長(84byte)\\(コンテンツID(56) \& \\ ドメインID(28))\end{tabular} \\ \hline
+    \textbf{問い合わせ回数} &\ 委譲された回数 & 1 \\ \hline
     \ \textbf{RTT} & \begin{tabular}{l}全ての権威サーバ\\とのRTT総和\end{tabular} & マネージャとのRTTのみ  \\ \hline
 		\ \textbf{ゾーンファイル} &\ ファイル & インメモリデータベース\\ \hline
-		\ \textbf{その他} & & \begin{tabular}{l}・ハッシュ計算の発生\\・マネージャ探索\end{tabular}\\
+		\ \textbf{オーバーヘッド} & 再帰問い合わせ & \begin{tabular}{l}・コンテンツIDの計算\\・ドメインIDの計算\\・マネージャ探索処理\end{tabular}\\
     \bottomrule
   \end{tabular}
  \label{tab:diff_feature}
