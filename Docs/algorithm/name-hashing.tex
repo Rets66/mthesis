@@ -7,8 +7,8 @@
   \SetKwFunction{Find}{find\_manager}
 
  クエリハンドリング\;
- \Fn{\Handle{data}}{
-   $content\_id,\ domain\_id \leftarrow calculate\_id(data)$\;
+ \Fn{\Handle{query\_data}}{
+   $content\_id,\ domain\_id \leftarrow calculate\_id(query\_data)$\;
 	 $manager\_addr \leftarrow find\_manager(start,\ end,\ content\_id)$\;
 	 $answer \leftarrow query\_manager(manager\_addr,\ content\_id,\ domain\_id)$\;
 	 $response\_client(client\_address,\ qname,\ answer.rcode,\ answer.rdata)$\;

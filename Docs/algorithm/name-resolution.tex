@@ -11,14 +11,14 @@
 
  フルサービスリゾルバからのクエリハンドリング\;
  %Calculate the content'{}s content id and domain id\;
- \Fn{\Handler{data}}{
-	 $content\_id,\ qtype \leftarrow parser(data)$\;
-	 $record\_value \leftarrow db\_accesser(content\_id)$\;
+ \Fn{\Handler{query\_data}}{
+	 $qname,\ qtype \leftarrow parser(query\_data)$\;
+	 $record\_value \leftarrow db\_accesser(qname)$\;
 	 \If{$value$}{
-		 $payload \leftarrow benigh\_response(content\_id,\ qtype,\ ttl,\ record\_value) $\;
+		 $payload \leftarrow benigh\_response(qname,\ qtype,\ ttl,\ record\_value) $\;
 		}
 		\Else{
-		 $payload \leftarrow error\_response(content\_id,\ qtype)$\;
+		 $payload \leftarrow error\_response(qname,\ qtype)$\;
 		 }
 		$payload \leftarrow payload.pack()$\;
 		$connection.sendto(payload,\ client\_address)$\;

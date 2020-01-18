@@ -54,7 +54,7 @@ DNSは，クライアント・サーバアーキテクチャで構成され，�
 この表記は，FQDN(Fully Qualified Domain Name)と呼ばれ，右端のドットがルート，``label1"がTLD，``label2"がSLDを表現し，ドメインごとの階層にはドットが使用される．
 ドメインの階層構造において，全てはルートを頂点としているため，ルートを意味するドットを略記した``label3.label2.label1"が，一般にはドメイン名として解釈される．
 次にドメイン名に関する長さおよび使用できる文字列について説明する．
-\vspace{-1zh}
+\vspace{-1pt}
 \begin{eqnarray}
  (LabelD).(LabelC).(LabelB).(LabelA). \label{eq:domain-name} \\
  (Length) + (LabelD) + ... + (length) + (LabelB) + (length) + (LabelA) + 0 \label{eq:label-name} \\ 
@@ -288,11 +288,11 @@ DNS Infiltrationにおいても同様で，一回あたりのデータ転送量�
 \hspace{12pt}理論的に全てのリソースレコードを用いてデータを転送することは可能であるが，第~\ref{sec:dns-infiltration}項で示すように，使用するレコードタイプによって転送できるデータ量は大きく異なる．
 表~\ref{tab:infil-rtype}で示すように，実際のトンネリング実装におけるDNS Infiltarationを目的とする通信では，AやAAAAなどは使われず，CNAMEやTXTが主に使用される．
 AやAAAAなどのレコードタイプが使用されない背景には，数字のみの文字列制約が厳しさと最大のデータサイズに小さいことが考えられる．
-TXTの最大サイズが255bytesであるのに対して，Aが4bytesでAAAAが32bytesなのは明らかに小さいことが確認できる．
+TXTの最大サイズが253bytesであるのに対して，Aが4bytesでAAAAが32bytesなのは明らかに小さいことが確認できる．
 他方で，表~\ref{tab:distribution-rtype}で示すように，通常のインターネットの利活用において使用されるレコードタイプに極端な分布の偏りがあることが知られている．
 Herrymannら~\cite{Herrymann}は，2010年1月1日から6月30日までの期間において，大学構内に設置されたフルサービスリゾルバによるDNSログデータを収集した．
 結果が示すように，ドメイン名に対するアドレス解決の通信が全体の89.407\%を占めていることが確認できる．
-以上のことから，TXTやNULLといった任意の文字列を注入できるレコードタイプは効率的なデータ転送を実現できる反面，レコードタイプとして使用頻度低いという特性から，データ転送と秘匿性がトレードオフの関係にあることがわかる．
+以上のことから，TXTやCNAMEといった任意の文字列を注入できるレコードタイプは効率的なデータ転送を実現できる反面，レコードタイプとして使用頻度低いという特性から，データ転送と秘匿性がトレードオフの関係にあることがわかる．
 
 \input{table/distribution-rtype}
 
@@ -308,6 +308,7 @@ Herrymannら~\cite{Herrymann}は，2010年1月1日から6月30日までの期間
 通常のDNS Exfiltrationでは，権威サーバが未知のデータがクラアントから転送される．
 そのため，クライアントからの問い合わせには，コンテンツ不在を意味する``NXDomain"が応答される．
 応答パケットのステータスが``NXDomain"であるとき，DNS Exfiltrationの可能性がある．
+%表に書き換えることが可能である
 \begin{figure}[h]
  \centering
  \includegraphics[width=10.0cm]{figure/dns-header.png}

@@ -184,9 +184,23 @@
 
 % ===================内容梗概===================
 \abstract{
-% 本研究では，ルートサーバに代表されるデータが収束する点を解消し，コンテンツ管理ノードをより大規模に分散させることによって名前解決における課題を解決する．
-% ネットワークプロトコルスタックの一つとして，IPアドレスとドメイン名を対応づけるDNSがある．
-% 名前解決の機能を提供するDNSだが，情報流出として機能することが
+% 巧妙化するサイバー攻撃の技術には，目的実行のための通信を正規の通信に偽装させる技術がある．
+% 秘匿通信と呼ばれるこの技術を用いることによって，ネットワーク監視の網を迂回する．
+% 他方で，DNSはこれまでDoS攻撃やキャッシュポイズニングなどの様々な攻撃ベクターに使用されてきたネットワークプロトコルだが，秘匿通信としても悪用されている．
+% DNSを用いた秘匿通信手法はDNSトンネリングと呼ばれ，DNSクエリのサブドメインとリソースレコードを転送のキャリアに用いる．
+% DNSトンネリングは，そのシンプルさと秘匿性能から秘匿通信手法の中で最も広く利用されている手法である．
+% 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
+% しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチを迂回できる脅威がある．
+ 巧妙化するサイバー攻撃では，通信を正規の通信に偽装させることによって，秘匿的に目的が実行される．
+ DNSトンネリングは，このような秘匿通信手法の中で最も代表的な手法である．
+ 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
+ しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチでは迂回される脅威がある．
+
+ 本研究では，DNSトンネリングの発生を抑止する名前解決のメカニズムを提案する．
+ 提案システムは，権威サーバの機能を分離し，ドメイン名とレコードタイプの組を表す識別子をフラットな名前空間上にハッシュ関数によって写像することによって，トンネリング抑止の機能を提供する．
+ 実装したプロトタイプ上でトンネリング通信のシミュレーションすることにより，提案システムがトンネリング抑止に有効であることを示した．
+ また，特性評価の結果，既存システムと比べて，名前解決に伴うトラフィック量を削減できることと高速な名前解決を行えることがわかった．
+ %提案システムは，ルート権威サーバに通信が集約する既存システムにおける課題を解消し，既存システムと比べて高速な名前解決として利用されることが期待される．
 }
 %   注: 行の先頭が\\で始まらないようにすること。
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
@@ -202,6 +216,18 @@
 
 % ===================Abstruct===================
 \eabstract{
+ Recently the cyber attack has become more clever, they achieve the malicious purpose by using network camouflage techniques.
+ DNS Tunneling is a most popular techniques in those network covert channels.
+ The previous countermeasure were based on the detection apploach estimated threshold or malicious model.
+ Those apploachies are based on the some features such as the lenght of subdomain or the type of resouce records.
+ However those detection apploachies are exposed to the menace of the being bypassed.
+ For example, the malicious user can bypass by reducing the transfer data in a packet or using popular record types like CNAME instead of NULL or TXT.
+
+ In this study, I propose name resolution mechanism for DNS Tunneling deterrence.
+ The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on hash function.
+ The identifier is composed of queried domain name and record type.
+ My simulation of DNS tunneling in implemented prototype system shows my proposed system is effective for deterrence of the tunneling.
+ Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and more fast name resolution.
 }
 % Abstract (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
@@ -231,7 +257,7 @@
 \toc
 \newpage
 \listoffigures
-%\newpage
+\newpage
 \listoftables
 \listofalgorithms
 
@@ -272,7 +298,7 @@
 % ===================付録===================
 \appendix
 
-\section{発表リスト(国内研究会)}
+\section{発表リスト(口頭発表)}
 %\subsection{国内研究会}
 \begin{enumerate}
  \item \underline{高須賀 昌烈}, 妙中 雄三, 門林 雄基, ``非実在ドメインに対するネガティブキャッシュの拡張と再帰問い合わせハッシュ化の提案", 電子情報通信学会 情報ネットワーク研究会, 2019-10-ICTSSL-IN, 2019年10月.
