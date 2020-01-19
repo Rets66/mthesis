@@ -4,7 +4,6 @@
 % \documentclass[UTF8]{ctexart}
 
 
-
 %package
 \usepackage{amssymb, amsmath, newtxmath}
 \usepackage[ruled, vlined]{algorithm2e}
@@ -191,9 +190,9 @@
 % DNSトンネリングは，そのシンプルさと秘匿性能から秘匿通信手法の中で最も広く利用されている手法である．
 % 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
 % しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチを迂回できる脅威がある．
- 巧妙化するサイバー攻撃では，通信を正規の通信に偽装させることによって，秘匿的に目的が実行される．
- DNSトンネリングは，このような秘匿通信手法の中で最も代表的な手法である．
- 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
+ 巧妙化するサイバー攻撃の手法の中には，攻撃通信を無害な通信に偽装することで解析を回避する手法がある．
+ 特にDNSを利用したDNSトンネリングと呼ばれる手法は，そのような秘匿通信手法の中で最も広く利用される手法の一つである．
+ 秘匿的にデータがやりとりされるDNSトンネリングに対して，従来は，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
  しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチでは迂回される脅威がある．
 
  本研究では，DNSトンネリングの発生を抑止する名前解決のメカニズムを提案する．
@@ -218,8 +217,8 @@
 \eabstract{
  Recently the cyber attack has become more clever, they achieve the malicious purpose by using network camouflage techniques.
  DNS Tunneling is a most popular techniques in those network covert channels.
- The previous countermeasure were based on the detection apploach estimated threshold or malicious model.
- Those apploachies are based on the some features such as the lenght of subdomain or the type of resouce records.
+ The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
+ Those apploachies are based on the some features such as the length of subdomain or the type of resouce records.
  However those detection apploachies are exposed to the menace of the being bypassed.
  For example, the malicious user can bypass by reducing the transfer data in a packet or using popular record types like CNAME instead of NULL or TXT.
 
@@ -227,7 +226,7 @@
  The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on hash function.
  The identifier is composed of queried domain name and record type.
  My simulation of DNS tunneling in implemented prototype system shows my proposed system is effective for deterrence of the tunneling.
- Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and more fast name resolution.
+ Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and faster to resolute the name.
 }
 % Abstract (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
