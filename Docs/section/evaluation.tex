@@ -2,60 +2,6 @@
 \label{sec:evaluation}
 本章では，提案システムのDNSトンネリング抑止の機能としての効果について，実装したプロトタイプ実装上で擬似トンネリング通信の動作させることによるシミュレーションテストに基づき明らかにする．
 次に，提案システムの特性についての要件に基づき評価した結果を示し，トラフィック量の削減と高速な名前解決システムとして有用であること明らかにする．
-特性評価には，次世代ネットワークとして提案されているICN(Information-Centric Networking)\footnote{ICN : サーバ指向のネットワーキングではなくコンテンツ指向のネットワーキング．}の名前解決システムの要件として議論されているインターネットドラフトを用いて評価を行った~\cite{irtf-icnrg-nrs-requirements-03}．
-当該要件は，一つ目の``ICNにおける名前解決機能"は明らかにICN固有の要素であるのに対して，その他のガイドラインとセキュリティに関する事柄は，名前解決システムの要件として一般化できる内容であると考えられる．
-ICNの名前解決システムには，以下のような項目が要件として定められており，翻訳したものを以降で示す．
-%本研究では，さらに名前解決に伴うトラフィック量についても評価の項目に含めた．
-
-\begin{description}
- \item[ICNにおける名前解決機能]\mbox{}\\
-	 \vspace{-9mm}
-	\begin{enumerate}
-   \item スケーラブルなルーティングシステムのサポート
-	 \vspace{-3mm}
-	 \item オフパスキャッシュ機能のサポート
-	 \vspace{-3mm}
-	 \item 名前なしオブジェクトのサポート
-	 \vspace{-3mm}
-	 \item マニフェストのサポート
-	 \vspace{-3mm}
-	 \item メタデータのサポート
-	\end{enumerate}
- \item[ICNにおける名前解決の設計ガイドライン]\mbox{}\\
-	 \vspace{-9mm}
-	\begin{enumerate}
-	\item 名前解決速度
-	 \vspace{-3mm}
-	\item 応答の正確性
-	 \vspace{-3mm}
-	\item 名前解決の保証
-	 \vspace{-3mm}
-	\item 公平な名前解決
-	 \vspace{-3mm}
-	\item スケーラビリティ
-	 \vspace{-3mm}
-	\item 管理のし易さ
-	 \vspace{-3mm}
-	\item 配備されたシステム
-	 \vspace{-3mm}
-	\item 故障耐性
-  \end{enumerate}
- \item[セキュリティに関する事柄]\mbox{}\\
-	 \vspace{-9mm}
-	\begin{enumerate}
-   \item 可用性
-	 \vspace{-3mm}
-	 \item 認証
-	 \vspace{-3mm}
-	 \item データの機密性
-	 \vspace{-3mm}
-	 \item プライバシーの保護
-	 \vspace{-3mm}
-	 \item ロバストネス・レジリエンス
-	 \vspace{-3mm}
-	 \item ネットワークプライバシー
-	\end{enumerate}
-\end{description}
 
 
 %提案システムでは，DNSトンネリング抑止の目的に対して，フラットな名前空間とDHTの仕組みを採用している．
@@ -130,7 +76,7 @@ DNS Exfiltrationでは，問い合わせるリソースレコードのタイプ�
 \end{figure}
 
 \newpage
-\subsection{特性}
+\subsection{特性評価}
 提案システムは，既存システムと比較するとき，表~\ref{tab:diff_dns-td_dns}に示すような特性が現れる．
 本節では，既存システムと比べて提案システムがトラフィック量が少なくなる点と名前解決の高速が期待される点について説明する．
 また，ICNにおける名前解決システムの要件に基づき評価したそのほかの特性についても説明する．
@@ -235,13 +181,18 @@ x軸が，スタブリゾルバから問い合わせられたドメイン名の�
 \label{sec:resolution_speed}
 提案システムでは，コンテンツを保持するサーバはコンテンツIDから一意に決まる．
 一方，既存システムでは，ルートから階層的にコンテンツを保持するサーバを探索した後に決まるため，提案システムの方が高速に名前解決できることが期待される．
-この特性を踏まえて，本項では，既存システムと比較した時の名前解決速度の差を示す．
+この特性を踏まえて，本項では，既存システムとの秘匿に基づいて名前解決速度について評価する．
 
 名前解決速度の評価には，フルサービスリゾルバによる問い合わせに対する権威サーバからの応答までの時間に基づいて評価する．
 提案システムにおいて，マネージャサービスは既存システムにおけるTLDが担当する．
+% キャッシュを前提とすると速度の期待値はそこまで高くないかも
 % 既存のDNSにおけるラウンドトリップのうち，再帰問い合わせの最後の権威サーバRTTがdns-tdのフルリゾルバとマネージャのそれになる．
 % 遠いものと近いもののRTTを用意する必要がある
-
+図~\ref{fig:root-rtt}で示すように，ルート権威サーバまでのRTTは50ミリ秒周辺が最も多く，平均すると100ミリ秒に収束する．
+他方で，図~\ref{fig:tld-rtt}で示すように，TLD権威サーバまでのRTTは13ミリ秒周辺が最も多く，平均すると50ミリ秒に収束することがわかった．
+既存システムでは，問い合わせるドメイン名のゾーン構成に従い，最終的な権威サーバまでのRTTが加算される．
+他方で，提案システムでは，TLDを想定するマネージャにフルサービスリゾルバから1ホップの問い合わせで名前解決が実現される．
+以上のことから，少なくてもSLD以降の権威サーバにかかるRTT分高速に名前解決できることがわかる．
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.8]{figure/root-rtt.png}
@@ -251,8 +202,64 @@ x軸が，スタブリゾルバから問い合わせられたドメイン名の�
  \includegraphics[scale=0.8]{figure/average_rtt.png}
  \vspace{-1cm}
  \caption{TLD権威サーバにおけるRTTの分布}
- \label{fig:tlr-rtt}
+ \label{fig:tld-rtt}
 \end{figure}
+
+%\subsubsection{要件に基づく評価}
+%最後に，次世代ネットワークとして提案されているICN(Information-Centric Networking)\footnote{ICN : サーバ指向のネットワーキングではなくコンテンツ指向のネットワーキング．}の名前解決システムの要件として議論されているインターネットドラフトを用いて評価を行った~\cite{irtf-icnrg-nrs-requirements-03}．
+%当該要件は，一つ目の``ICNにおける名前解決機能"は明らかにICN固有の要素であるのに対して，その他のガイドラインとセキュリティに関する事柄は，名前解決システムの要件として一般化できる内容であると考えられる．
+%以降で示す要件は，ICNにおける名前解決システムの要件を翻訳したものである．
+%%本研究では，さらに名前解決に伴うトラフィック量についても評価の項目に含めた．
+%
+%\begin{description}
+% \item[ICNにおける名前解決機能]\mbox{}\\
+%	 \vspace{-9mm}
+%	\begin{enumerate}
+%   \item スケーラブルなルーティングシステムのサポート
+%	 \vspace{-3mm}
+%	 \item オフパスキャッシュ機能のサポート
+%	 \vspace{-3mm}
+%	 \item 名前なしオブジェクトのサポート
+%	 \vspace{-3mm}
+%	 \item マニフェストのサポート
+%	 \vspace{-3mm}
+%	 \item メタデータのサポート
+%	\end{enumerate}
+% \item[ICNにおける名前解決の設計ガイドライン]\mbox{}\\
+%	 \vspace{-9mm}
+%	\begin{enumerate}
+%	\item 名前解決速度
+%	 \vspace{-3mm}
+%	\item 応答の正確性
+%	 \vspace{-3mm}
+%	\item 名前解決の保証
+%	 \vspace{-3mm}
+%	\item 公平な名前解決
+%	 \vspace{-3mm}
+%	\item スケーラビリティ
+%	 \vspace{-3mm}
+%	\item 管理のし易さ
+%	 \vspace{-3mm}
+%	\item 配備されたシステム
+%	 \vspace{-3mm}
+%	\item 故障耐性
+%  \end{enumerate}
+% \item[セキュリティに関する事柄]\mbox{}\\
+%	 \vspace{-9mm}
+%	\begin{enumerate}
+%   \item 可用性
+%	 \vspace{-3mm}
+%	 \item 認証
+%	 \vspace{-3mm}
+%	 \item データの機密性
+%	 \vspace{-3mm}
+%	 \item プライバシーの保護
+%	 \vspace{-3mm}
+%	 \item ロバストネス・レジリエンス
+%	 \vspace{-3mm}
+%	 \item ネットワークプライバシー
+%	\end{enumerate}
+%\end{description}
 
 %\subsubsection{評価項目に基づいた特性の評価}
 

@@ -190,15 +190,18 @@
 % DNSトンネリングは，そのシンプルさと秘匿性能から秘匿通信手法の中で最も広く利用されている手法である．
 % 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
 % しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチを迂回できる脅威がある．
- 巧妙化するサイバー攻撃の手法の中には，攻撃通信を無害な通信に偽装することで解析を回避する手法がある．
- 特にDNSを利用したDNSトンネリングと呼ばれる手法は，そのような秘匿通信手法の中で最も広く利用される手法の一つである．
- 秘匿的にデータがやりとりされるDNSトンネリングに対して，従来は，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
- しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチでは迂回される脅威がある．
+ 巧妙化するサイバー攻撃の手法の中に，攻撃通信を無害な通信に偽装することで解析を回避する手法がある．
+ DNSトンネリングと呼ばれる手法は，そのような秘匿通信手法の中で最も広く利用される手法である．
+ DNSトンネリングはDNSクエリパケットのQnameとしてデータを含めることによってデータを転送するという極めて単純な方法で動作する．
+ 秘匿的にデータが転送されるDNSトンネリング手法に対して，従来は，サブドメインの長さやエントロピー，トラフィック頻度といった特徴量に基づき，閾値や悪性モデルを推定することによる検知アプローチが取られてきた．
+ しかし，転送データ量の削減，パケット間インターンバルを長期化させるといった転送効率を下げる手法を用いることで，既存の検知アプローチを迂回することが出来る．
 
- 本研究では，DNSトンネリングの発生を抑止する名前解決のメカニズムを提案する．
- 提案システムは，権威サーバの機能を分離し，ドメイン名とレコードタイプの組を表す識別子をフラットな名前空間上にハッシュ関数によって写像することによって，トンネリング抑止の機能を提供する．
- 実装したプロトタイプ上でトンネリング通信のシミュレーションすることにより，提案システムがトンネリング抑止に有効であることを示した．
- また，特性評価の結果，既存システムと比べて，名前解決に伴うトラフィック量を削減できることと高速な名前解決を行えることがわかった．
+ 本研究では，このような脅威に対して，DNSトンネリングの発生を抑止する名前解決システムを提案する．
+ システムに採用したアプローチは，権威サーバの機能を分離させることでスタブリゾルバからサーバへのクエリ透過を抑制し，このメカニズムによってDNSトンネリングの発生を抑止することができる．
+ %し，ドメイン名とレコードタイプの組を表す識別子をフラットな名前空間上にハッシュ関数によって写像することによって，トンネリング抑止の機能を提供する．
+ 評価にあたり，提案システムのプロトタイプを実装した．
+ プロトタイプ上でトンネリング通信をシミュレーションさせた結果，提案システムがDNSトンネリングの通信抑止に有効であることを確認した．
+ さらに，既存システムとの比較に基づいた特性の評価を行い，提案システムはトラフィック量の削減とより早く名前解決の機能を提供できることを確認した．
  %提案システムは，ルート権威サーバに通信が集約する既存システムにおける課題を解消し，既存システムと比べて高速な名前解決として利用されることが期待される．
 }
 %   注: 行の先頭が\\で始まらないようにすること。
@@ -215,18 +218,36 @@
 
 % ===================Abstruct===================
 \eabstract{
- Recently the cyber attack has become more clever, they achieve the malicious purpose by using network camouflage techniques.
- DNS Tunneling is a most popular techniques in those network covert channels.
+ In the clever cyber attack methods, there are bypassing methods agaist to monitoring or analysis systems by using camouflage techniques.
+ The method called DNS Tunneling is the most popular those covert network techniques.
+ DNS tunneling is working with a rather simple way, it can transfer data inputting as Qname label in the DNS query packet.
+ Against this tunneling technique, many countermesures are proposed.
+ Those previous detection works use some features such as subdomain's length or entropy, and frequency of traffic by analysing tunneling techniques.
  The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
  Those apploachies are based on the some features such as the length of subdomain or the type of resouce records.
  However those detection apploachies are exposed to the menace of the being bypassed.
- For example, the malicious user can bypass by reducing the transfer data in a packet or using popular record types like CNAME instead of NULL or TXT.
+ For example, the malicious user can bypass by reducing the transfer data in a packet or leaving times between first packet and next packt.
 
- In this study, I propose name resolution mechanism for DNS Tunneling deterrence.
+ In this study, I propose name resolution system for DNS Tunneling deterrence.
  The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on hash function.
  The identifier is composed of queried domain name and record type.
  My simulation of DNS tunneling in implemented prototype system shows my proposed system is effective for deterrence of the tunneling.
  Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and faster to resolute the name.
+
+ %Recently the cyber attack has become more clever, it's known they are achieving the malicious purpose by using covert techniques.
+ %DNS Tunneling is a most popular techniques in those covert techniques.
+ %% Although many countermeasure has been proposed, the convert techniques also have became more clover.
+ %% Indeed, the detection based previous countermeasures were
+ %The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
+ %Those apploachies are based on the some features such as the length of subdomain or the type of resouce records.
+ %However those detection apploachies are exposed to the menace of the being bypassed.
+ %For example, the malicious user can bypass by reducing the transfer data in a packet or using popular record types like CNAME instead of NULL or TXT.
+
+ %In this study, I propose name resolution mechanism for DNS Tunneling deterrence.
+ %The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on hash function.
+ %The identifier is composed of queried domain name and record type.
+ %My simulation of DNS tunneling in implemented prototype system shows my proposed system is effective for deterrence of the tunneling.
+ %Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and faster to resolute the name.
 }
 % Abstract (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
