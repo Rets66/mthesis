@@ -1,0 +1,39 @@
+\begin{algorithm}[p]
+ \caption{マネージャにおけるコンテンツ操作問い合わせ処理}
+ \label{algo:registration-handler}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Handler}{handler}
+  \SetKwFunction{Certify}{certify}
+  \SetKwFunction{Calc}{calculate\_id}
+  \SetKwFunction{Find}{find\_manager}
+ $\vspace{-0.5cm}$\;
+ プロバイダからのコンテンツ操作リクエストハンドリング\;
+ %Calculate the content'{}s content id and domain id\;
+ \Fn{\Handler{request\_data}}{
+	 $data,\ provider\_addr \leftarrow parser(request\_data)$\;
+	 $content\_id,\ domain\_id \leftarrow calculate\_id(data.object,\ data.rtype)$\;
+	 $manager\_addr \leftarrow find\_manager(start, end, content\_id)$\;
+	 $sendto(data, manager\_addr)$\;
+ }
+ $\vspace{-0.5cm}$\;
+ %Calculate the content'{}s content id and domain id\;
+ コンテンツIDとドメインIDの算出\;
+ \Fn{\Calc{qname, rtype}}{
+   $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
+   $domain\_id \leftarrow hash.sha3\_224(qname)\ /\ 2$\;
+   $return \ content\_id,\ domain\_id$
+ }
+ $\vspace{-0.5cm}$\;
+ %Find the manager who has zone includes the content id\;
+ コンテンツIDが含まれるゾーンを保持するマネージャアドレスの解決\;
+ \Fn{\Find{start, end, content\_id}}{
+   \For {$i,\ j\ \textbf{in}\ map\_start,\ map\_end$} {
+     \If {$i \leq content\_id \leq j$} {
+       $p \leftarrow map\_start.index(i)$\;
+       $manager\_addr \leftarrow map.addr[p]$\;
+       $return\ manager\_addr$\;
+     }
+   }
+ }
+ $\vspace{-0.3cm}$\;
+\end{algorithm}
