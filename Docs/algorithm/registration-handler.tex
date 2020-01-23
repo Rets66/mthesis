@@ -20,7 +20,7 @@
  コンテンツIDとドメインIDの算出\;
  \Fn{\Calc{qname, rtype}}{
    $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
-   $domain\_id \leftarrow hash.sha3\_224(qname)\ /\ 2$\;
+	 $domain\_id \leftarrow hash.sha3\_224(qname)[:28]$\;
    $return \ content\_id,\ domain\_id$
  }
  $\vspace{-0.5cm}$\;

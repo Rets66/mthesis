@@ -1,0 +1,14 @@
+\begin{algorithm}[h]
+ \caption{コンテンツIDとドメインIDの導出方法}
+ \label{algo:calculate_id}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Calc}{calculate\_id}
+ $\vspace{-0.3cm}$\;
+ \Fn{\Calc{qname, rtype}}{
+   $content\_id \leftarrow hash.sha3\_224(qname+rtype)$\;
+	 $domain\_id \leftarrow hash.sha3\_224(qname)[:28]$\;
+	 $identity \leftarrow content\_id\ +\ ``."\ +\ domain\_id$\;
+   $return \ identity$
+ }
+ $\vspace{-0.5cm}$\;
+\end{algorithm}

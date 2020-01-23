@@ -306,19 +306,20 @@ Herrymannら~\cite{Herrymann}は，2010年1月1日から6月30日までの期間
 %による調査では，表~\ref{tab:distribution-rr}で示す通り
 \newpage
 \hspace{-12pt}\textbf{パケットの応答ステータス}\\
-\hspace{12pt}DNSのヘッダーは，図~\ref{fig:dns-header}で示すようなフィールドを持っており，問い合わせに対して，表~\ref{tab:dns-rcode}のようなステータス情報を応答する．
+\hspace{12pt}DNSのヘッダーは，表~\ref{tab:header-dns}で示すようなフィールドを持っており，問い合わせに対して，表~\ref{tab:dns-rcode}のようなステータス情報を応答する．
 第~\ref{sec:bypass-method}項で示すような検知迂回手法を使う場合を除いて，
 通常のDNS Exfiltrationでは，権威サーバが未知のデータがクラアントから転送される．
 そのため，クライアントからの問い合わせには，コンテンツ不在を意味する``NXDomain"が応答される．
 応答パケットのステータスが``NXDomain"であるとき，DNS Exfiltrationの可能性がある．
 %表に書き換えることが可能である
-\begin{figure}[h]
- \centering
- \includegraphics[width=10.0cm]{figure/dns-header.png}
- \caption{DNSのヘッダー(bytes)}
- \label{fig:dns-header}
-\end{figure}
-\vspace{-1cm}
+%\begin{figure}[h]
+% \centering
+% \includegraphics[width=10.0cm]{figure/dns-header.png}
+% \caption{DNSのヘッダー(bytes)}
+% \label{fig:dns-header}
+%\end{figure}
+%\vspace{-1cm}
+\input{table/header-dns}
 \input{table/rcode}
 
 %Qnameにおける文字列分布とエントロピー

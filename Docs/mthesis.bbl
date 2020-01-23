@@ -211,11 +211,9 @@ D.~Herrmann, C.~Banse, and H.~Federrath, ``Behavior-based tracking: Exploiting
   characteristic patterns in dns traffic,'' {\em Comput. Secur.}, vol.~39,
   p.~17^^e2^^80^^9333, Nov. 2013.
 
-\bibitem{rfc4033}
-R.~Arends, R.~Austein, M.~Larson, D.~Massey, and S.~Rose, ``Dns security
-  introduction and requirements.'' https://www.rfc-editor.org/info/rfc4033,
-  March 2005.
-\newblock RFC4033.
+\bibitem{Davoudian}
+A.~Davoudian, L.~Chen, and M.~Liu, ``A survey on nosql stores,'' {\em ACM
+  Comput. Surv.}, vol.~51, pp.~1--43, Apr. 2018.
 
 \bibitem{dnslib}
 paulc, ``dnslib.'' https://github.com/paulc/dnslib.
