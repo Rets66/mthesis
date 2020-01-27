@@ -13,20 +13,20 @@ KrebsonSecurity, ``Deconstructing the 2014 sally beauty breach.''
 
 \bibitem{bondupdater}
 IronNet, ``Chirp of the poisonfrog.''
-  https://ironnet.com/blog/chirp-of-the-poisonfrog/, 2019.
+  https://ironnet.com/blog/chirp-of-the-poisonfrog/, February 2019.
 \newblock (accessed at 2020-1-5).
 
 \bibitem{bernhardpos}
 N.~Hoffman, ``Bernhardpos.''
   https://securitykitten.github.io{\slash}2015{\slash}07{\slash}14{\slash}bernhardpos.html,
-  2015.
+  July 2015.
 \newblock (accessed at 2020-1-5).
 
 \bibitem{multigrainpos}
 FireEye, ``Multigrain ^^e2^^80^^93 point of sale attackers make an unhealthy
   addition to the pantry.''
   https://www.fieeye.com{\slash}blog{\slash}threat-research{\slash}2016{\slash}04{\slash}multigrain\_pointo.html,
-  2016.
+  April 2016.
 \newblock (accessed at 2019-11-30).
 
 \bibitem{pisloader}
@@ -39,19 +39,19 @@ P.~alto Networks, ``New wekby attacks use dns requests as command and control
 \bibitem{denis}
 Kaspersky, ``Use of dns tunneling for c\&c communications.''
   https://securelist.com{\slash}use-of-dns-tunneling-for-cc-communications{\slash}78203{\slash},
-  2017.
+  April 2017.
 \newblock (accessed at 2019-11-30).
 
 \bibitem{dnsmessenger}
 C.~Talos, ``Spoofed sec emails distribute evolved dnsmessenger.''
   https://blog.talosintelligence.com{\slash}2017{\slash}10{\slash}dnsmessenger-sec-campaign.html,
-  2017.
+  October 2017.
 \newblock (accessed at 2019-11-30).
 
 \bibitem{udpos}
 Cylance, ``Threat spotlight: Inside udpos malware.''
   https://threatvector.cylance.com{\slash}en\_us{\slash}home{\slash}threat-spotlight-inside-udpos-malware.html,
-  2018.
+  Feburary 2018.
 \newblock (accessed at 2019-11-30).
 
 \bibitem{born}
@@ -82,7 +82,7 @@ A.~Nadler, A.~Aminov, and A.~Shabtai, ``Detection of malicious and low
 \bibitem{steadman}
 J.~{Steadman} and S.~{Scott-Hayward}, ``Dnsxd: Detecting data exfiltration over
   dns,'' in {\em 2018 IEEE Conference on Network Function Virtualization and
-  Software Defined Networks (NFV-SDN)}, pp.~1--6, Nov 2018.
+  Software Defined Networks (NFV-SDN)}, pp.~1--6, November 2018.
 
 \bibitem{jawad}
 J.~{Ahmed}, H.~H. {Gharakheili}, Q.~{Raza}, C.~{Russell}, and V.~{Sivaraman},
@@ -209,19 +209,61 @@ V.~Paxson, M.~Christodorescu, M.~Javed, J.~Rao, R.~Sailer, D.~L. Schales,
 \bibitem{Herrymann}
 D.~Herrmann, C.~Banse, and H.~Federrath, ``Behavior-based tracking: Exploiting
   characteristic patterns in dns traffic,'' {\em Comput. Secur.}, vol.~39,
-  p.~17^^e2^^80^^9333, Nov. 2013.
+  p.~17^^e2^^80^^9333, November 2013.
+
+\bibitem{APT}
+NIST, ``Managing information security risk: Organization, mission, and
+  information system view.''
+  https://www.nist.gov/publications/managing-information-security-risk-organization-mission-and-information-system-view,
+  March 2011.
+\newblock Special Publication (NIST SP) - 800-39.
+
+\bibitem{rfc8094}
+T.~Reddy and P.~Patil, ``Dns over datagram transport layer security (dtls).''
+  https://www.rfc-editor.org/info/rfc8094, February 2017.
+\newblock RFC8094.
+
+\bibitem{rfc8484}
+P.~Hoffman and P.~McManus, ``Dns queries over https (doh).''
+  https://www.rfc-editor.org/info/rfc8484, October 2018.
+\newblock RFC8484.
+
+\bibitem{cox}
+C.~Russ, M.~Athicha, and R.~T. Morris, ``Serving dns using a peer-to-peer
+  lookup service,'' in {\em Peer-to-Peer Systems} (P.~Druschel, K.~Frans, and
+  A.~Rowstron, eds.), (Berlin, Heidelberg), pp.~155--165, Springer Berlin
+  Heidelberg, 2002.
+
+\bibitem{dhash}
+F.~Dabek, M.~F. Kaashoek, D.~Karger, R.~Morris, and I.~Stoica, ``Wide-area
+  cooperative storage with cfs,'' in {\em SOSP01: 18th Symposium on Operating
+  System Principles}, (New York, United States), Association for Computing
+  Machinery, October 2001.
+
+\bibitem{p_donas}
+P.~{Danielis}, V.~{Altmann}, J.~{Skodzik}, T.~{Wegner}, A.~{Koerner}, and
+  D.~{Timmermann}, ``P-donas: A p2p-based domain name system in access
+  networks,'' {\em ACM Transactions on Internet Technology (TOIT)}, vol.~15,
+  pp.~1--21, September 2015.
+
+\bibitem{yiting}
+Y.~{Song} and K.~{Koyanagi}, ``Study on a hybrid p2p based dns,'' in {\em 2011
+  IEEE International Conference on Computer Science and Automation
+  Engineering}, vol.~4, pp.~152--155, June 2011.
+
+\bibitem{gns}
+W.~Matthias, S.~Martin, and G.~Christian, ``A censorship-resistant,
+  privacy-enhancing and fully decentralized name system,'' in {\em Cryptology
+  and Network Security} (D.~Gritzalis, A.~Kiayias, and I.~Askoxylakis, eds.),
+  (Cham), pp.~127--142, Springer International Publishing, 2014.
 
 \bibitem{Davoudian}
 A.~Davoudian, L.~Chen, and M.~Liu, ``A survey on nosql stores,'' {\em ACM
-  Comput. Surv.}, vol.~51, pp.~1--43, Apr. 2018.
-
-\bibitem{dnslib}
-paulc, ``dnslib.'' https://github.com/paulc/dnslib.
-\newblock (accessed at 2020-1-18).
+  Comput. Surv.}, vol.~51, pp.~1--43, April 2018.
 
 \bibitem{rfc7816}
 S.~Bortzmeyer, ``Dns query name minimisation to improve privacy.''
-  https://www.rfc-editor.org/info/rfc7816, 2016.
+  https://www.rfc-editor.org/info/rfc7816, March 2016.
 \newblock RFC7816.
 
 \end{thebibliography}

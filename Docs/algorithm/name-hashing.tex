@@ -1,10 +1,10 @@
-\begin{algorithm}[h]
+\begin{algorithm}[htbp]
  \caption{フルサービスリゾルバにおける問い合わせ転送処理}
  \label{algo:full-service}
   \SetKwProg{Fn}{}{\string:}{}
   \SetKwFunction{Handle}{handler}
  $\vspace{-0.3cm}$\;
- クエリハンドリング\;
+% クエリハンドリング\;
  \Fn{\Handle{query\_data,\ rtype}}{
    $content\_id,\ domain\_id \leftarrow calculate\_id(query\_data,\ rtype)$\;
 	 $manager\_addr \leftarrow find\_manager(start,\ end,\ content\_id)$\;
