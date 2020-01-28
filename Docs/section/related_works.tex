@@ -1,6 +1,6 @@
 \section{関連研究}
 \label{sec:related-works}
-本章では，次世代DNSとして提案されている名前解決システムを紹介し，DNSトンネリングへの抑止効果を焦点に提案システムとの違いを説明する．
+本章では，次世代DNSとして提案されている名前解決システムを紹介し，DNSトンネリング抑止への課題について明らかにする．
 %先行研究のシステムは，以下に示す2つに分類できる．
 %\begin{description}
 % \item[P2Pネットワーク]\mbox{}\\ ノードとコンテンツに同一識別子を付与し，対象のコンテンツに近いノードを再帰的に問い合わせることによってコンテンツ情報を取得するシステム． \\(手法例) : DDNS, HDNS, GNU
@@ -16,9 +16,9 @@ Coxら~\cite{cox}は，既存システムの管理における非効率なロー
 システムにおける名前解決の仕組みは，図~\ref{fig:chord}で示すように，ハッシュ関数によって算出されたIDに基づいてノードとコンテンツをリング状に射影し，コンテンツに近いノードがコンテンツ情報を管理・応答することによって機能する．
 \begin{figure}[bhtp]
  \centering
- \label{fig:chord}
  \includegraphics[scale=0.6]{figure/chord-mechanism.png}
  \caption{DDNSにおける名前解決プロセス}
+ \label{fig:chord}
 \end{figure}
 クライアントからの問い合わせを受け取ったノードaは，クエリされたコンテンツIDを導出し，経路情報に明記されたIDのリストの内で最も近しいノードbにクエリを転送する．
 コンテンツのIDに最も近いノードcまで再帰的に問い合わせられると，最終的にコンテンツを保持するノードcがコンテンツ情報をノードaに応答することで名前が解決される．
@@ -26,15 +26,15 @@ Chordリング上では，コンテンツIDと経路情報に基づいて宛先�
 しかし，Chordアルゴリズムではコンテンツを保持するノードの探索が非効率であることが指摘されている．
 線型探索の課題を改善するために，``finger table"に基づいていくつかのノードをスキップ手法が提案されているが，この場合の探索でも$O(\log N)$のクエリを必要とするため，パフォーマンスの課題がある~\cite{p_donas}．
 
-Yitingら~\cite{yiting}は，P2Pネットワークにおける遅延の課題を解消するHDNS(hybrid DNS)を提案している．
+Yitingら~\cite{yiting}は，P2Pネットワークにおける遅延の課題を解消するHDNS(Hybrid DNS)を提案している．
 提案システムは，Public Zoneと呼ばれるChordアルゴリズムに基づいたP2Pネットワークと，Internal Zoneと呼ばれる従来の階層型DNSツリー構造を組み合わせで構成されている．
 図~\ref{fig:hdns-mechanism}で示すように，クエリはDDNS同様の要領でコンテンツに近いノードに転送した後，階層構造に基づきクエリを転送する．
 HDNSでは，パフォーマンスこそ改善されるが，コンテンツを保持するノードがドメイン名の階層構造に従うため，DNSトンネリンを抑止することはできない．
 \begin{figure}[htbp]
  \centering
- \label{fig:hdns-mechanism}
  \includegraphics[scale=0.6]{figure/hdns-mechanism.png}
  \caption{HDNSにおける名前解決プロセス}
+ \label{fig:hdns-mechanism}
 \end{figure}
 
 GNU~\cite{gns}は，DNSにおけるプライバシーの課題を解消することを目的に，ピュアなP2Pで接続するGNSを提案している．
@@ -45,9 +45,9 @@ GNSでは，擬似的なTLDとして``.gnu"が使われるなど，従来の名�
 GNSでは，ユーザ同士が暗号化した通信を用いて直接やりとりため，既存システムにおけるDNSトンネリングの仕組みでデータを転送することを許す設計になっている．
 \begin{figure}[htbp]
  \centering
- \label{fig:gns-resolution}
  \includegraphics[scale=0.6]{figure/gns-resolution.png}
  \caption{GNSにおける名前解決プロセス}
+ \label{fig:gns-resolution}
 \end{figure}
 
 \subsection{課題}

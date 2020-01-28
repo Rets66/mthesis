@@ -3,24 +3,24 @@
 \bibitem{mitre-custom-c2}
 M.~Att\&ck, ``Custom command and control protocol.''
   https://attack.mitre.org{\slash}techniques{\slash}T1094{\slash}.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{frameworkpos}
 KrebsonSecurity, ``Deconstructing the 2014 sally beauty breach.''
   https://krebsonsecurity.com{\slash}2015{\slash}05{\slash}deconstructing-the-2014-sally-beauty-breach{\slash},
   May 2015.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{bondupdater}
 IronNet, ``Chirp of the poisonfrog.''
   https://ironnet.com/blog/chirp-of-the-poisonfrog/, February 2019.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{bernhardpos}
 N.~Hoffman, ``Bernhardpos.''
   https://securitykitten.github.io{\slash}2015{\slash}07{\slash}14{\slash}bernhardpos.html,
   July 2015.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{multigrainpos}
 FireEye, ``Multigrain ^^e2^^80^^93 point of sale attackers make an unhealthy
@@ -92,11 +92,11 @@ J.~{Ahmed}, H.~H. {Gharakheili}, Q.~{Raza}, C.~{Russell}, and V.~{Sivaraman},
 
 \bibitem{iodine}
 E.~Ekman, ``iodine.'' http://code.kryo.se/iodine/.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dnscat2}
 R.~Bowes, ``dnscat2.'' https://github.com/iagox86/dnscat2.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{rfc1034}
 P.~Mockapetris, ``Domain names - concepts and facilities.''
@@ -122,71 +122,71 @@ O.~Pearson, ``Bugtraq mailing list archives dns tunnel - through bastion
 \bibitem{maarten}
 M.~V. Horenbeeck, ``Dns tunneling.''
   http://web.archive.org{\slash}web{\slash}20060709044338{\slash}www.daemon.be{\slash}maarten{\slash}dnstunnel.html.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{ozymandns}
 D.~Kaminsky, ``Ozymandns.''
   https://dankaminsky.com{\slash}2004{\slash}07{\slash}29{\slash}51{\slash}.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dan-kaminsky}
 D.~Kaminsky, ``Reverse dns tunneling staged loading shellcode.''
   https://www.blackhat.com{\slash}presentations{\slash}bh-usa-08{\slash}Miller{\slash}BH\_US\_08\_Ty\_Miller\_Reverse\_DNS\_Tunneling\_Shellcode.pdf.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{heyoka}
 A.~Revelli and N.~Leidecker, ``Heyoka.'' http://heyoka.sourceforge.net/.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{tcp-over-dns}
 Tim, ``Tcp-over-dns.'' http://analogbit.com/software/tcp-over-dns/.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dnscat}
 R.~Bowes, ``dnscat.'' https://wiki.skullsecurity.org/Dnscat.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{denise}
 M.~Dornseif, ``Denise.'' https://github.com/mdornseif/DeNiSe.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dns-shell}
 SensePost, ``Dns-shell.'' https://github.com/sensepost/DNS-Shell.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dnsbotnet}
 Sturt, ``Dnsbotnet.'' https://github.com/magisterquis/dnsbotnet.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dnscapy}
 F.~Ceratto, ``Dnscapy.'' https://github.com/FedericoCeratto/dnscapy.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dohtunnel}
 iceman, ``dohtunnel.''
   https://github.com{\slash}jansect{\slash}dohtunnel{\slash}blob{\slash}master{\slash}doh{\slash}doh.go.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{godoh}
 SensePost, ``godoh.'' https://github.com/sensepost/goDoH.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dohc2}
 SpiderLabs, ``Dohc2.'' https://github.com/SpiderLabs/DoHC2.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{magictunnelandroid}
 MagicTunnel, ``magictunnelandroid.''
   https://github.com{\slash}MagicTunnelM{\slash}agicTunnelAndroid.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{dns2tcp}
 ``dns2tcp.'' https://github.com/alex-sector/dns2tcp.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{tuns}
 L.~Nussbaum, ``Tuns.'' https://github.com/lnussbaum/tuns.
-\newblock (accessed at 2020-1-5).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{rfc4648}
 S.~Josefsson, ``The base16, base32, and base64 data encodings.''
@@ -197,7 +197,7 @@ S.~Josefsson, ``The base16, base32, and base64 data encodings.''
 森下泰宏 and 尾崎勝義,
   ``Dns運用の「見抜く」を探る～インシデント事例の紹介と必要な要素・項目～ランチのおともにdns.''
   https://jprs.jp/tech/material/iw2016-lunch-L3-01.pdf.
-\newblock (accessed at 2020-1-13).
+\newblock (accessed at 2020-1-28).
 
 \bibitem{vern}
 V.~Paxson, M.~Christodorescu, M.~Javed, J.~Rao, R.~Sailer, D.~L. Schales,

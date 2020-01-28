@@ -128,11 +128,6 @@
 %         {○○ ○○ 教授}{（副指導教員）}
 %         {○○ ○○ 准教授}{（副指導教員）}
 %         {}{}
-% ２人の場合
-%\cmembers{○○ ○○ 教授}{（主指導教員）}
-%         {○○ ○○ 教授}{（副指導教員）}
-%          {}{}
-%          {}{}
 
 
 
@@ -152,11 +147,6 @@
 %          {Professor xx xx}{(Co-supervisor)}
 %          {Associate Professor xx xx}{(Co-supervisor)}
 %          {}{}
-% ２人の場合
-% \ecmembers{Professor xx xx}{(Supervisor)}
-%           {Professor xx xx}{(Co-supervisor)}
-%           {}{}
-%           {}{}
 
 
 
@@ -184,14 +174,7 @@
 
 % ===================内容梗概===================
 \abstract{
-% 巧妙化するサイバー攻撃の技術には，目的実行のための通信を正規の通信に偽装させる技術がある．
-% 秘匿通信と呼ばれるこの技術を用いることによって，ネットワーク監視の網を迂回する．
-% 他方で，DNSはこれまでDoS攻撃やキャッシュポイズニングなどの様々な攻撃ベクターに使用されてきたネットワークプロトコルだが，秘匿通信としても悪用されている．
-% DNSを用いた秘匿通信手法はDNSトンネリングと呼ばれ，DNSクエリのサブドメインとリソースレコードを転送のキャリアに用いる．
-% DNSトンネリングは，そのシンプルさと秘匿性能から秘匿通信手法の中で最も広く利用されている手法である．
-% 従来のDNSトンネリングへの対処には，サブドメインの長さやリソースレコードのタイプなどの特徴量に基づいて推定された閾値やモデルを用いた検知アプローチが取られてきた．
-% しかし，転送量を少なくしたりレコードタイプを一般的に使用されるといった転送効率よりも秘匿性を優先させることで，既存の検知アプローチを迂回できる脅威がある．
- 巧妙化するサイバー攻撃の手法の中に，攻撃通信を無害な通信に偽装することで解析を回避する手法がある．
+ 巧妙化するサイバー攻撃の手法の中に，攻撃通信を無害な通信に偽装することで検知を迂回する手法がある．
  DNSトンネリングと呼ばれる手法は，そのような秘匿通信手法の中で最も広く利用されている．
  DNSトンネリングは，DNSクエリパケットのドメイン名あるいは応答パケットのリソースレコードにデータを含めることによって，データを転送するという単純な仕組みで動作する．
  この手法に対して，従来は，サブドメインの長さおよびエントロピー，トラフィック頻度などを特徴量とする閾値や悪性モデルを推定する検知アプローチが取られてきた．
@@ -201,7 +184,7 @@
  システムに採用したアプローチは，権威サーバの機能を分離させることでスタブリゾルバからサーバへのクエリ透過を抑制し，このメカニズムによってDNSトンネリングの発生を抑止することができる．
  %し，ドメイン名とレコードタイプの組を表す識別子をフラットな名前空間上にハッシュ関数によって写像することによって，トンネリング抑止の機能を提供する．
  評価では，実装した提案システムのプロトタイプ上でトンネリング通信をシミュレーションさせることによって，DNSトンネリングの通信抑止に有効であることを示した．
- また，既存システムとの比較に基づいた特性の評価を行い，提案システムがトラフィック量の削減とより早く名前解決の機能を提供できることを明らかにした．
+ また，既存システムとの比較に基づいた特性の評価を行った結果から，提案システムにはトラフィック量の削減と高速な名前解決という優位性があることを示した．
  %提案システムは，ルート権威サーバに通信が集約する既存システムにおける課題を解消し，既存システムと比べて高速な名前解決として利用されることが期待される．
 }
 %   注: 行の先頭が\\で始まらないようにすること。
@@ -224,33 +207,14 @@
  Many solutions have been proposed to counter against this 	tunneling technique.
  However, those previous research used some tactics such as subdomain's length or entropy, and frequency of traffic by analysing tunneling traffic.
  The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
- Those apploachies are based on the some features such as the length of subdomain or the type of resource records.
  However those detection apploachies are exposed to the menace of the being bypassed.
  For example, the malicious user can bypass by reducing the transfer data in a packet or leaving times between query packets and response packets.
 
- %手法が抜けている
  In this study, I propose name resolution system based on distributed hash table for DNS tunneling deterrence.
- The core proposed idea is the division of authorization server function into contents management and records cofiguration.
- Following this approach, the transparency from clients to servers which malicious user configured is restricted, tunneling queries don't reach those servers in the end.
+ The core idea is the division of authorization server function into contents management and records cofiguration.
+ Following this approach, the transparency from clients to servers which malicious user configured is restricted, tunneling queries don't reach the server in the end.
  I implemented prototype system of the proposed design for the evaluation, and verified the effectiveness for the tunneling deterrence by simulation tunneling test on the prototype.
- Moreover, the results the evaluation of the proparties show my proposed system is expected for a reduction of traffic when name resolution are requested and fast resolution.
-
-% The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on the hash function.
-% The identifier is composed of queried domain name and record type.
- %Recently the cyber attack has become more clever, it's known they are achieving the malicious purpose by using covert techniques.
- %DNS Tunneling is a most popular techniques in those covert techniques.
- %% Although many countermeasure has been proposed, the convert techniques also have became more clover.
- %% Indeed, the detection based previous countermeasures were
- %The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
- %Those apploachies are based on the some features such as the length of subdomain or the type of resouce records.
- %However those detection apploachies are exposed to the menace of the being bypassed.
- %For example, the malicious user can bypass by reducing the transfer data in a packet or using popular record types like CNAME instead of NULL or TXT.
-
- %In this study, I propose name resolution mechanism for DNS Tunneling deterrence.
- %The proposed system provides the tunneling deterrence function by dividing authorization server function and mapping indetifier in the flat name space based on hash function.
- %The identifier is composed of queried domain name and record type.
- %My simulation of DNS tunneling in implemented prototype system shows my proposed system is effective for deterrence of the tunneling.
- %Besides, the results I evaluated the features of the proposed system shows my proposed system is expected for a reduction of traffic when name resolution are requested and faster to resolute the name.
+ Besides the results, I evaluated the features of the proposed system shows my proposed system is expected for a reduction of name resolution traffic and faster name resolution.
 }
 % Abstract (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
@@ -321,24 +285,14 @@
 % ===================付録===================
 \appendix
 
-\section{レコードタイプの分布}
+\section{レコードタイプの使用分布}
 \input{table/distribution-rtype}
 
 \newpage
 \section{発表リスト(口頭発表)}
 %\subsection{国内研究会}
 \begin{enumerate}
- \item \underline{高須賀 昌烈}, 妙中 雄三, 門林 雄基, ``非実在ドメインに対するネガティブキャッシュの拡張と再帰問い合わせハッシュ化の提案", 電子情報通信学会 情報ネットワーク研究会, 2019-10-ICTSSL-IN, 2019年10月.
+ \item \underline{高須賀 昌烈}, 妙中 雄三, 門林 雄基, ``非実在ドメインに対するネガティブキャッシュの拡張と再帰問い合わせハッシュ化の提案," 電子情報通信学会 情報ネットワーク研究会, 2019-10-ICTSSL-IN, 2019年10月.
 \end{enumerate}
-%\label{omake1}
-%これはおまけです。これはおまけです。これはおまけです。これはおまけです。
-%\begin{figure}
-%\centerline{これはおまけの図です。}
-%\caption{おまけの図}
-%\end{figure}
-%\section{おまけその２}
-%これもおまけです。これもおまけです。これもおまけです。これもおまけです。
-
-
 
 \end{document}
