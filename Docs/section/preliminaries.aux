@@ -1,0 +1,112 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\citation{rfc1034,rfc1035}
+\@writefile{toc}{\contentsline {section}{\numberline {2.}脅威モデル}{4}{section.2}}
+\newlabel{sec:threat-model}{{2}{4}{脅威モデル}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}DNSの概要}{4}{subsection.2.1}}
+\newlabel{sec:dns-protocol}{{2.1}{4}{DNSの概要}{subsection.2.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.1}名前空間}{4}{subsubsection.2.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces ゾーンごとに分割された名前空間}}{5}{figure.1}}
+\newlabel{fig:dns-architecture}{{1}{5}{ゾーンごとに分割された名前空間}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.2}ドメイン名とリソースレコード}{6}{subsubsection.2.1.2}}
+\newlabel{sec:domain-resorce-record}{{2.1.2}{6}{ドメイン名とリソースレコード}{subsubsection.2.1.2}{}}
+\newlabel{eq:domain-name}{{1}{6}{ドメイン名とリソースレコード}{equation.2.1}{}}
+\newlabel{eq:label-name}{{2}{6}{ドメイン名とリソースレコード}{equation.2.1}{}}
+\newlabel{eq:length-label-domain}{{3}{6}{ドメイン名とリソースレコード}{equation.2.1}{}}
+\citation{idn}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 主要なリソースレコードの一覧}}{7}{table.1}}
+\newlabel{tab:resource-record}{{1}{7}{主要なリソースレコードの一覧}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces DNSのパケットフォーマット}}{8}{table.2}}
+\newlabel{tab:packet-format}{{2}{8}{DNSのパケットフォーマット}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces DNSのAnswerセクション(bits)}}{8}{table.3}}
+\newlabel{tab:answer-dns}{{3}{8}{DNSのAnswerセクション(bits)}{table.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.1.3}名前解決の仕組み}{9}{subsubsection.2.1.3}}
+\newlabel{sec:dns-mechanism}{{2.1.3}{9}{名前解決の仕組み}{subsubsection.2.1.3}{}}
+\citation{asaf}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces DNSによる名前解決}}{10}{figure.2}}
+\newlabel{fig:dns-name-resolution}{{2}{10}{DNSによる名前解決}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}DNSトンネリング}{10}{subsection.2.2}}
+\newlabel{sec:dns-tunneling}{{2.2}{10}{DNSトンネリング}{subsection.2.2}{}}
+\citation{nmap,maarten}
+\citation{ozymandns}
+\citation{dan-kaminsky}
+\citation{heyoka,iodine,dnscat2,tcp-over-dns,dnscat,denise,dns-shell,dnsbotnet,dnscapy,dohtunnel,godoh,dohc2,magictunnelandroid,dns2tcp,tuns}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.1}DNS Exfiltration}{11}{subsubsection.2.2.1}}
+\newlabel{sec:dns-exfiltration}{{2.2.1}{11}{DNS Exfiltration}{subsubsection.2.2.1}{}}
+\citation{rfc4648}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces DNS Exfiltrationの概略図}}{13}{figure.3}}
+\newlabel{fig:dns-exfiltration}{{3}{13}{DNS Exfiltrationの概略図}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.2.2}DNS Infiltration}{13}{subsubsection.2.2.2}}
+\newlabel{sec:dns-infiltration}{{2.2.2}{13}{DNS Infiltration}{subsubsection.2.2.2}{}}
+\citation{dnscat2}
+\citation{iodine}
+\citation{dnscat2}
+\citation{dnscapy}
+\citation{tuns}
+\citation{iodine}
+\citation{iodine}
+\citation{dnscat2}
+\citation{iodine}
+\citation{dnscat2}
+\citation{denise}
+\citation{dns-shell}
+\citation{dnscapy}
+\citation{dohtunnel}
+\citation{dohc2}
+\citation{iodine}
+\citation{dns2tcp}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces DNS Infiltrationに使用され可能性のあるレコードタイプ}}{14}{table.4}}
+\newlabel{tab:infil-rtype}{{4}{14}{DNS Infiltrationに使用され可能性のあるレコードタイプ}{table.4}{}}
+\newlabel{eq:infil-txt}{{4}{15}{DNS Infiltration}{equation.2.4}{}}
+\citation{morishita}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces DNS Infiltrationの概略図}}{16}{figure.4}}
+\newlabel{fig:dns-infiltration}{{4}{16}{DNS Infiltrationの概略図}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}DNSトンネリングへの既存対策}{16}{subsection.2.3}}
+\citation{vern}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}特徴量}{17}{subsubsection.2.3.1}}
+\newlabel{sec:pre-tunnel-feature}{{2.3.1}{17}{特徴量}{subsubsection.2.3.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces 正規DNSクエリとDNSトンネリングにおけるドメイン名の違い}}{17}{table.5}}
+\newlabel{tab:feature-tunnel}{{5}{17}{正規DNSクエリとDNSトンネリングにおけるドメイン名の違い}{table.5}{}}
+\citation{Herrymann}
+\citation{born}
+\citation{born,cheng,liu,asaf,steadman,jawad}
+\citation{iodine}
+\citation{APT}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces DNSのHeaderセクション}}{19}{table.6}}
+\newlabel{tab:header-dns}{{6}{19}{DNSのHeaderセクション}{table.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 代表的なRcode一覧}}{19}{table.7}}
+\newlabel{tab:dns-rcode}{{7}{19}{代表的なRcode一覧}{table.7}{}}
+\citation{rfc8094,rfc8484}
+\citation{dohtunnel,godoh,dohc2}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}既存検知手法に対する脅威モデル}{20}{subsubsection.2.3.2}}
+\newlabel{sec:bypass-method}{{2.3.2}{20}{既存検知手法に対する脅威モデル}{subsubsection.2.3.2}{}}
+\@setckpt{section/preliminaries}{
+\setcounter{page}{22}
+\setcounter{equation}{4}
+\setcounter{enumi}{3}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{7}
+\setcounter{mpfootnote}{0}
+\setcounter{@paper}{1}
+\setcounter{part}{0}
+\setcounter{section}{2}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{2}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{4}
+\setcounter{table}{7}
+\setcounter{parentequation}{0}
+\setcounter{AlgoLine}{0}
+\setcounter{algocfline}{0}
+\setcounter{algocfproc}{0}
+\setcounter{algocf}{0}
+\setcounter{Item}{3}
+\setcounter{Hfootnote}{9}
+\setcounter{Hy@AnnotLevel}{0}
+\setcounter{bookmark@seq@number}{16}
+\setcounter{float@type}{4}
+\setcounter{section@level}{3}
+}

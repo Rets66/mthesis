@@ -1,0 +1,19 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces ゾーンごとに分割された名前空間}}{5}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces DNSによる名前解決}}{10}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces DNS Exfiltrationの概略図}}{13}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces DNS Infiltrationの概略図}}{16}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces DDNSにおける名前解決プロセス}}{22}{figure.5}
+\contentsline {figure}{\numberline {6}{\ignorespaces HDNSにおける名前解決プロセス}}{23}{figure.6}
+\contentsline {figure}{\numberline {7}{\ignorespaces GNSにおける名前解決プロセス}}{24}{figure.7}
+\contentsline {figure}{\numberline {8}{\ignorespaces 提案システムの概略図}}{25}{figure.8}
+\contentsline {figure}{\numberline {9}{\ignorespaces DNS-TDにおけるクライアントサーバアーキテクチャ}}{29}{figure.9}
+\contentsline {figure}{\numberline {10}{\ignorespaces マネージャとプロバイダの関係}}{31}{figure.10}
+\contentsline {figure}{\numberline {11}{\ignorespaces コンテンツのデータフォーマット}}{35}{figure.11}
+\contentsline {figure}{\numberline {12}{\ignorespaces レコード情報操作におけるプロセスの概略図}}{38}{figure.12}
+\contentsline {figure}{\numberline {13}{\ignorespaces 実験に用いたネットワークトポロジー}}{44}{figure.13}
+\contentsline {figure}{\numberline {14}{\ignorespaces スタブリゾルバからフルサービスリゾルバにおける通信}}{46}{figure.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces フルサービスリゾルバからマネージャにおける通信}}{46}{figure.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces DNSと提案システムのクエリパケットサイズ比較}}{50}{figure.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces 識別子導出にかかる時間的オーバーヘッド}}{52}{figure.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Root権威サーバにおけるRTTの分布}}{54}{figure.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces TLD権威サーバにおけるRTTの分布}}{54}{figure.19}

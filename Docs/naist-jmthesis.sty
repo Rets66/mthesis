@@ -4,11 +4,13 @@
 %                                             Ver. 1.2   Jan. 21, 1998
 %                                             Ver. D     July 07, 2004
 % 2018.01.08 Modified
-% This file must be included before \begin{document}. The Document
-% style must be 'jarticle', so you should include this macro as follows:
+%  This file must be included before \begin{document}. The Document
+%  style must be 'jarticle', so you should include this macro as follows:
 %    \documentstyle[naist-mthesis]{jarticle}
+% 2020.02.13 Modified
+%  Change titlepage as the IS devision
 %
-\typeout{Master's Thesis / Master's Report Style for Graduate School of Inforamtion Science, NAIST}
+\typeout{Master's Thesis / Master's Report Style for Division of Information Science, Science and Technology, NAIST}
 %
 % input the common style file
 %
@@ -95,18 +97,20 @@ to\hsize{\hfil\box\@tempboxa\hfil}
                 \begin{center}
                         \Large\bf\titlestr
                 \end{center}
-                \vspace*{18mm}
+                \vspace*{40mm}
                 \begin{center}
-                        \Large\authorstr
+                  \authorstr \\
+                  奈良先端科学技術大学院大学 \\
+                  先端科学技術研究科 \\
+                  \jprogramstr \\
                 \end{center}
-                \vspace*{50mm}
                 \begin{center}
-                        \datestr
+                  主指導教員: \firstcmember \\
+                  \jlabnamestr（情報科学領域）
                 \end{center}
-                \vspace*{4.5mm}
+                \vspace*{5mm}
                 \begin{center}
-                        奈良先端科学技術大学院大学 \\
-                        先端科学技術研究科 %{\jdepartmentstr}専攻
+                  \datestr 提出
                 \end{center}
                 \vspace*{\fill}
         \else
@@ -153,7 +157,7 @@ to\hsize{\hfil\box\@tempboxa\hfil}
 
         \begin{tabular}{p{0.3in}ll}
         \multicolumn{2}{l}{審査委員：} \\
-               & \firstcmember & \firstposition \\
+               & \firstcmember  & \firstposition \\
                & \secondcmember & \secondposition \\
                & \thirdcmember & \thirdposition \\
                & \fourthcmember & \fourthposition \\

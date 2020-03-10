@@ -5,6 +5,8 @@
 %                                             Ver. D     July 07, 2004
 % 2018.01.08 Modified
 % This file is called by naist-mthesis.sty or naist-jmthesis.sty.
+% 2020.02.18 Modified
+% Add new command \program.
 %
 %
 % Section Header
@@ -105,6 +107,20 @@
 \newcommand{\eptitle}[1]{}
 %
 %
+%
+
+\def\jlabnamestr{}
+\newcommand{\jlabname}[1]{
+        \def\jlabnamestr{#1}
+}
+\def\elabnamestr{}
+\newcommand{\elabname}[1]{
+        \def\elabnamestr{#1}
+}
+
+
+%
+%
 \def\authorstr{I am the author}
 \renewcommand{\author}[1]{
         \def\authorstr{#1}
@@ -124,6 +140,14 @@
 \newcommand{\syear}[1]{
  \def\syearstr{#1}
 }
+\def\esyearstr{}
+\newcommand{\esyear}[1]{
+ \def\esyearstr{#1}
+}
+\def\jsyearstr{}
+\newcommand{\jsyear}[1]{
+ \def\jsyearstr{#1}
+}
 %
 \def\smonthstr{}
 \newcommand{\smonth}[1]{
@@ -135,14 +159,14 @@
  \def\sdaystr{#1}
 }
 %
-\def\datestr{\syearstr\,年\hspace{.3em}\nobreak%
+\def\datestr{\jsyearstr\,年\hspace{.3em}\nobreak%
 \smonthstr\,月\hspace{.3em}\nobreak\sdaystr\,日}
 %
 \def\edatestr{
 \ifcase\smonthstr\or
  January\or February\or March\or April\or May\or June\or
  July\or August\or September\or October\or November\or December\fi
- \space\sdaystr, \syearstr}
+ \space\sdaystr, \esyearstr}
 %
 %
 \newcommand{\department}[1]{
@@ -154,7 +178,17 @@
         \def\jdepartmentstr{\ifcase\departmentstr\or{情報処理学}\or{情報システム学}\or{情報生命科学}\or{情報科学}\fi}
         \def\edepartmentstr{\ifcase\departmentstr\or{Information Processing}\or{Information Systems}\or{Bioinformatics and Genomics}\or{Information Science}\fi}
 }
-%
+
+\newcommand{\program}[1]{
+        \def\programstr{#1}
+        \def\ise{1}
+        \def\cb{2}
+        \def\icps{3}
+        \def\ds{4}
+        \def\jprogramstr{\ifcase\programstr\or{情報理工学プログラム}\or{情報生命科学プログラム}\or{知能社会創成科学プログラム}\or{データサイエンス}\fi}
+        \def\eprogramstr{\ifcase\programstr\or{Program of Information Science and Engineering}\or{Program of Computational Biology}\or{Program of Intelligent Cyber-Physical Systems}\or{Program of Data Science}\fi}
+}
+
 \newcommand{\division}[1]{}
 %
 % committee members' page items
@@ -318,7 +352,7 @@
                 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
                 \Large\bf \etitlestr\footnote[1]
                         {{\edoctitle}, %Department of {\edepartmentstr},
-                        Graduate School of Information \mbox{Science,}
+                        Graduate School of Science and \mbox{Technology,}
                         Nara Institute of Science and Technology,
                         %{NAIST-IS-\edoctitleacronym\studentnumberstr},
                         {\edatestr}.}
