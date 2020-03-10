@@ -230,9 +230,8 @@ P.~Hoffman and P.~McManus, ``Dns queries over https (doh).''
 
 \bibitem{cox}
 C.~Russ, M.~Athicha, and R.~T. Morris, ``Serving dns using a peer-to-peer
-  lookup service,'' in {\em Peer-to-Peer Systems} (P.~Druschel, K.~Frans, and
-  A.~Rowstron, eds.), (Berlin, Heidelberg), pp.~155--165, Springer Berlin
-  Heidelberg, 2002.
+  lookup service,'' in {\em Peer-to-Peer Systems}, pp.~155--165, Springer
+  Berlin Heidelberg, 2002.
 
 \bibitem{dhash}
 F.~Dabek, M.~F. Kaashoek, D.~Karger, R.~Morris, and I.~Stoica, ``Wide-area

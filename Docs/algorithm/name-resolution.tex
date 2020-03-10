@@ -13,7 +13,7 @@
 	 $content\_id,\ qtype \leftarrow parser(query\_data)$\;
 	 $record\_value \leftarrow db\_accesser(content\_id)$\;
 	 \If{$value$}{
-		 $payload \leftarrow benigh\_response(content\_id,\ qtype,\ ttl,\ record\_value) $\;
+		 $payload \leftarrow benign\_response(content\_id,\ qtype,\ ttl,\ record\_value) $\;
 		}
 		\Else{
 		 $payload \leftarrow error\_response(content\_id,\ qtype)$\;

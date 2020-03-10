@@ -1,5 +1,5 @@
 \section{脅威モデル}
-\label{sec:dns-tunneling}
+\label{sec:threat-model}
 本章では，はじめにDNSの概要について述べる．
 その次に，本研究における脅威モデルであるDNSトンネリングについて説明する．
 
@@ -243,7 +243,7 @@ DNS Infiltrationの流入通信を図解した様子が，図~\ref{fig:dns-infil
 このようにして，DNS Infiltrationでは，正規の名前解決の方法を用いて，インターネットから組織内へとデータを取得することができる．
 \begin{figure}[htbp]
  \centering
- \includegraphics[scale=0.6]{figure/dns-infiltration.png}
+ \includegraphics[scale=0.5]{figure/dns-infiltration.png}
  \caption[DNS Infiltrationの概略図]{TXTレコードに登録された情報について，DNSクエリで問い合わせることで権威サーバから命令情報を取得している様子}
  \label{fig:dns-infiltration}
 \end{figure}
@@ -257,7 +257,7 @@ DNS Infiltrationの流入通信を図解した様子が，図~\ref{fig:dns-infil
 本節では，DNSトンネリングに対するこれまでの対策手法を紹介し，検知手法として用いられるアプローチについて説明する．
 最後に，それら検知アプローチを迂回する脅威モデルを示し，検知に基づくアプローチに限界があることを明らかにする．
 
-DNSトンネリングに対して，森下らは提案されているDNSトンネリングへの対策アプローチを以下のようにまとめている~\cite{morishita}．
+DNSトンネリングに対して，森下ら~\cite{morishita}は提案されているDNSトンネリングへの対策アプローチを以下のようにまとめている．
 \begin{enumerate}
  \item DNSクエリログの取得と保存・内容の調査
  \vspace{-0.5cm}
