@@ -1,0 +1,26 @@
+\begin{table}[htbp]
+ \caption[DNS Infiltrationに使用され可能性のあるレコードタイプ]{DNS Infiltrationとして使用することができるレコードタイプの一覧}
+ \centering
+  \begin{tabular}{lrll}
+    \toprule
+		\multicolumn{1}{c}{\textbf{タイプ}} & \multicolumn{1}{c}{\textbf{\begin{tabular}{c}最大サイズ\\(bytes)\end{tabular}}} & \multicolumn{1}{c}{\textbf{説明}} &\multicolumn{1}{c}{\textbf{実装}}\\
+    \midrule
+		A & 4 & \begin{tabular}{l}ホストのIPv4アドレス\end{tabular} &\\ \hline
+		NS & 4 & \begin{tabular}{l} 権威サーバ\end{tabular} & \begin{tabular}{l}\cite{dnscat2}\end{tabular}\\ \hline
+    %MF & 4 & メール転送サーバ \\
+		CNAME & 253 & \begin{tabular}{l}別名\end{tabular} & \begin{tabular}{l}\cite{iodine},\cite{dnscat2}, \cite{dnscapy}, \cite{tuns}\end{tabular}\\ \hline
+		%SOA & 253 & 権威ゾーンの開始 & \\
+		NULL & 255 & \begin{tabular}{l}NULL(実験用)\end{tabular} & \begin{tabular}{l}\cite{iodine}\end{tabular}\\ \hline
+		PTR & 4 & \begin{tabular}{l}ドメイン名のポインター\\(逆引き)\end{tabular} & \\ \hline
+    %HINFO & 13 & ホスト情報 \\
+    %MINFO & 14 & メールボックスおよびメールリスト情報 \\
+		MX & 253 & \begin{tabular}{l}メール交換\end{tabular} & \begin{tabular}{l}\cite{iodine}, \cite{dnscat2}\end{tabular}\\ \hline
+		TXT & 255 & \begin{tabular}{l}任意文字列\end{tabular} & \begin{tabular}{l}\cite{iodine},\cite{dnscat2}, \cite{denise}, \cite{dns-shell},\\ \cite{dnscapy}, \cite{dohtunnel}, \cite{dohc2}\end{tabular}\\ \hline
+		AAAA & 32 & \begin{tabular}{l}ホストのIPv6アドレス\end{tabular} & \\ \hline
+		SRV & 180 & \begin{tabular}{l}ドメイン名に対する\\サービスの場所\end{tabular} & \begin{tabular}{l}\cite{iodine}\end{tabular}\\ \hline
+		 DNSKEY & 40 & \begin{tabular}{l}DNSSECのための公開鍵\end{tabular} & \begin{tabular}{l}\cite{dns2tcp}\end{tabular}\\
+    %TLSA & 52 & \\
+    \bottomrule
+  \end{tabular}
+ \label{tab:infil-rtype}
+\end{table}

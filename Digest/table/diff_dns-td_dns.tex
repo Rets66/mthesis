@@ -1,0 +1,16 @@
+\begin{table}[htb]
+ \caption{DNSとDNS-TDの特性比較}
+ \centering
+  \begin{tabular}{lll}
+    \toprule
+		 & \multicolumn{1}{c}{\textbf{DNS}} & \multicolumn{1}{c}{\textbf{DNS-TD}} \\
+    \midrule
+		\begin{tabular}{l}\textbf{Qnameサイズ}\\\textbf{(bytes)}\end{tabular} & \begin{tabular}{l}変長\\(最大253)\end{tabular} & \begin{tabular}{l}固定長(85)\\(コンテンツID(56).(1)\\ドメインID(28))\end{tabular} \\ \hline
+		\begin{tabular}{l}\textbf{問い合わせ回数}\end{tabular} &\begin{tabular}{l}委譲された回数\end{tabular} & \begin{tabular}{r}1\end{tabular} \\ \hline
+		\begin{tabular}{l}\textbf{RTT}\end{tabular} & \begin{tabular}{l}全ての権威サーバ\\とのRTT総和\end{tabular} & \begin{tabular}{l}マネージャとのRTTのみ\end{tabular}  \\ \hline
+		\begin{tabular}{l}\textbf{ゾーン管理}\end{tabular} & \begin{tabular}{l}ファイル\end{tabular} & \begin{tabular}{l}データベース\end{tabular}\\ \hline
+		\begin{tabular}{l}\textbf{オーバーヘッド}\end{tabular} & \begin{tabular}{l}再帰問い合わせ\end{tabular} & \begin{tabular}{l}・コンテンツIDの計算\\・ドメインIDの計算\\・マネージャ探索処理\end{tabular}\\
+    \bottomrule
+  \end{tabular}
+ \label{tab:diff_dns-td_dns}
+\end{table}

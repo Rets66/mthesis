@@ -1,0 +1,30 @@
+\begin{table}[h]
+ \caption{主要なリソースレコードの一覧}
+ \centering
+  \begin{tabular}{ll}
+    \toprule
+		\multicolumn{1}{c}{\textbf{タイプ}} & \multicolumn{1}{c}{\textbf{目的}} \\
+    \midrule
+    A &  ホストのIPv4アドレス \\
+    NS & 権威サーバ \\
+    %MF & 4 & メール転送サーバ \\
+    CNAME & 別名 \\
+    SOA & 権威ゾーンの開始 \\
+    NULL & NULL(実験用) \\
+    PTR & ドメイン名のポインター(逆引き) \\
+    %HINFO & 13 & ホスト情報 \\
+    %MINFO & 14 & メールボックスおよびメールリスト情報 \\
+    MX & メール交換 \\
+    TXT & 任意文字列 \\
+    AAAA & ホストのIPv6アドレス \\
+		SRV & ドメイン名に対するサービスの場所\\
+    RRSIG & リソースレコード署名\\
+    NSEC & DNSSECのための不在署名\\
+    DNSKEY & DNSSECのための公開鍵\\
+    NSEC3 & NSECのバージョン3\\
+    %TLSA & 52 & \\
+    CAA & 証明書を発行する認証局の指定\\
+    \bottomrule
+  \end{tabular}
+ \label{tab:resource-record}
+\end{table}

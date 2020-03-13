@@ -1,0 +1,29 @@
+%このファイルは日本語文字を含みます.
+\BOOKMARK [1][-]{section.1}{概要}{}% 1
+\BOOKMARK [1][-]{section.2}{背景}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{目的}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{貢献}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{脅威モデル}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{DNSトンネリング}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{DNS Exfiltration}{subsection.3.1}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.2}{DNS Infiltration}{subsection.3.1}% 8
+\BOOKMARK [2][-]{subsection.3.2}{DNSトンネリングへの既存対策}{section.3}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.1}{特徴量}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.2}{既存検知手法に対する脅威モデル}{subsection.3.2}% 11
+\BOOKMARK [1][-]{section.4}{関連研究}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{P2Pに基づく名前解決システム}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{課題}{section.4}% 14
+\BOOKMARK [1][-]{section.5}{提案システム}{}% 15
+\BOOKMARK [2][-]{subsection.5.1}{システムアーキテクチャ}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.2}{サービスノード}{section.5}% 17
+\BOOKMARK [2][-]{subsection.5.3}{識別子}{section.5}% 18
+\BOOKMARK [3][-]{subsubsection.5.3.1}{ハッシュアルゴリズム}{subsection.5.3}% 19
+\BOOKMARK [3][-]{subsubsection.5.3.2}{ゾーン分割}{subsection.5.3}% 20
+\BOOKMARK [1][-]{section.6}{評価}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{プロトタイプ実装とシミュレーション環境}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{DNSトンネリング}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{特性評価}{section.6}% 24
+\BOOKMARK [3][-]{subsubsection.6.3.1}{トラフィック量}{subsection.6.3}% 25
+\BOOKMARK [3][-]{subsubsection.6.3.2}{オーバーヘッド}{subsection.6.3}% 26
+\BOOKMARK [3][-]{subsubsection.6.3.3}{名前解決速度}{subsection.6.3}% 27
+\BOOKMARK [1][-]{section.7}{結論}{}% 28

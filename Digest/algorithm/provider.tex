@@ -1,0 +1,17 @@
+\begin{algorithm}[h]
+ \caption{プロバイダにおけるコンテンツ操作処理}
+ \label{algo:registration-handler}
+  \SetKwProg{Fn}{}{\string:}{}
+  \SetKwFunction{Handler}{handler}
+  \SetKwFunction{Certify}{certify}
+ $\vspace{-0.5cm}$\;
+ 認証局へのコンテンツリクエスト\;
+ %Calculate the content'{}s content id and domain id\;
+ \Fn{\Handler{request\_data}}{
+	 $data,\ provider\_addr \leftarrow parser(request\_data)$\;
+	 $content\_id,\ domain\_id \leftarrow calculate\_id(data.object,\ data.rtype)$\;
+	 $manager\_addr \leftarrow find\_manager(start, end, content\_id)$\;
+	 $sendto(data, manager\_addr)$\;
+ }
+ $\vspace{-0.3cm}$\;
+\end{algorithm}

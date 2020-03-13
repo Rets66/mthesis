@@ -1,0 +1,41 @@
+\documentclass[11pt, a4paper]{jarticle} % Japanese
+\twocolumn
+
+\usepackage[top=2cm, bottom=2cm, left=1.5cm, right=1.5cm]{geometry}
+\usepackage{amssymb, amsmath, newtxmath}
+\usepackage[ruled, vlined]{algorithm2e}
+\usepackage{cite}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx, colorlinks=true, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}
+\usepackage{pxjahyper} %Required pxjahyper.sty
+%\usepackage[dvipdfmx]{xcolor}
+%\usepackage{pxjahyper} %TOC文字化け対策
+\usepackage{booktabs}
+\usepackage{lscape}
+\usepackage{here}
+%\usepackage{colortbl}
+\pagenumbering{gobble}
+
+
+\author{高須賀 昌烈}
+\title{トンネリング抑止を目的とした\\分散ハッシュテーブルを利用したDNSに関する研究}
+\date{}
+
+\begin{document}
+\maketitle
+
+\input{sec/abstract}
+\input{sec/introduction}
+\input{sec/preliminaries}
+\input{sec/related_works}
+\input{sec/proposed_method}
+\input{sec/evaluation}
+%\input{sec/discussion}
+\input{sec/conclusion}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{digest}
+
+\end{document}

@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+ \caption{フルサービスリゾルバが使用する関数と保持する情報}
+ \centering
+  \begin{tabular}{ll}
+    \toprule
+		\multicolumn{1}{c}{\textbf{表記}} & \multicolumn{1}{c}{\textbf{意味}} \\
+    \midrule
+		query\_manager() & マネージャに問い合わせる関数 \\
+		response\_client() & 結果をクライアントに応答する関数 \\
+		hash.sha3\_224() & 54bytesのSHA3ハッシュ関数 \\
+    start & ゾーンにおける範囲の開始アドレス \\
+    end & ゾーンにおける範囲の終了アドレス \\
+    client\_address & クライアントのIPアドレスとポートのタプル \\
+		answer.rcode & マネージャにおける応答コード \\
+		answer.rdata & レコード情報 \\
+    map\_start & ゾーンにおける範囲の開始アドレスのリスト \\
+    map\_end & ゾーンにおける範囲の終了アドレスのリスト \\
+    \bottomrule
+  \end{tabular}
+ \label{tab:discription-fullresolv}
+\end{table}

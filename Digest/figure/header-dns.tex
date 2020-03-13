@@ -1,0 +1,13 @@
+\begin{table}[htbp]
+ \caption{DNSのHeaderセクション}
+ \centering
+  \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    \toprule
+		\multicolumn{10}{|c|}{Identification(16bits)}\\
+    \midrule
+		QR & Opcode & AA & TC & RD & RA & Z & AD & CD & Rcode \\
+		(1) & (4) & (1) & (1) & (1) & (1) & (1) & (1) & (1) & (4) \\
+    \bottomrule
+  \end{tabular}
+ \label{tab:header-dns}
+\end{table}

@@ -1,0 +1,15 @@
+\begin{table}[h]
+ \caption{パケット構成する要素とそのサイズ}
+ \centering
+  \begin{tabular}{llr}
+    \toprule
+		\multicolumn{1}{c}{\textbf{表記}} & \multicolumn{1}{c}{\textbf{意味}} & \multicolumn{1}{c}{\textbf{サイズ(bytes)}} \\
+    \midrule
+		R & ラベルの長さ & \begin{tabular}{r}1\end{tabular} \\
+		r & Rootを表す``." & \begin{tabular}{r}1\end{tabular} \\
+		O & Qname以外 & \begin{tabular}{r}68\end{tabular} \\
+		Rtype & レコードタイプ & \begin{tabular}{r}1(A)\\2(NS)\end{tabular}\\
+    \bottomrule
+  \end{tabular}
+ \label{tab:root-tld-packet-size}
+\end{table}

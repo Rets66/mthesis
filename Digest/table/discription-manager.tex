@@ -1,0 +1,18 @@
+\begin{table}[htbp]
+ \caption{マネージャが使用する関数と保持する情報}
+ \centering
+  \begin{tabular}{ll}
+    \toprule
+		\multicolumn{1}{c}{\textbf{表記}} & \multicolumn{1}{c}{\textbf{意味}} \\
+    \midrule
+		parser() & クエリパケットをデータ構造に分解する関数 \\
+		db\_accesser() & データベースにクエリする関数 \\
+		benign\_responce() & 正常応答用のペイロードを作成する関数 \\
+		error\_responce() & 不在応答用のペイロードを作成する関数 \\
+		pack() & パケットのDNSのデータ構造にパックする関数 \\
+		sendto() & クライアントに結果を応答する関数 \\
+		record\_value & レコード情報 \\
+    \bottomrule
+  \end{tabular}
+ \label{tab:discription-manager}
+\end{table}

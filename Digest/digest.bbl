@@ -1,0 +1,135 @@
+\begin{thebibliography}{10}
+
+\bibitem{mitre-custom-c2}
+M.~Att\&ck, ``Custom command and control protocol.''
+  https://attack.mitre.org{\slash}techniques{\slash}T1094{\slash}.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{born}
+K.~Born and D.~Gustafson, ``Ngviz: Detecting dns tunnels through n-gram
+  visualization and quantitative analysis,'' in {\em Proceedings of the Sixth
+  Annual Workshop on Cyber Security and Information Intelligence Research},
+  CSIIRW ’10, (New York, NY, USA), p.~4, Association for Computing Machinery,
+  2010.
+
+\bibitem{cheng}
+C.~Qi, X.~Chen, C.~Xu, J.~Shi, and P.~Liu, ``A bigram based real time dns
+  tunnel detection approach,'' {\em Procedia Computer Science}, vol.~17,
+  pp.~852 -- 860, 2013.
+\newblock First International Conference on Information Technology and
+  Quantitative Management.
+
+\bibitem{liu}
+J.~{Liu}, S.~{Li}, Y.~{Zhang}, J.~{Xiao}, P.~{Chang}, and C.~{Peng},
+  ``Detecting dns tunnel through binary-classification based on behavior
+  features,'' in {\em 2017 IEEE Trustcom/BigDataSE/ICESS}, pp.~339--346, Aug
+  2017.
+
+\bibitem{asaf}
+A.~Nadler, A.~Aminov, and A.~Shabtai, ``Detection of malicious and low
+  throughput data exfiltration over the dns protocol,'' in {\em Computers and
+  Security}, vol.~80, pp.~36 -- 53, 2019.
+
+\bibitem{steadman}
+J.~{Steadman} and S.~{Scott-Hayward}, ``Dnsxd: Detecting data exfiltration over
+  dns,'' in {\em 2018 IEEE Conference on Network Function Virtualization and
+  Software Defined Networks (NFV-SDN)}, pp.~1--6, November 2018.
+
+\bibitem{jawad}
+J.~{Ahmed}, H.~H. {Gharakheili}, Q.~{Raza}, C.~{Russell}, and V.~{Sivaraman},
+  ``Monitoring enterprise dns queries for detecting data exfiltration from
+  internal hosts,'' {\em IEEE Transactions on Network and Service Management},
+  pp.~1--1, 2019.
+
+\bibitem{iodine}
+E.~Ekman, ``iodine.'' http://code.kryo.se/iodine/.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{dnscat2}
+R.~Bowes, ``dnscat2.'' https://github.com/iagox86/dnscat2.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{rfc4648}
+S.~Josefsson, ``The base16, base32, and base64 data encodings.''
+  https://www.rfc-editor.org/info/rfc4648, October 2006.
+\newblock RFC4648.
+
+\bibitem{morishita}
+森下泰宏 and 尾崎勝義,
+  ``Dns運用の「見抜く」を探る～インシデント事例の紹介と必要な要素・項目～ランチのおともにdns.''
+  https://jprs.jp/tech/material/iw2016-lunch-L3-01.pdf.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{vern}
+V.~Paxson, M.~Christodorescu, M.~Javed, J.~Rao, R.~Sailer, D.~L. Schales,
+  M.~Stoecklin, K.~Thomas, W.~Venema, and N.~Weaver, ``Practical comprehensive
+  bounds on surreptitious communication over {DNS},'' in {\em Presented as part
+  of the 22nd {USENIX} Security Symposium ({USENIX} Security 13)}, (Washington,
+  D.C.), pp.~17--32, {USENIX}, 2013.
+
+\bibitem{Herrymann}
+D.~Herrmann, C.~Banse, and H.~Federrath, ``Behavior-based tracking: Exploiting
+  characteristic patterns in dns traffic,'' {\em Comput. Secur.}, vol.~39,
+  p.~17^^e2^^80^^9333, November 2013.
+
+\bibitem{rfc8094}
+T.~Reddy and P.~Patil, ``Dns over datagram transport layer security (dtls).''
+  https://www.rfc-editor.org/info/rfc8094, February 2017.
+\newblock RFC8094.
+
+\bibitem{rfc8484}
+P.~Hoffman and P.~McManus, ``Dns queries over https (doh).''
+  https://www.rfc-editor.org/info/rfc8484, October 2018.
+\newblock RFC8484.
+
+\bibitem{dohtunnel}
+iceman, ``dohtunnel.''
+  https://github.com{\slash}jansect{\slash}dohtunnel{\slash}blob{\slash}master{\slash}doh{\slash}doh.go.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{godoh}
+SensePost, ``godoh.'' https://github.com/sensepost/goDoH.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{dohc2}
+SpiderLabs, ``Dohc2.'' https://github.com/SpiderLabs/DoHC2.
+\newblock (accessed at 2020-1-28).
+
+\bibitem{cox}
+C.~Russ, M.~Athicha, and R.~T. Morris, ``Serving dns using a peer-to-peer
+  lookup service,'' in {\em Peer-to-Peer Systems}, pp.~155--165, Springer
+  Berlin Heidelberg, 2002.
+
+\bibitem{dhash}
+F.~Dabek, M.~F. Kaashoek, D.~Karger, R.~Morris, and I.~Stoica, ``Wide-area
+  cooperative storage with cfs,'' in {\em SOSP01: 18th Symposium on Operating
+  System Principles}, (New York, United States), Association for Computing
+  Machinery, October 2001.
+
+\bibitem{p_donas}
+P.~{Danielis}, V.~{Altmann}, J.~{Skodzik}, T.~{Wegner}, A.~{Koerner}, and
+  D.~{Timmermann}, ``P-donas: A p2p-based domain name system in access
+  networks,'' {\em ACM Transactions on Internet Technology (TOIT)}, vol.~15,
+  pp.~1--21, September 2015.
+
+\bibitem{yiting}
+Y.~{Song} and K.~{Koyanagi}, ``Study on a hybrid p2p based dns,'' in {\em 2011
+  IEEE International Conference on Computer Science and Automation
+  Engineering}, vol.~4, pp.~152--155, June 2011.
+
+\bibitem{gns}
+W.~Matthias, S.~Martin, and G.~Christian, ``A censorship-resistant,
+  privacy-enhancing and fully decentralized name system,'' in {\em Cryptology
+  and Network Security} (D.~Gritzalis, A.~Kiayias, and I.~Askoxylakis, eds.),
+  (Cham), pp.~127--142, Springer International Publishing, 2014.
+
+\bibitem{Davoudian}
+A.~Davoudian, L.~Chen, and M.~Liu, ``A survey on nosql stores,'' {\em ACM
+  Comput. Surv.}, vol.~51, pp.~1--43, April 2018.
+
+\bibitem{rfc7816}
+S.~Bortzmeyer, ``Dns query name minimisation to improve privacy.''
+  https://www.rfc-editor.org/info/rfc7816, March 2016.
+\newblock RFC7816.
+
+\end{thebibliography}

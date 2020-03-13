@@ -1,0 +1,17 @@
+\begin{table}[htbp]
+ \caption{代表的なRcode一覧}
+ \centering
+  \begin{tabular}{rll}
+    \toprule
+		\multicolumn{1}{c}{\textbf{値}} & \multicolumn{1}{c}{\textbf{名前}} & \multicolumn{1}{c}{\textbf{意味}}\\
+    \midrule
+    0 & NoError & 正常\\
+    1 & FormErr & フォーマットエラー\\
+    2 & ServFail & サーバエラー\\
+    3 & NXDomain & 存在しないドメイン\\
+    4 & NotImp & 未実装\\
+    5 & Refused & 問い合わせ拒否\\
+    \bottomrule
+  \end{tabular}
+ \label{tab:dns-rcode}
+\end{table}
