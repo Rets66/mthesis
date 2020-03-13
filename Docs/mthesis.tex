@@ -105,7 +105,7 @@
 \sday{13}
 
 \jlabname{サイバーレジリエンス構成学研究室}
-\elabname{xxx Lab.}
+\elabname{Laboratory for Cyber Resilience}
 
 
 % 審査委員（日本語）
@@ -115,15 +115,10 @@
 %主指導教員、副指導教員を明記する。両指導教員以外は委員。
 %学外審査委員は、大学名を明記する
 % ４人の場合
-\cmembers{門林 雄基 教授}{（主指導教員）}
-         {笠原 正治 教授}{（副指導教員）}
-         {林 優一 教授}{（副指導教員）}
-         {妙中 雄三 准教授}{（副指導教員）}
-% ３人の場合
-%\cmembers{○○ ○○ 教授}{（主指導教員）}
-%         {○○ ○○ 教授}{（副指導教員）}
-%         {○○ ○○ 准教授}{（副指導教員）}
-%         {}{}
+\cmembers{門林 雄基 教授}{（主指導教員，情報科学領域）}
+         {笠原 正治 教授}{（副指導教員，情報科学領域）}
+         {林 優一 教授}{（副指導教員，情報科学領域）}
+         {妙中 雄三 准教授}{（副指導教員，情報科学領域）}
 
 
 
@@ -134,25 +129,19 @@
 % ５人以上の場合，５人目以降は\eaddcmembers を使って宣言する
 % Supervisor, Co-supervisor, and Member must be specified.
 % ４人の場合
-\ecmembers{Professor Youki Kadobayashi}{(Supervisor)}
-          {Professor Shoji Kasahara}{(Co-supervisor)}
-          {Professor Yu-ichi Hayashi}{(Co-supervisor)}
-          {Associate Professor Yuzo Taenaka}{(Co-supervisor)}
-% ３人の場合
-%\ecmembers{Professor xx xx}{(Supervisor)}
-%          {Professor xx xx}{(Co-supervisor)}
-%          {Associate Professor xx xx}{(Co-supervisor)}
-%          {}{}
+\ecmembers{Professor Youki Kadobayashi}{(Supervisor, Division of Information Science)}
+          {Professor Shoji Kasahara}{(Co-supervisor, Division of Information Science)}
+          {Professor Yu-ichi Hayashi}{(Co-supervisor, Division of Information Science)}
+          {Associate Professor Yuzo Taenaka}{(Co-supervisor, Division of Information Science)}
 
 
 
 % ===================キーワード===================
-\keywords{ドメインネームシステム，DNSトンネリング，ネットワークセキュリティ．分散ハッシュテーブル}
+\keywords{ドメインネームシステム，DNSトンネリング，ネットワークセキュリティ，分散ハッシュテーブル}
 % キーワード５〜６個 (in plain text)
 %   注: (in LaTeX)と同じ場合は記入する必要なし。
 %       この情報は修士論文/課題研究には現れませんが、管理のために必要です。
 %\pkeywords{pi, 天文学, 数学, 計算機, アルゴリズム}
-%\pkeywords{DNS Exfiltration, 秘匿通信，ハッシュ関数，再帰問い合わせ}
 % 5 or 6 Keywords (in LaTeX)
 %\ekeywords{$\pi$, astronomy, mathematics, computer, algorithm}
 
@@ -197,19 +186,22 @@
 
 % ===================Abstruct===================
 \eabstract{
- In well-organised cyber-attacks, camouflage techniques are used to bypassing the monitoring or analysis systems.
- DNS Tunneling is the most popular method in those covert network techniques.
- It's utilised a simple concept which transfers data through the Qname field in the DNS query packet.
- Many solutions have been proposed to counter against this 	tunneling technique.
- However, those previous research used some tactics such as subdomain's length or entropy, and frequency of traffic by analysing tunneling traffic.
- The previous countermeasure were based on the detection apploach estimated threshold or malicious models.
- However those detection apploachies are exposed to the menace of the being bypassed.
- For example, the malicious user can bypass by reducing the transfer data in a packet or leaving times between query packets and response packets.
+ In well-organised cyber-attacks, covert techniques are being used to bypass monitoring or analysis systems.
+ The method called DNS Tunneling is used most commonly in those sort of covert communication techniques.
+ This method utilizes the feature of that DNS query can transfer the text data by injection in the Qname field.
+ Many works have been proposed ever to counter this tunneling method.
+ Those previous works mostly adopt the detection apploach based of the features such as suspicious subdomain like long length or high entropy, and the high frequency of traffic.
+ Since this sort of features are easily compromised by reducing the transfer data in the packet or leaving times between packets and response packets, malicious user can bypass those countermesures.
+ %However, those previous works used some tactics such as subdomain's length or entropy, and frequency of traffic by analysing tunneling traffic.
+ %The previous countermeasures were based on the detection apploach estimated threshold or malicious models.
+ %However those detection apploachies are exposed to the menace of the being bypassed.
+ %For example, the malicious user can bypass by reducing the transfer data in a packet or leaving times between query packets and response packets.
 
- In this study, I propose name resolution system based on distributed hash table for DNS tunneling deterrence.
- The core idea is the division of authorization server function into contents management and records cofiguration.
- Following this approach, the transparency from clients to servers which malicious user configured is restricted, tunneling queries don't reach the server in the end.
- I implemented prototype system of the proposed design for the evaluation, and verified the effectiveness for the tunneling deterrence by simulation tunneling test on the prototype.
+ In this study, I propose another name resolution system based on distributed hash table for DNS tunneling deterrence.
+ The core idea is to divide the authorization server function into the content management and the record configuration.
+ With this name resolution system, user can resolve the resourse record linked with the Qname without the transparency of DNS query from client to server.
+ Hence, the system can restrain the occurrence of the tunneling communication utilizing the transparency of query.
+ I implemented prototype system of the proposed design for the evaluation, and proved the effectiveness for the tunneling deterrence by simulation tunneling test on the prototype.
  Besides the results, I evaluated the features of the proposed system shows my proposed system is expected for a reduction of name resolution traffic and faster name resolution.
 }
 % Abstract (in plain text)
@@ -270,20 +262,22 @@
 %先生方へ
 % 機会
 主指導教員の門林雄基教授におきましては，セキュリティ領域における高い視点から研究の方向性を示して下さいました．
-また，先端科学をテーマにする研究者としての姿勢や社会人としての身の振り方，修練し続けることの意義を親身になって御助言して下さいました．
+また，先端科学をテーマにする研究者としての姿勢や社会人としての身の振り方，修練し続けることの意義を親身に御教示して下さいました．
 笠原正治教授におきましては，考察できていなかった課題を的確に御指摘して下さいました．
-林優一教授におきましては，本学で学ぶより前から親身に気遣って下さり，本研究に対してセキュリティの専門の立場から鋭くかつ建設的な御指摘を下さいました．
+林優一教授におきましては，本学で学ぶより前から親身に気遣って下さり，本研究ではセキュリティの専門の立場から鋭くかつ建設的な御指摘を下さいました．
 %わかりやすさ，行間を読ませないプレゼン，スケジュール管理
 妙中雄三准教授におきましては，Weekly Meetingという形で貴重な御時間を多く頂戴し，熱心に討論に付き合って下さいました．
 常に妥協のない姿勢で鋭く御指導して下さり，説明に関する方法論など研究のいろはを丁寧に御教示して下さいました．
-また，樫原茂助教授，Doudou Fall助教授には，日頃より相談に乗って下さり，研究に取り組む姿勢や考え方について御助言して下さいました．
+また，所属研究室の樫原茂助教授，Doudou Fall助教授には，日頃より相談に乗って下さり，研究に取り組む姿勢や考え方について御助言して下さいました．
 %学生
-研究室の学生メンバーにおきまして，先輩は様々な形で研究を導いて下さり，唯一の同期はそのキャラクターでいつも楽しませてくれ，後輩は執筆時の添削やプレゼン練習に時間を縫って付き合うなど支援して下さいました．
+研究室の学生メンバーにおきまして，先輩方は様々な形で研究を導いて下さり，唯一の同期はそのキャラクターでいつも楽しませてくれ，後輩は執筆時の添削やプレゼン練習に時間に多くの時間を割いてくれ，熱心に支援して下さいました．
 %お陰様で，明るく健康的な研究活動を行うことができました．
-研究室の秘書様方におきましては，研究会への手続きや事務手続きなどの研究活動を支えて下さいました．
+研究室の秘書様方におきましては，研究会や事務に関する手続きを通じて研究活動を支えて下さいました．
 
 %何を学んできたか
-サイバーレジリエンス構成学研究室は，日常的に英語を話す機会があるほどに国際的で，建設的な討論を通じて先端研究を行える環境にありました．
+サイバーレジリエンス構成学研究室は，日常的に英語を話す機会があるほどに国際的で，周囲との討論は常に建設的であるなど，研究するのに恵まれた環境にありました．
+%建設的な討論を通じて先端研究を行える環境にありました．
+%周囲との討論は常に建設的であり，先端テーマを研究するのに恵まれた環境にありました
 %家族へ
 両親含め家族からは，奈良という慣れない土地で学ぶことを気遣いながら，どんな時も温かく優しく見守って下さいました．
 その眼差しに恥じぬようにと努めることで，本研究をまとめることが出来ました．

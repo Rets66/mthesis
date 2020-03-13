@@ -11,15 +11,15 @@
 %
 % Section Header
 %       from jarticle.sty, however, ``.'' was appended to right after
-%       section numbers. 
+%       section numbers.
 %
 %\typeout{section}
 \def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
-     \def\@svsec{}\else 
+     \def\@svsec{}\else
      \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname
       \ifnum #2=1.\fi\hskip 0.6em }\fi
      \@tempskipa #5\relax
-      \ifdim \@tempskipa>\z@ 
+      \ifdim \@tempskipa>\z@
         \begingroup #6\relax
           \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}%
         \endgroup
@@ -205,7 +205,7 @@
 \def\firstposition{}
 \def\secondcmember{}
 \def\secondposition{}
-\def\thirdcmember{} 
+\def\thirdcmember{}
 \def\thirdposition{}
 \def\fourthcmember{}
 \def\fourthposition{}
@@ -323,10 +323,10 @@
         \begin{center}
                 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
                 \Large\bf \titlestr\footnote[1]
-                        {奈良先端科学技術大学院大学 先端科学技術研究科 \jdoctitle,
+                        {奈良先端科学技術大学院大学 先端科学技術研究科 \jdoctitle，
                         %{ \jdepartmentstr}専攻
                         %NAIST-IS-\edoctitleacronym\studentnumberstr,
-                        \datestr.}
+                        \datestr．}
                 \renewcommand{\thefootnote}{\arabic{footnote}}
         \end{center}
         \vspace*{1mm}
@@ -342,7 +342,7 @@
         \abstracttext
         \vspace*{5mm}
         \begin{flushleft}
-                {\bf キーワード}
+                {\bf キーワード：}
         \end{flushleft}
         \keywordsstr
 }

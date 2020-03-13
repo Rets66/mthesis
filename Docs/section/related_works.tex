@@ -7,7 +7,7 @@
 % \item[中央集権]\mbox{}\\ 中央集権的なサービスもしくはノードに問い合わせることで解決するシステム．\\(手法例) : 初期システム，Namecoin, Blockname, Blockstack
 %\end{description}
 
-\subsection{P2Pネットワーク}
+\subsection{P2Pネットワークに基づく名前解決システム}
 本節では，P2Pネットワークに基づいたDNSについて説明する．
 クライアントとサーバを排除し，ノード間をピアで接続するP2Pネットワークには耐障害性とスケーラビリティの特性がある．
 この優位性を名前解決に応用した手法は，過去に複数提案されている．
@@ -16,7 +16,7 @@ Coxら~\cite{cox}は，既存システムの管理における非効率なロー
 システムにおける名前解決の仕組みは，図~\ref{fig:chord}で示すように，ハッシュ関数によって算出されたIDに基づいてノードとコンテンツをリング状に射影し，コンテンツに近いノードがコンテンツ情報を管理・応答することによって機能する．
 \begin{figure}[bhtp]
  \centering
- \includegraphics[scale=0.6]{figure/chord-mechanism.png}
+ \includegraphics[scale=0.4]{figure/chord-mechanism.png}
  \caption{DDNSにおける名前解決プロセス}
  \label{fig:chord}
 \end{figure}
